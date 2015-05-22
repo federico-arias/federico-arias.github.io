@@ -1,0 +1,29 @@
+@import "breakpoints";
+@import "settings";
+
+.nav-menu {
+    list-style:none none outside;
+    text-align: center;
+    padding-left:0;
+
+    a:link,
+    a:visited {
+        color:inherit;
+    }
+
+    @include respond-to('medium') {
+        text-align: right;
+
+        li {
+            text-align:right;
+            display:inline-block;
+        }
+
+    }
+}
+
+.nav-menu--active {
+    @include respond-to('medium') {
+            border-bottom:2px solid grey;
+    }
+}
