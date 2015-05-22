@@ -1,0 +1,80 @@
+@import "../../bower_components/susy/sass/susy";
+@import "breakpoints";
+
+$susy: (
+  /* Tells Susy to use 12 columns */
+  columns: 12,
+  /* Tells Susy that the container has a max-width */
+  container: 60em,
+  /* Tells Susy to use border-box */
+  global-box-sizing: border-box,
+  debug: (
+    image: hide,
+    color: blue,
+  )
+);
+
+.wrap {
+  @include container;
+}
+
+.title {
+    @include respond-to('medium') {
+        @include span(12 of 12 last); 
+    }
+}
+
+.nav-header {
+    @include respond-to('medium') {
+        @include span(12 of 12 last); 
+    }
+}
+
+.nav-header__logo {
+    text-align:center;
+    @include respond-to('medium') {
+        @include span(4 of 12); 
+        text-align:left;
+    }
+}
+
+.nav-menu {
+    list-style:none none outside;
+    text-align: center;
+    padding-left:0;
+
+    @include respond-to('medium') {
+
+        @include span(8 of 12 last); 
+
+        li {
+            text-align:right;
+            display:inline-block;
+            border-bottom:2px solid grey;
+        }
+    }
+
+}
+
+
+.content {
+    @include respond-to('medium') {
+        @include span(9 of 12 last); 
+    }
+}
+
+/* Tells Susy there's 4 columns in the sidebar, and its the last item on the row. */
+.sidebar {
+    @include respond-to('medium') {
+        @include span(3 of 12); 
+        border-top:solid 1px #d1d1d1;
+        //@include clearfix;
+    }
+}
+
+.sidenotes {
+    @include respond-to('medium') {
+        @include span(2 of 3); 
+        margin-left: gutter(4) + span(1 of 4);
+    }
+}

@@ -1,0 +1,70 @@
+@import "../../bower_components/modular-scale/stylesheets/modular-scale";
+@import "breakpoints";
+
+$line-height-ratio:1.5;    
+$margins: (
+    h1:1,
+    h2:1,
+    p:1);
+
+//returns line height in percentages
+@function vr($level) {
+    $level-font-size: ms($level);
+    $line-height-multiple: 1;
+    @while ($line-height-multiple * $line-height-ratio * ms(1)) < $level-font-size {
+        $line-height-multiple: $line-height-multiple + 1;
+    }
+    @return ($line-height-multiple * ms(1) * $line-height-ratio)/$level-font-size;
+}
+
+/* TODO
+- function to calculate margin-bottom 
+- function/mixin to calculate height as a multiple of ms(1) for
+  elements without font size defined;
+multiplies base height by a given factor */
+
+@function mb($level) {
+    $level-font-size:ms($level);
+    $line-height-em:$line-height-ratio * ms(1);
+    @return $level * $line-height-em / $level-font-size;
+}
+
+p, h1, h2, h3 {
+  padding:0px;
+  margin:0px;
+}
+
+.nav-header {
+    height: ms(1) * 5 * 1.5; // to a function
+}
+
+.nav-header__logo {
+    @include respond-to('small') {
+        margin-bottom:ms(1) * 1.5;
+    }
+}
+h1 {
+  font-size:ms(3);
+  line-height:vr(3);
+  font-weight:100;
+  margin-bottom:vr(3)/2 + em; // to a function
+  //h(ms(3))
+}
+
+h2 {
+  font-size:ms(2);
+  line-height:vr(2);
+  margin-bottom:vr(2)/2 + em;
+}
+
+body p, .content ul {
+  font-size:ms(1);
+  line-height:vr(1);
+  margin-bottom:vr(1) + em;
+}
+
+pre {
+    font-size:ms(0);
+    margin-top:0;
+    margin-bottom:vr(1) * 1.618 + em;
+}

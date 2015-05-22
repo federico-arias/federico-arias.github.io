@@ -1,0 +1,29 @@
+
+.post__meta {
+    margin:0px;
+    padding:0px;
+}
+
+.post__i18n, 
+.post__date, 
+.post__tags {
+    display:inline;
+    display:inline-block;
+    font-size:0.7em !important;
+    margin-left:16px;
+}
+
+.post__date {
+    margin-left:0px;
+}
+
+.post__tags {
+
+}
+
+.post__i18n {
+    background-image:url('../images/i18n.png');
+    background-position:0% 50%;
+    background-repeat:no-repeat;
+    padding-left:18px;
+}
