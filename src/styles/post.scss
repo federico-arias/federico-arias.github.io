@@ -1,20 +1,33 @@
+@import "breakpoints";
+@import "settings";
 
 .post__meta {
     margin:0px;
     padding:0px;
+    list-style-type:none;
+    color:lighten($dark, 32);
+
+    a:link,
+    a:visited {
+        color:$highlight;
+    }
+
+    a:hover {
+        color:darken($highlight, 10);
+        text-decoration:underline;
+    }
+
 }
 
 .post__i18n, 
 .post__date, 
 .post__tags {
-    display:inline;
-    display:inline-block;
-    font-size:0.7em !important;
-    margin-left:16px;
+    font-size:1.2em !important;
+    border-bottom:1px dotted #a1a1a1;
+    padding:3px 0;
 }
 
 .post__date {
-    margin-left:0px;
 }
 
 .post__tags {
@@ -22,8 +35,10 @@
 }
 
 .post__i18n {
+    /*
     background-image:url('../images/i18n.png');
     background-position:0% 50%;
     background-repeat:no-repeat;
     padding-left:18px;
+    */
 }

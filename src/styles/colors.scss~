@@ -1,6 +1,0 @@
-@import "settings";
-
-body {
-    color:$primary-color;
-    background-color:$canvas-color;
-}

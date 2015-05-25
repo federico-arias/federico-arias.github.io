@@ -39,19 +39,11 @@ $susy: (
 }
 
 .nav-menu {
-    list-style:none none outside;
-    text-align: center;
-    padding-left:0;
 
     @include respond-to('medium') {
 
         @include span(8 of 12 last); 
 
-        li {
-            text-align:right;
-            display:inline-block;
-            border-bottom:2px solid grey;
-        }
     }
 
 }
