@@ -18,6 +18,14 @@ $susy: (
   @include container;
 }
 
+.wrap,
+header {
+   font-size:0.6rem;
+    @include respond-to(medium) {
+        font-size:0.7rem;
+    }
+}
+
 .title {
     @include respond-to('medium') {
         @include span(12 of 12 last); 
@@ -69,4 +77,21 @@ $susy: (
         @include span(2 of 3); 
         margin-left: gutter(4) + span(1 of 4);
     }
+}
+
+$susy: (
+  /* Tells Susy to use 12 columns */
+  columns: 12,
+  /* Tells Susy that the container has a max-width */
+  container: fluid,
+  /* Tells Susy to use border-box */
+  global-box-sizing: border-box,
+  debug: (
+    image: show,
+    color: blue,
+  )
+);
+
+header {
+    @include container;
 }

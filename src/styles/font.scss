@@ -5,9 +5,3 @@ body {
     font-family:"PT Sans", sans-serif;
 }
 
-.wrap {
-   font-size:0.6rem;
-    @include respond-to(medium) {
-        font-size:0.7rem;
-    }
-}

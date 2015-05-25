@@ -35,7 +35,9 @@ p, h1, h2, h3 {
 }
 
 .nav-header {
-    height: ms(1) * 5 * 1.5; // to a function
+    @include respond-to('medium') {
+        //height: ms(1) * 8 * 1.5; // to a function
+    }
 }
 
 .nav-header__logo {

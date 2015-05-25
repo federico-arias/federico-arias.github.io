@@ -1,5 +1,9 @@
 dist/
 bower_components/
 node_modules/
-*.*~
+*~
 .*.swp
+public/
+Thumbs.db
+Desktop.ini
+*.lnk

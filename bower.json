@@ -11,5 +11,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "susy": "~2.2.5",
+    "modular-scale": "~2.0.9"
+  }
 }

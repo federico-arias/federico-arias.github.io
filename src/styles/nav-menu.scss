@@ -1,28 +1,68 @@
 @import "breakpoints";
 @import "settings";
+.nav-header {
+    img {
+        height:135px;
+    }
+}
 
 .nav-menu {
     list-style:none none outside;
     text-align: center;
     padding-left:0;
+    font-variant:small-caps;
+    font-size:1.7em;
 
     a:link,
     a:visited {
         color:inherit;
     }
 
+    a:hover {
+        color:$highlight;
+    }
+
+    a:hover::before {
+        content:".";
+    }
+    
+/*
     @include respond-to('medium') {
         text-align: right;
 
         li {
             text-align:right;
+            position:relative;
             display:inline-block;
         }
 
     }
+*/
+
 }
 
+/*
+.nav-menu li::before, 
+.nav-menu li::after {
+        position:relative;
+        top:-10px;
+        border-top:1px solid grey;
+        content:" ";
+        width:40%;
+        height:1px;
+        display:block;
+    }
+.nav-menu li::before {
+   left:0;
+   top:10px;
+   }
+*/
+
 .nav-menu--active {
+    :before {
+       content: "\2192";
+   }
+
     @include respond-to('medium') {
             border-bottom:2px solid grey;
     }
