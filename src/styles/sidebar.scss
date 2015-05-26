@@ -1,0 +1,8 @@
+@import "breakpoints";
+
+.sidebar {
+    
+    @include respond-to('medium') {
+        border-top:solid 1px #d1d1d1;
+    }
+}
