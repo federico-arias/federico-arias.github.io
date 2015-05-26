@@ -29,12 +29,17 @@ multiplies base height by a given factor */
     @return $level * $line-height-em / $level-font-size;
 }
 
-p, h1, h2, h3 {
+body, p, h1, h2, h3 {
   padding:0px;
   margin:0px;
 }
 
+header {
+    margin-top:1.3em;
+}
+
 .nav-header {
+
     @include respond-to('medium') {
         //height: ms(1) * 8 * 1.5; // to a function
     }
@@ -45,21 +50,28 @@ p, h1, h2, h3 {
         margin-bottom:ms(1) * 1.5;
     }
 }
-h1 {
+
+.content img {
+    margin-bottom:ms(1) * 1.5;
+}
+
+.post-title h1 {
   font-size:ms(3);
   line-height:vr(3);
   font-weight:100;
   margin-bottom:vr(3)/2 + em; // to a function
+  margin-top:vr(3) + em; // to a function
   //h(ms(3))
 }
 
-h2 {
+.content h2 {
   font-size:ms(2);
   line-height:vr(2);
   margin-bottom:vr(2)/2 + em;
 }
 
-body p, .content ul {
+.content p,
+.content ul {
   font-size:ms(1);
   line-height:vr(1);
   margin-bottom:vr(1) + em;

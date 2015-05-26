@@ -1,0 +1,22 @@
+    <header>
+        <div class="nav-header">
+            <div class="nav-header__logo">
+                <a href="{{ site.baseurl }}"><img src="images/logo.svg" alt="web site logo" onerror="this.onerror=null; this.src='images/logo.png'"/></a>
+            </div>
+            <div class="nav-header__desc">
+                <h1>
+                    Exelearning Theme 
+                </h1>
+                <h2>
+                    Module 1 | Lorem ipsum
+                </h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-menu--active"><a href="#">About</a></li>
+                {% for page in site.pages %}
+                {% if page.layout == "page" %}
+                <li><a href="{% if site.baseurl == "/" %}{{ page.url }}{% else %}{{ page.url | prepend: site.baseurl }}{% endif %}" title="{{ page.title }}">{{ page.title }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>

@@ -21,7 +21,7 @@ $susy: (
 .wrap,
 header {
    font-size:0.6rem;
-    @include respond-to(medium) {
+    @include respond-to('medium') {
         font-size:0.7rem;
     }
 }
@@ -39,19 +39,24 @@ header {
 }
 
 .nav-header__logo {
-    text-align:center;
-    @include respond-to('medium') {
-        @include span(4 of 12); 
-        text-align:left;
+
+    @include respond-to('small') {
+        @include span(1 of 12 no-gutters); 
+    }
+}
+
+.nav-header__desc {
+    display:none;
+
+    @include respond-to('small') {
+        display:block;
+        @include span(4 of 12);
     }
 }
 
 .nav-menu {
-
-    @include respond-to('medium') {
-
-        @include span(8 of 12 last); 
-
+    @include respond-to('small') {
+        @include span(7 of 12 last); 
     }
 
 }
@@ -67,7 +72,6 @@ header {
 .sidebar {
     @include respond-to('medium') {
         @include span(3 of 12); 
-        border-top:solid 1px #d1d1d1;
         //@include clearfix;
     }
 }
@@ -82,12 +86,12 @@ header {
 $susy: (
   /* Tells Susy to use 12 columns */
   columns: 12,
-  /* Tells Susy that the container has a max-width */
+  /* Tells Susy that the container fills the width of the viewport*/
   container: fluid,
   /* Tells Susy to use border-box */
   global-box-sizing: border-box,
   debug: (
-    image: show,
+    image: hide,
     color: blue,
   )
 );

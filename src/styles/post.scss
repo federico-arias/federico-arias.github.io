@@ -1,6 +1,10 @@
 @import "breakpoints";
 @import "settings";
 
+.content img {
+    width:100%;
+}
+
 .post__meta {
     margin:0px;
     padding:0px;
