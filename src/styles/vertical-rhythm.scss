@@ -34,6 +34,14 @@ body, p, h1, h2, h3 {
   margin:0px;
 }
 
+body {
+    padding:0 8px;
+
+    @include respond-to('small') {
+        padding:0;
+    }
+}
+
 header {
     margin-top:1.3em;
 }
@@ -81,4 +89,15 @@ pre {
     font-size:ms(0);
     margin-top:0;
     margin-bottom:vr(1) * 1.618 + em;
+}
+
+/* Home page */
+.home__about {
+
+    p,
+    ul {
+    font-size:ms(1);
+    line-height:vr(1);
+    margin-bottom:$line-height-ratio + em;
+    }
 }

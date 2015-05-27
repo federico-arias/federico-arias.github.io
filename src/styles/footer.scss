@@ -1,7 +1,15 @@
+@import "breakpoints";
+
 .footer {
     text-align:center;
     background: transparent url("../images/bg-footer.png") repeat-x scroll 0px 0px;
     padding-top: 50px;
+    margin:0 -8px;
+
+    @include respond-to('small') {
+        margin:0;
+    }
+
     p {
         padding: 3.69231em 5%;
         margin-bottom: 0em;
