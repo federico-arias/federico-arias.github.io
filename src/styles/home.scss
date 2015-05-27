@@ -1,0 +1,12 @@
+@import "settings";
+
+.home__about {
+    a:link,
+    a:visited {
+        color:$highlight;
+    }
+
+    a:hover {
+        color:darken($highlight, 20);
+    }
+}
