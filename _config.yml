@@ -14,6 +14,7 @@ destination: ./_site
 permalink: /:title
 paginate: 12
 paginate_path: /page:num/
+exclude: [bower_components/, node_modules/, src/]
 
 # Default values
 defaults:
