@@ -1,0 +1,17 @@
+@import "settings";
+
+.content {
+
+    a:link,
+    a:visited {
+        color:$highlight;
+    }
+
+    a:hover {
+        text-decoration-line: underline;
+        text-decoration-style: dotted;
+        text-decoration-color: $highlight;
+    }
+}
+
+
