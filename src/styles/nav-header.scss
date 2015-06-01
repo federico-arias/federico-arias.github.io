@@ -97,8 +97,5 @@ header {
 }
 
 .nav-menu--active {
-    :before {
-       content: "\2192";
-   }
-
+    color:$highlight;
 }
