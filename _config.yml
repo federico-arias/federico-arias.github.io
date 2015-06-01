@@ -8,7 +8,8 @@ author:
 
 # Build settings
 baseurl: /
-markdown: kramdown
+markdown: redcarpet 
+extensions: [fenced_code_blocks]
 source: .
 destination: ./_site
 permalink: /:title
