@@ -1,6 +1,9 @@
 @import "breakpoints";
+@import "helpers/links";
 
 .sidebar {
+
+    @extend %links;
     
     @include respond-to('medium') {
         border-top:solid 1px #d1d1d1;

@@ -1,12 +1,6 @@
 @import "settings";
+@import "helpers/links";
 
 .home__about {
-    a:link,
-    a:visited {
-        color:$highlight;
-    }
-
-    a:hover {
-        color:darken($highlight, 20);
-    }
+    @extend %links;
 }
