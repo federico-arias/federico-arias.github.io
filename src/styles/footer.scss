@@ -1,7 +1,9 @@
 @import "breakpoints";
 @import "settings";
+@import "helpers/links";
 
 .footer {
+    @extend %links;
     text-align:center;
     background: transparent url("../images/bg-footer.png") repeat-x scroll 0px 0px;
     padding-top: 50px;
@@ -15,16 +17,5 @@
         padding: 3.69231em 5%;
         margin-bottom: 0em;
         background: #E0E0D8 linear-gradient(#E0E0D8, #EAEAE1) repeat scroll 0% 0%;
-    }
-
-    a:link,
-    a:visited {
-        color:$highlight;
-    }
-
-    a:hover {
-        text-decoration-style: dotted;
-        text-decoration-line: underline;
-        text-decoration-color:$highlight;
     }
 }

@@ -2,10 +2,9 @@
 @import "breakpoints";
 
 $line-height-ratio:1.5;    
-$margins: (
-    h1:1,
-    h2:1,
-    p:1);
+//$font-scale:1.618
+//$margin-bottom
+
 
 //returns line height in percentages
 @function vr($level) {
@@ -53,9 +52,6 @@ header {
 
 .nav-header {
 
-    @include respond-to('medium') {
-        //height: ms(1) * 8 * 1.5; // to a function
-    }
 }
 
 .nav-header__logo {
@@ -83,9 +79,9 @@ header {
   margin-bottom:vr(2)/2 + em;
 }
 
-.content p,
-.content ol,
-.content ul {
+.content > p,
+.content > ol,
+.content > ul {
   font-size:ms(1);
   line-height:vr(1);
   margin-bottom:vr(1) + em;
@@ -111,10 +107,21 @@ pre {
 /* Home page */
 .home__about {
 
-    p,
-    ul {
+    > p,
+    > ul {
     font-size:ms(1);
     line-height:vr(1);
     margin-bottom:$line-height-ratio + em;
     }
 }
+
+/* second level lists */
+
+.content li > p,
+.content li > ul > li,
+.content li > ol > li,
+.home__about li > p {
+    font-size:1em;
+    margin-bottom:0;
+}
+

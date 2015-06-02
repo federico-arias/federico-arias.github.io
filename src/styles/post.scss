@@ -1,26 +1,19 @@
 @import "breakpoints";
 @import "settings";
+@import "helpers/links";
 
 .content img {
     width:100%;
 }
 
 .post__meta {
+
+    @extend %links;
+    
     margin:0px;
     padding:0px;
     list-style-type:none;
     color:lighten($dark, 32);
-
-    a:link,
-    a:visited {
-        color:$highlight;
-    }
-
-    a:hover {
-        color:darken($highlight, 10);
-        text-decoration:underline;
-    }
-
 }
 
 .post__i18n, 
