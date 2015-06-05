@@ -4,3 +4,7 @@ body {
     color:$primary-color;
     background-color:$canvas-color;
 }
+
+blockquote {
+    color:lighten($primary-color, 30);
+}

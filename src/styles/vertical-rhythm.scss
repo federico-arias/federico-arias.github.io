@@ -28,7 +28,7 @@ multiplies base height by a given factor */
     @return $level * $line-height-em / $level-font-size;
 }
 
-body, p, li, ol, h1, h2, h3 {
+body, blockquote, p, li, ol, ul, h1, h2, h3, img {
   padding:0;
   margin:0;
 }
@@ -52,6 +52,14 @@ header {
 
 .nav-header {
 
+
+}
+
+.nav-menu {
+
+    @include respond-to('small') {
+        margin-top:20px;
+    }
 }
 
 .nav-header__logo {
@@ -60,16 +68,22 @@ header {
     }
 }
 
+/*
 .content img {
     margin-bottom:ms(1) * 1.5;
 }
+*/
 
 .post-title h1 {
   font-size:ms(3);
   line-height:vr(3);
   font-weight:100;
   margin-bottom:vr(3)/2 + em; // to a function
-  margin-top:vr(3) + em; // to a function
+  margin-top:vr(3)/2 + em;
+
+  @include respond-to('small') {
+      margin-top:vr(3) + em; // to a function
+  }
   //h(ms(3))
 }
 
@@ -79,6 +93,7 @@ header {
   margin-bottom:vr(2)/2 + em;
 }
 
+.content > blockquote,
 .content > p,
 .content > ol,
 .content > ul {
@@ -86,6 +101,16 @@ header {
   line-height:vr(1);
   margin-bottom:vr(1) + em;
 }
+
+.content > ul {
+    padding-left:40px;
+}
+
+.content > blockquote {
+    padding-top:vr(1) + em;
+    padding-left:vr(1) + em;
+}
+
 
 .content h2:hover {
 
@@ -98,7 +123,7 @@ header {
     }
 }
 
-pre {
+.highlight {
     font-size:ms(0);
     margin-top:0;
     margin-bottom:vr(1) * 1.618 + em;
