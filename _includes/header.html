@@ -15,7 +15,7 @@
                 {% for pag in site.pages %}
                     {% if pag.layout == "page" and pag.menu != false %}
                     <li class="{% if pag.url == page.url %} nav-menu--active {% endif %}">
-                        <a href="{% if site.baseurl == "/" %}{{ pag.url }}{% else %}{{ pag.url | prepend: site.baseurl }}{% endif %}" title="{{ pag.title }}">{{ pag.title }}</a></li>
+                        <a href="{% if site.baseurl == "/" %}{{ pag.url }}{% else %}{{ pag.url | prepend: site.baseurl }}{% endif %}" title="{{ pag.title }}">{{ pag.header-title }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
