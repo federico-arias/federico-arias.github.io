@@ -1,7 +1,14 @@
 <div class="sidebar"> 
 <ul class="post__meta">
     <li class="post__date">
-        June, 2015
+        Written:
+    </li>
+    <li class="post__date">
+        {{ page.date | date: '%B, %Y' }} 
+    </li>
+    <!--
+    <li class="post__date">
+        By:
     </li>
     <li class="post__tags">
         Stats, EDM
@@ -9,6 +16,7 @@
     <li class="post__i18n">
         <a href="#">Spanish version</a>
     </li>
+    -->
 </ul>
 <!--
 <ul class='collapsible-list'>
