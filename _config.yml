@@ -7,7 +7,7 @@ author:
   email: "federicoariasr@gmail.com"
 
 # Build settings
-baseurl: /
+baseurl: "" 
 markdown: redcarpet 
 extensions: [fenced_code_blocks]
 source: .

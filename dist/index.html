@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Blog Sample</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <header>
+        <div class="nav-header">
+            <div class="nav-header__logo">
+                <a href="#"><img src="images/logo.svg" alt="web site logo" onerror="this.onerror=null; this.src='images/logo.png'"/></a>
+            </div>
+            <div class="nav-header__desc">
+                <h1>
+                    Exelearning Theme 
+                </h1>
+                <h2>
+                    Module 1 | Lorem ipsum
+                </h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-menu--active"><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="wrap"> 
+        <div class="post-title">
+            <h1> Hi, there!  </h1>
+        </div>
+        <div class="home__about">
+            <p> I'm {{ site.author.name }}. This page collects the things <a href="#"> I have published</a> on this blog or elsewhere. </p>
+            <p>Here is some of my work</p>
+            <ul class="work">
+                <li>Tutorial on SitePoint</li>
+                <li>Article on Science</li>
+            </ul>
+            <p>Send me a message <a href="#">on Twitter</a> for <b>any question</b> you might have.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>All content licenced by <a href="#">CC</a></p>
+    </div>
+<script src="scripts/main.js"> </script>
+</body>
+</html>
