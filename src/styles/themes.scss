@@ -1,0 +1,10 @@
+@import 'settings';
+@import 'helpers/links';
+
+.about {
+   @extend %links; 
+}
+
+.about time {
+    font-style:italic;
+}

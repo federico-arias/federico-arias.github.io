@@ -1,15 +1,54 @@
 ---
-layout: page 
-title: Archive
-menu: false 
+layout: home
+title: Home
+header-title: Home
+menu: true
 ---
-    <ul id="posts">
-        {% for post in site.posts %}
+    <div class="welcome-wrap">
+        <div class="welcome">
+            <h1>Hi, there!</h1>
+        </div>
+    </div>
 
-          <li class="post">
-            <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date: "%B %Y" }}</time>:
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </li>
+    <div class="about"> 
+        <div class="whoami">
+            <h2>
+                About me
+            </h2>
+            <p>My name is Federico Arias. I'm a Full-Stack Web Developer and Instructional Designer.</p> 
+            <p> I'm currently writing my M. Ed. thesis, so most of the topics in this site have to do with that. </p>
 
-        {% endfor %}
-    </ul>
+            <div class="button">
+                <a href="#">Read more</a>
+            </div>
+        </div>
+        <div class="latest-articles">
+            <h2>
+                Latests articles
+            </h2>
+            <ul>
+                <li>
+                    <time>November, 2015</time>: <a href="#">Oh, what a fake post it is...</a>
+                </li>
+                <li>
+                    <time>October, 2015</time>: <a href="#">This is a fake post</a>
+                </li>
+                {% for post in site.posts %}
+                <li>
+                    <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date: "%B %Y" }}</time>:
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="button">
+                <a href="#">View all posts</a>
+            </div>
+        </div>
+        <!--<div class="latest-shared">
+            <h2>Recently shared</h2>
+            <ul>
+                <li> </li>
+            </ul>
+        </div>
+        -->
+    </div>

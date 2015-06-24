@@ -47,7 +47,7 @@ body {
 }
 
 header {
-    margin-top:1.3em;
+    padding-top:1.3em;
 }
 
 .nav-header {
@@ -75,6 +75,7 @@ header {
 */
 
 .post-title h1 {
+    
   font-size:ms(3);
   line-height:vr(3);
   font-weight:100;
@@ -130,6 +131,38 @@ header {
 }
 
 /* Home page */
+
+.about ul,
+.about p {
+    font-size:ms(1);
+}
+
+.welcome {
+    min-height:200px;
+}
+
+.welcome h1 {
+    font-size:ms(3);
+    padding-top:75px;
+}
+
+.about {
+
+    h2 {
+    padding:vr(1) + em 0;
+    font-size:ms(1);
+    line-height:vr(1);
+    }
+
+    ul, 
+    p {
+        padding-bottom:vr(1) + em;
+        line-height:vr(1);
+    }
+}
+
+
+/* Generic pages */
 .home__about {
 
     > p,
@@ -149,4 +182,9 @@ header {
     font-size:1em;
     margin-bottom:0;
 }
+
+.footer p {
+    font-size:ms(0);
+}
+
 
