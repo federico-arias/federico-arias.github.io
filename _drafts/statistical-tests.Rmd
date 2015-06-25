@@ -1,0 +1,45 @@
+---
+output: 
+    html_document:
+        toc: true
+        theme: journal
+--- 
+
+## Intro
+
+Hypothesis testing with the following statistical tests:
+
+
+1. z-test for percentages
+2. z-test for population means
+
+3. z-test for difference of percentages
+4. z-test for pooled difference of population means
+5. z-test for difference of paired population means
+
+6. Chi-squared test for goodness of fit
+7. Regression t-test
+
+
+This is what varies 
+* Dependent or independent
+* Small or big sample
+* Percentages or means
+* With or without replacement
+* Pooled or not pooled 
+
+## Shape of data 
+
+```{r eval=T, echo=T}
+xbar <- 9900            # sample mean 
+mu0 <- 10000            # hypothesized value 
+sigma <- 120            # population standard deviation 
+```
+
+```{r echo=FALSE, results= "asis"}
+library('pander')
+pandoc.table(head(iris[, 1:3]), style="rmarkdown")
+# this is to display a table 
+```
+
+$$\frac{\overline{x}-\mu_0}{\sigma\sqrt{n}}$$

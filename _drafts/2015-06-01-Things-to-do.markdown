@@ -1,16 +1,19 @@
+## First iteration
+
 1. <del>OL elements</del>
 1. <del>.content > p to avoid styling li > p</del>
 2. <del>Code block highlight</del>
-5. Guardian.co.uk figure captions (1ms)
 5. <del>blockquotes </del>
 2. <del>Equal a:links</del>
 3. <del>Sidebar: date, author, {tag}</del>
 4. <del>Write copy for index</del>
-5. CSL bibliography support for markdown
-5. svg fonts or maps
 
 ## 2nd iteration
 
+1. outlined desertic footer
+5. CSL bibliography support for markdown
+5. svg fonts or maps
+5. Guardian.co.uk figure captions (1ms)
 1. Hero for home
 3. <del>favicons</del>
 4. Hugo Giraudel's sass folder organization
