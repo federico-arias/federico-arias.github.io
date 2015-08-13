@@ -1,7 +1,7 @@
 ---
 layout: home
-title: Home
 header-title: Home
+title: Home
 menu: true
 ---
     <div class="welcome-wrap">
@@ -15,12 +15,12 @@ menu: true
             <h2>
                 About me
             </h2>
-            <p>I'm Federico Arias. I write about how computers and technology can help people to learn, communicate and research together.</p>
+            <p>I'm Federico Arias. I write about how computers and technology can help people to learn, communicate and collaborate.</p>
 
             <p>You can reach me on <a href="www.twitter.com/FedericoAriasR">Twitter.</a></p> 
 
             <div class="button">
-                <a href="#">Read more</a>
+                <a href="about.html">Read more</a>
             </div>
         </div>
         <div class="latest-articles">
@@ -28,13 +28,7 @@ menu: true
                 Latests articles
             </h2>
             <ul>
-                <li>
-                    <time>November, 2015</time>: <a href="#">Oh, what a fake post it is...</a>
-                </li>
-                <li>
-                    <time>October, 2015</time>: <a href="#">This is a fake post</a>
-                </li>
-                {% for post in site.posts %}
+                {% for post in site.posts limit:3 %}
                 <li>
                     <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date: "%B %Y" }}</time>:
                     <a href="{{ post.url }}">{{ post.title }}</a>
@@ -42,7 +36,7 @@ menu: true
                 {% endfor %}
             </ul>
             <div class="button">
-                <a href="#">View all posts</a>
+                <a href="archive.html">View all posts</a>
             </div>
         </div>
         <!--<div class="latest-shared">

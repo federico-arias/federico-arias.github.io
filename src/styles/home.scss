@@ -15,9 +15,15 @@
     border-radius:2px;
     padding:8px 5px;
     background-color: lighten($highlight, 10);
-    color:$text-on-primary;
+
     display:inline-block;
     cursor:pointer;
+
+    a:link,
+    a:visited,
+    a:hover {
+    color:$text-on-primary;
+    }
 
     &:hover {
         background-color:$highlight;

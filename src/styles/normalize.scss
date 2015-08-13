@@ -78,3 +78,9 @@ html {
 a {
     text-decoration:none;
 }
+
+// always show scrollbar 
+
+html {
+    overflow-y: scroll; 
+}

@@ -5,15 +5,15 @@
             </div>
             <div class="nav-header__desc">
                 <h1>
-                    {{ site.title }} 
+                    <a href="#">{{ site.title }} </a>
                 </h1>
                 <h2>
-                    {{ site.description }}
+                    {{ site.subtitle }}
                 </h2>
             </div>
             <ul class="nav-menu">
-                {% for pag in site.pages %}
-                    {% if pag.layout == "page" and pag.menu != false %}
+                {% for pag in site.pages reversed %}
+                    {% if pag.menu != false %}
                     <li class="{% if pag.url == page.url %} nav-menu--active {% endif %}">
                         <a href="{% if site.baseurl == "/" %}{{ pag.url }}{% else %}{{ pag.url | prepend: site.baseurl }}{% endif %}" title="{{ pag.title }}">{{ pag.header-title }}</a></li>
                     {% endif %}
