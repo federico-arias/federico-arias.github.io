@@ -1,10 +1,7 @@
 @import "../../bower_components/modular-scale/stylesheets/modular-scale";
 @import "breakpoints";
 
-$line-height-ratio:1.5;    
-//$font-scale:1.618
-//$margin-bottom
-
+$line-height-ratio:1.5;
 
 //returns line height in percentages
 @function vr($level) {
@@ -28,13 +25,9 @@ multiplies base height by a given factor */
     @return $level * $line-height-em / $level-font-size;
 }
 
-body, blockquote, p, li, ol, ul, h1, h2, h3, img {
+body, blockquote, p, li, ol, ul, h1, h2, h3, img, pre, code {
   padding:0;
   margin:0;
-}
-
-.content ol {
-    list-style-position:inside;
 }
 
 
@@ -50,11 +43,6 @@ header {
     padding-top:1.3em;
 }
 
-.nav-header {
-
-
-}
-
 .nav-menu {
 
     @include respond-to('small') {
@@ -68,61 +56,6 @@ header {
     }
 }
 
-/*
-.content img {
-    margin-bottom:ms(1) * 1.5;
-}
-*/
-
-.post-title h1 {
-    
-  font-size:ms(3);
-  line-height:vr(3);
-  font-weight:100;
-  margin-bottom:vr(3)/2 + em; // to a function
-  margin-top:vr(3)/2 + em;
-
-  @include respond-to('small') {
-      margin-top:vr(3) + em; // to a function
-  }
-  //h(ms(3))
-}
-
-.content h2 {
-  font-size:ms(2);
-  line-height:vr(2);
-  margin-bottom:vr(2)/2 + em;
-}
-
-.content > blockquote,
-.content > p,
-.content > ol,
-.content > ul {
-  font-size:ms(1);
-  line-height:vr(1);
-  margin-bottom:vr(1) + em;
-}
-
-.content > ul {
-    padding-left:40px;
-}
-
-.content > blockquote {
-    padding-top:vr(1) + em;
-    padding-left:vr(1) + em;
-}
-
-
-.content h2:hover {
-
-    text-decoration:underline;
-    cursor:pointer;
-
-    &:after {
-        content: " #";
-        text-decoration:underline;
-    }
-}
 
 .highlight {
     font-size:ms(0);
@@ -161,10 +94,8 @@ header {
     }
 }
 
-
 /* Generic pages */
 .home__about {
-
     > p,
     > ul {
     font-size:ms(1);
@@ -173,15 +104,7 @@ header {
     }
 }
 
-/* second level lists */
-
-.content li > p,
-.content li > ul > li,
-.content li > ol > li,
-.home__about li > p {
-    font-size:1em;
-    margin-bottom:0;
-}
+/* Footer */
 
 .footer p {
     font-size:ms(0);

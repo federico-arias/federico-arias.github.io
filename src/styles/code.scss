@@ -1,5 +1,9 @@
+@import "helpers/rhythm";
+
 .highlight {
-background-color: rgb(63, 63, 63);
-padding: 1em;
-border-radius: 1em;
+    padding-top:1.5 * 1.618em;
+    background-color: rgb(63, 63, 63);
+    //fix to prevent the collapsing of margins
+    overflow:auto;
+    clear:both;
 }

@@ -1,0 +1,58 @@
+@import "settings";
+@import "helpers/links";
+@import "helpers/rhythm";
+
+.content {
+    @extend %links;
+}
+
+article {
+    width:100%;
+
+    b,
+    em,
+    strong {
+    }
+
+    aside.pullquote {
+        display:block;
+        float:left;
+        margin:2em 1em 2em 300px;
+        font-size:ms(2);
+        color:$links;
+        q {
+            display:block;
+            width:200px;
+            font-variant:small-caps;
+        }
+    }
+
+    p {
+        position:relative;
+    }
+
+    em::before {
+        left:-45px;
+        position:absolute;
+        content:"\261E";
+        font-size:2em;
+    }
+
+    div.img-container {
+        margin:1em -20% 1em 1em;
+        width:50%;
+    }
+
+    span.sidenote {
+        position:absolute;
+        width:60px;
+        right:-65px;
+        top:0;
+    }
+
+    img.small {
+        max-width:100%;
+        float:left;
+    }
+
+}

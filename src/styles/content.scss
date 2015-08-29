@@ -1,8 +1,36 @@
-@import "settings";
-@import "helpers/links";
+@import "helpers/rhythm";
 
-.content {
-    @extend %links;
+article {
+    p,
+    ol,
+    ul,
+    figure,
+    pre,
+    dd,
+    table,
+    video,
+    canvas,
+    blockquote {
+        @extend %small;
+        @extend %content;
+    }
+
+    hgroup,
+    h2 {
+        @extend %medium;
+        @extend %content;
+    }
+
+    h1 {
+        @extend %big;
+        @extend %content;
+        font-weight:100;
+    }
+
+    ol li,
+    ul li {
+        margin-left:50px;
+    }
 }
 
 

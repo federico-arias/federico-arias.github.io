@@ -1,0 +1,57 @@
+@import "../../bower_components/modular-scale/stylesheets/modular-scale";
+
+$line-height-ratio:1.5;
+//returns line height as a multiplier of level font-size
+@function line-height($level) {
+    $level-font-size: ms($level);
+    $line-height-multiple: 1;
+    @while ($line-height-multiple * $line-height-ratio * ms(1)) < $level-font-size {
+        $line-height-multiple: $line-height-multiple + 1;
+    }
+    @return ($line-height-multiple * ms(1) * $line-height-ratio)/$level-font-size;
+}
+
+//returns margin
+@function margins($times, $level) {
+    $divisor:ms($level) / ms(1); //(ms(1) * $level);
+    $line-height-em:$line-height-ratio * $times/ $divisor;
+    //$line-height-em:$line-height-em + em;
+    @return $line-height-em + em;
+}
+
+@mixin rhythm($level, $margin) {
+   font-size:ms($level);
+   margin-bottom:margins($margin, $level);
+   line-height:line-height($level);
+}
+
+$font-levels:(
+    small: (
+        mar:1,
+        level: 1,
+        ),
+    medium: (
+        mar:1,
+        level: 2,
+        ),
+    big: (
+        mar:1,
+        level: 3,
+        ),
+    );
+
+@each $key, $map in $font-levels {
+    $m:map-get($map, mar);
+    $l:map-get($map, level);
+
+   %#{$key} {
+       @include rhythm($l, $m);
+   }
+}
+
+%content {
+        margin-left:auto;
+        margin-right:auto;
+        width:600px;
+    }
+
