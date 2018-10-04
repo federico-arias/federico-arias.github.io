@@ -12,3 +12,6 @@ Desktop.ini
 _posts/
 _drafts/
 
+src/styles/.sass-cache/
+dist/
+.sass-cache/
