@@ -1,5 +1,5 @@
 # Site settings
-title: "Federico Arias Recabarren" 
+title: "federico-arias" 
 #baseUrl: "federico-arias.github.io"
 baseUrl: "localhost:1313"
 sectionPagesMenu:  "main"
@@ -8,12 +8,12 @@ menu:
   - identifier: about
     name: about me
     pre: <i class='fa fa-heart'></i>
-    url: /about/
+    url: /about
     weight: -110
   - name: archive
     post: <span class='alert'>New!</span>
     pre: <i class='fa fa-road'></i>
-    url: /archive/
+    url: /archive
     weight: -100
   - name: home
     post: <span class='alert'>New!</span>
