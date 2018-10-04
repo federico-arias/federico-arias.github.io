@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+{{ partial "head.html" . }}
+<body>
+
+{{ partial "header.html" . }}
+
+    <div class="welcome-wrap">
+        <div class="welcome">
+            <h1>Hi, there!</h1>
+        </div>
+    </div>
+    <div class="about"> 
+        <div class="whoami">
+            <h2>
+                About me
+            </h2>
+				{{ .Content }}
+            <div class="button">
+                <a href="/about">Read more</a>
+            </div>
+        </div>
+        <div class="latest-articles">
+            <h2>
+                Latests articles
+            </h2>
+            <ul>
+				 {{ range where .Pages "Section" "posts" }}
+				 <li>
+					 <time datetime="" class="by-line"> 
+						 {{ .Date.Format "2006-01-02" }}
+					 </time>:
+					 <a href="{{ .Permalink }}">{{ .Title }}</a>
+				</li>
+				{{ end }}
+			</ul>
+				<!-- only when there are more than 3 posts
+				<div class="button">
+					<a href="/archive">View all posts</a>
+				</div>
+				-->
+			</div>
+			<!--<div class="latest-shared">
+				<h2>Recently shared</h2>
+				<ul>
+					<li> </li>
+            </ul>
+        </div>
+        -->
+    </div>
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>

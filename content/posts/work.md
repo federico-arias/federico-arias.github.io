@@ -1,5 +1,4 @@
 ---
-layout: page 
 title: "Work"
 menu: false 
 header-title: "Work"

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+{{ partial "head.html" . }}
+<body>
+
+{{ partial "header.html" . }}
+
+    <article>
+        <h1>{{ .Title }}</h1>
+            {{ .Content }}
+    </article>
+    
+    <div id="disqus_thread"></div>
+
+    {{ partial "footer.html" . }}
+
+
+</body>
+</html>

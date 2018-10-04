@@ -1,0 +1,32 @@
+# Site settings
+title: "Federico Arias" 
+#baseUrl: "federico-arias.github.io"
+baseUrl: "localhost:1313"
+sectionPagesMenu:  "main"
+menu:
+  foo:
+  - identifier: about
+    name: about me
+    pre: <i class='fa fa-heart'></i>
+    url: /about/
+    weight: -110
+  - name: archive
+    post: <span class='alert'>New!</span>
+    pre: <i class='fa fa-road'></i>
+    url: /archive/
+    weight: -100
+  - name: home
+    post: <span class='alert'>New!</span>
+    pre: <i class='fa fa-road'></i>
+    url: /
+    weight: -200
+subtitle: "a fdsa"
+description: "Home page of Federico Arias"
+contentDir: "content"
+url: ""
+paginate: 6
+metaDataFormat: "yaml"
+author:
+  name: "Federico Arias Recabarren"
+  email: "federicoariasr@gmail.com"
+#publishDir: "./"

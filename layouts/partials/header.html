@@ -1,0 +1,23 @@
+    <header>
+        <div class="nav-header">
+            <div class="nav-header__logo">
+                <a href=""><img src="/logo.png" alt="web site logo"/></a>
+            </div>
+            <div class="nav-header__desc">
+                <h1>
+					<a href="#">{{ $.Site.Title }} </a>
+                </h1>
+                <h2>
+                </h2>
+            </div>
+
+			{{ $currentPage := . }}
+			<ul class="nav-menu">
+				{{ range .Site.Menus.foo }}
+				<li class="{{if or ($currentPage.IsMenuCurrent "foo" .) ($currentPage.HasMenuCurrent "foo" .) }}nav-menu--active{{end}}">
+					<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
+				{{ end }}
+			</ul>
+
+        </div>
+    </header>

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple blog template for Hugo",
   "scripts": {
-    "style": "sass --load-path ./node_modules src/styles/main.scss dist/style.css --style compressed"
+    "style": "sass --load-path ./node_modules src/styles/main.scss static/style.css --style compressed"
   },
   "author": "Federico Arias Recabarren",
   "license": "ISC",
