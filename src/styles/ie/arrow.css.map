@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW,CACP,KAAK,CAAC,CAAC,CAAC,MAAM,CAAC,CAAC,CAChB,WAAW,CAAC,qBAAqB,CACjC,YAAY,CAAC,qBAAqB,CAClC,UAAU,CAAC,eAAe",
+"sources": ["arrow.scss"],
+"names": [],
+"file": "arrow.css"
+}

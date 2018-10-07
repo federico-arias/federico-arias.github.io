@@ -20,13 +20,11 @@ $susy: (
 
 body {
    font-size:0.6rem;
+
     @include respond-to('small') {
         font-size:0.7rem;
     }
-}
 
-header {
-    min-height:82px;
 }
 
 .title {
@@ -36,9 +34,12 @@ header {
 }
 
 .nav-header {
-    @include respond-to('small') {
+   /* @include respond-to('small') {
         @include span(12 of 12 last); 
     }
+	*/
+	max-width:80em;
+	margin: 0 auto;
 }
 
 .nav-header__logo {

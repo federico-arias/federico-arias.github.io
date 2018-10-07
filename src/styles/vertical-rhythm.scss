@@ -2,6 +2,9 @@
 @import "breakpoints";
 
 $line-height-ratio:1.5;
+//height of one stripe (the baseline for all vertical spacing)
+$line-height-em: $line-height-ratio * ms(1);
+$stripe: $line-height-ratio * ms(1);
 
 //returns line height in percentages
 @function vr($level) {
@@ -13,46 +16,46 @@ $line-height-ratio:1.5;
     @return ($line-height-multiple * ms(1) * $line-height-ratio)/$level-font-size;
 }
 
-/* TODO
-- function to calculate margin-bottom 
-- function/mixin to calculate height as a multiple of ms(1) for
-  elements without font size defined;
-multiplies base height by a given factor */
-
+//Calculates margin-bottom/padding-top 
+//@level: font size level from 0-3
+// this is **only** used for font levels greater than 1
+// otherwise, margin is always $line-height-ratio ems
+// TODO: this assumes level == multiple of line-height
 @function mb($level) {
-    $level-font-size:ms($level);
+    $level-factor:ms($level);
     $line-height-em:$line-height-ratio * ms(1);
-    @return $level * $line-height-em / $level-font-size;
+    @return $level * $line-height-em / $level-factor;
 }
 
-body, blockquote, p, li, ol, ul, h1, h2, h3, img, pre, code {
+body, blockquote, article, p, li, ol, ul, h1, h2, h3, img, pre, code {
   padding:0;
   margin:0;
 }
 
 
 body {
-    padding:0 8px;
 
+	//TODO provide padding in mobile view
+    padding:0 8px;
     @include respond-to('small') {
         padding:0;
     }
 }
 
-header {
-    padding-top:1.3em;
+
+.nav-header {
+	min-height: $stripe * 3; 	
 }
 
 .nav-menu {
-
     @include respond-to('small') {
-        margin-top:20px;
+        padding-top:$line-height-ratio + em;
     }
 }
 
 .nav-header__logo {
     @include respond-to('small') {
-        margin-bottom:ms(1) * 1.5;
+
     }
 }
 
@@ -71,7 +74,14 @@ header {
 }
 
 .welcome {
-    min-height:200px;
+
+    @include respond-to('small') {
+		min-height:$line-height-em * 5;
+    }
+
+    @include respond-to('medium') {
+		min-height:$line-height-em * 15;
+    }
 }
 
 .welcome h1 {
@@ -102,6 +112,12 @@ header {
     line-height:vr(1);
     margin-bottom:$line-height-ratio + em;
     }
+}
+
+article {
+	//added ms(1), since article element 
+	//does not have a set font size
+	padding-top: $line-height-em;
 }
 
 /* Footer */

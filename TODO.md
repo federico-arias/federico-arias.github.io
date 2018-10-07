@@ -1,7 +1,7 @@
-1. remove text from footer
-2. add top margin to post > h1
-3. add horizontal margin to nav-header & logo
-4. increase jumbotron size
+~~1. remove text from footer~~
+~~2. add top margin to post > h1~~
+~~3. add horizontal margin to nav-header & logo~~
+~~4. increase jumbotron size~~
 5. add text to jumbotron
 6. @import Rubik
 7. center nav-header vertically

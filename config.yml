@@ -3,6 +3,7 @@ title: "federico-arias"
 #baseUrl: "federico-arias.github.io"
 baseUrl: "localhost:1313"
 sectionPagesMenu:  "main"
+assetDir: "src"
 menu:
   foo:
   - identifier: about

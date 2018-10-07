@@ -1,6 +1,6 @@
 ---
 title: "Work"
-menu: false 
+date: "2018-01-22"
 header-title: "Work"
 ---
 

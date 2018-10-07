@@ -92,11 +92,9 @@ header {
    }
 */
 .nav-menu li {
-    text-align:center;
-
     @include respond-to('small') {
         display:inline-block;
-        padding:0 40px;
+        padding-left:40px;
     }
 }
 
