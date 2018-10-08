@@ -10,7 +10,7 @@
             {{ .Content }}
     </article>
     
-    <div id="disqus_thread"></div>
+	{{ template "_internal/disqus.html" . }}
 
     {{ partial "footer.html" . }}
 

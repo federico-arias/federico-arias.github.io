@@ -5,19 +5,16 @@
 
 {{ partial "header.html" . }}
 
-    <div class="welcome-wrap">
-        <div class="welcome">
-            <h1>Hi, there!</h1>
-        </div>
-    </div>
+{{ partial "welcome.html" . }}
+
     <div class="about"> 
         <div class="whoami">
             <h2>
                 About me
             </h2>
-				{{ .Content }}
+			{{ .Content }}
             <div class="button">
-                <a href="/about">Read more</a>
+                <a href="/about">Read more &raquo;&raquo;</a>
             </div>
         </div>
         <div class="latest-articles">

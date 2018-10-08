@@ -1,0 +1,20 @@
+@import "breakpoints";
+
+.welcome-wrap__call > p {
+
+    @include respond-to('small') {
+		max-width:40em;
+    }
+}
+
+
+.welcome-wrap__call {
+	background-color: rgba(255, 255, 255, .65);
+	padding: 1em;
+
+    @include respond-to('small') {
+		background-color: inherit;
+		padding:inherit;
+		max-width: 40em;
+	}
+}

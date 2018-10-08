@@ -2,6 +2,7 @@
 title: "federico-arias" 
 #baseUrl: "federico-arias.github.io"
 baseUrl: "localhost:1313"
+disqusShortname: federico_arias
 sectionPagesMenu:  "main"
 assetDir: "src"
 menu:
@@ -21,13 +22,9 @@ menu:
     pre: <i class='fa fa-road'></i>
     url: /
     weight: -200
-subtitle: "a fdsa"
-description: "Home page of Federico Arias"
 contentDir: "content"
-url: ""
 paginate: 6
 metaDataFormat: "yaml"
-author:
-  name: "Federico Arias Recabarren"
-  email: "federicoariasr@gmail.com"
+params:
+    subtitle: I'm a full-stack web developer with an interest in machine learning and Scala
 #publishDir: "./"

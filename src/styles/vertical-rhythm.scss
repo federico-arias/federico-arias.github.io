@@ -55,7 +55,13 @@ body {
 
 .nav-header__logo {
     @include respond-to('small') {
+		padding-top:1em;
+    }
+}
 
+.nav-header__desc {
+    @include respond-to('small') {
+		padding-top:$stripe;
     }
 }
 
@@ -86,7 +92,12 @@ body {
 
 .welcome h1 {
     font-size:ms(4);
-    padding-top:75px;
+		padding-top:(($stripe * 7) / ms(4)) + em;
+}
+
+.welcome-wrap__call > p {
+	font-size: ms(1);
+	line-height: $line-height-ratio;
 }
 
 .about {
@@ -102,6 +113,10 @@ body {
         padding-bottom:vr(1) + em;
         line-height:vr(1);
     }
+}
+
+.about .button {
+	font-size:ms(1);
 }
 
 /* Generic pages */
