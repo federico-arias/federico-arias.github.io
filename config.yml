@@ -7,16 +7,16 @@ sectionPagesMenu:  "main"
 assetDir: "src"
 menu:
   foo:
+  - name: archive
+    post: <span class='alert'>New!</span>
+    pre: <i class='fa fa-road'></i>
+    url: /hireme
+    weight: -100
   - identifier: about
     name: about me
     pre: <i class='fa fa-heart'></i>
     url: /about
     weight: -110
-  - name: archive
-    post: <span class='alert'>New!</span>
-    pre: <i class='fa fa-road'></i>
-    url: /archive
-    weight: -100
   - name: home
     post: <span class='alert'>New!</span>
     pre: <i class='fa fa-road'></i>

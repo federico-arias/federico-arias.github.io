@@ -6,7 +6,14 @@
 ~~6. @import Rubik~~
 ~~7. center nav-header vertically~~
 ~~8. add >> to Read more~~
-9. fix blog archive
+14. replace archive for 'hireme' (work with me) page
 10. write article about HTML5 game dev
-11. write article about social movements and the lack of academic support
+11. write article about academic writing
 12. write small tutorial on R and Scala. 
+14. write article on intersectionality
+15. design 3d low-poly model of a sustainable commune 
+13. show 'view archive' button, when post_count > 4
+9. fix blog archive
+16. add shadow (claroscuro) image to footer
+
+

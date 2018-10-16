@@ -10,7 +10,7 @@
     <div class="about"> 
         <div class="whoami">
             <h2>
-                About me
+                Skills
             </h2>
 			{{ .Content }}
             <div class="button">
@@ -31,19 +31,13 @@
 				</li>
 				{{ end }}
 			</ul>
-				<!-- only when there are more than 3 posts
-				<div class="button">
-					<a href="/archive">View all posts</a>
-				</div>
-				-->
-			</div>
-			<!--<div class="latest-shared">
-				<h2>Recently shared</h2>
-				<ul>
-					<li> </li>
-            </ul>
-        </div>
-        -->
+		</div>
+
+        <div class="latest-articles">
+            <h2>
+                Flashy projects
+            </h2>
+        </div> 
     </div>
 
 {{ partial "footer.html" . }}
