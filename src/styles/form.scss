@@ -1,0 +1,40 @@
+@import 'breakpoints';
+@import 'palette';
+
+article > form.hireme {
+	max-width: 600px;
+	margin: 0 auto;	
+}
+
+form.hireme input {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	font-size: 1.5em; //move to vertical rhythm
+	margin-bottom: 1.5em; //move to vertical rhythm
+}
+
+form.hireme label {
+	text-transform: uppercase;
+	text-align: right;
+	display: block;
+}
+
+.hireme__textarea {
+	height: 4.5em;
+}
+
+.hireme__button {
+	border-radius: 2px;
+	padding: 8px 5px;
+	background-color: $primary; 
+	color: $text-on-primary;
+	display: inline-block;
+	border: 0 solid red;
+	cursor: pointer;
+}
+
+.hireme__button:hover 
+.hireme__button:active {
+	background-color: $highlight;
+}
