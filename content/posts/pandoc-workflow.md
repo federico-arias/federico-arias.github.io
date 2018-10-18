@@ -1,12 +1,12 @@
 ---
-title: "Writing academic papers in Markdown with pandoc and Latex"
+title: "Writing research papers in Markdown with pandoc and Latex"
 description: "A lightweight alternative to PDF documents with pandoc and a .tex template."
 date: "2018-01-22"
 ---
 
-Traditionally, writing an academic paper involves the use of a word-processor like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height and citations.
+Traditionally, writing a research paper involves the use of a word-processor like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
 
-Wouldn't it be nice if we could forget about formating and focus on the content? This is precisely the main objective of this post: to **show you how to include citations and formatting options using already existing tools**, without the formatting hassle that comes with word-processors, and using a formating option.
+Wouldn't it be nice if you could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to include citations and comply with formatting guidelines using Latex and Markdown**, without the formatting hassle that comes with word-processors.
 
 Let's take the following paper as an example.
 
@@ -28,8 +28,13 @@ Lorem ipsum dolor amet veniam hot chicken \cite{Mapplethorpe1999} tofu, echo par
 
 {{< / highlight >}}
 
-This file is formatted in Markdown, a simple 
-Taking this file as input, we could write a simple script (that we have called `md2latex` here) that converts this markdown file to a fully formatted PDF in the style of our choice:
+This is our expected result:
+
+![research paper in apa][apa]
+
+To achieve this in Latex, we would have to do something like this:
+
+This file is formatted in Markdown. Taking this file as input, we could write a simple script (that we have called `md2latex` here) that converts this markdown file to a fully formatted PDF in the style of our choice:
 
 {{< highlight bash>}}
 $ md2latex template.tex mypaperinmarkdown.md 
@@ -37,7 +42,7 @@ $ md2latex template.tex mypaperinmarkdown.md
 
 Here, `template.tex` corresponds to a Latex template and `mypaper.md` to our aforementioned markdown file. In the rest or this post, I'm going to walk you through the inner workings of this script. 
 
-The first thing we have to do is to ensure that our post is formatted. For this  
+The first thing we have to do is to ensure that our post is formatted. For this 
 
 {{< highlight latex >}}
 
@@ -104,3 +109,4 @@ $ Rscript -e "require(knitr); require(markdown); knit('$RMDFILE.Rmd', '$RMDFILE.
 {{< / highlight >}}
 
 
+[apa]: /research-paper-in-apa.png "A research paper written following APA guidelines"
