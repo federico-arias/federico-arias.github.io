@@ -7,3 +7,14 @@
     overflow:auto;
     clear:both;
 }
+
+.highlight > pre {
+	background-color: inherit !important;
+}
+
+article > p > code {
+	padding: 3px;
+	border: 2px solid #ddd;
+	border-radius: 6px;
+	background-color: #60ff004d;
+}
