@@ -3,6 +3,7 @@ title: "federico-arias"
 #baseUrl: "federico-arias.github.io"
 baseUrl: "localhost:1313"
 disqusShortname: federico_arias
+pygmentsCodeFences: true
 sectionPagesMenu:  "main"
 assetDir: "src"
 menu:
@@ -25,6 +26,6 @@ menu:
 contentDir: "content"
 paginate: 6
 metaDataFormat: "yaml"
-params:
-    subtitle: I'm a full-stack web developer with an interest in machine learning and Scala
 publishDir: "./"
+params:
+    subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and information visualization.
