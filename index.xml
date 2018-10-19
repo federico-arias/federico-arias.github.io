@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>federico-arias</title>
+    <link>localhost:1313/</link>
+    <description>Recent content on federico-arias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 22 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A comparative explanation of recursion in PostgreSQL</title>
+      <link>localhost:1313/posts/postgres/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>localhost:1313/posts/postgres/</guid>
+      <description>One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&amp;rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&amp;rsquo; documentation aknowledges this:
+ Strictly speaking, this process is iteration not recursion, but RECURSIVE is the terminology chosen by the SQL standards committee.
+ Let&amp;rsquo;s look at an example to see what we are talking about.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost:1313/about/</guid>
+      <description>I am Federico Arias, a freelance full-stack developer based on Latin America. I have experience working with the following tools:
+ Front: Javascript (d3.js, React, Node), SCSS Back: Scala, Python, Postgres, SQL Server, Golang, Linux Tools: Git, Docker, Vim, R, Latex, XSLT  This site was built with a custom-made template for Hugo. You can find it here in my GitHub along with other incomplete projects.
+Stalking material You can take a peek at my reading list via Twitter, stalk me on Instagram, or take a look at my meagre contributions to StackOverflow.</description>
+    </item>
+    
+    <item>
+      <title>Blog Archive</title>
+      <link>localhost:1313/archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost:1313/archive/</guid>
+      <description> Sort by date or by category
+-- {% for post in site.posts %} {{ post.date | date: &#34;%B %Y&#34; }}: {{ post.title }}  {% endfor %}  </description>
+    </item>
+    
+    <item>
+      <title>Hire me!</title>
+      <link>localhost:1313/hireme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost:1313/hireme/</guid>
+      <description> I&#39;m open to relocation, remote or freelance work. Describe the main tasks involved in the box below and I&#39;ll get in touch with you as soon as possible.
+ your e-mail   how can I help you?   </description>
+    </item>
+    
+  </channel>
+</rss>

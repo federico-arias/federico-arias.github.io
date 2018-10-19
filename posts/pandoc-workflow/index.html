@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8" />
+    <title>federico-arias  | Writing academic papers in Markdown with pandoc and Latex</title> 
+	<link rel="stylesheet" href="localhost:1313/style.css"/>
+    
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-header">
+            <div class="nav-header__logo">
+				<a href="localhost:1313"><img src="/logo.png" alt="web site logo"/></a>
+            </div>
+            <div class="nav-header__desc">
+                <h1>
+					<a href="localhost:1313">federico-arias </a>
+                </h1>
+            </div>
+
+			
+			<ul class="nav-menu">
+				
+				<li class="">
+					<a href="/" title="home">home</a></li>
+				
+				<li class="">
+					<a href="/about" title="about">about</a></li>
+				
+				<li class="">
+					<a href="/hireme" title="hire me">hire me</a></li>
+				
+			</ul>
+
+        </div>
+    </header>
+
+
+    <article>
+        <h1>Writing academic papers in Markdown with pandoc and Latex</h1>
+		
+            
+
+<p>Traditionally, writing an academic paper involves the use of a word-processor like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height and citations.</p>
+
+<p>Wouldn&rsquo;t it be nice if we could forget about formating and focus on the content? This is precisely the main objective of this post: to <strong>show you how to include citations and formatting options using already existing tools</strong>, without the formatting hassle that comes with word-processors, and using a formating option.</p>
+
+<p>Let&rsquo;s take the following paper as an example.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>author: John Doe<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>title: A hipster stravaganza<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>shorttitle: In honor of Sokal<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>abstract: Lorem ipsum dolor sit amet <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>---<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span># A very interesting section
+<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>Cold-pressed mumblecore \cite{Warhol199} crucifix kitsch aesthetic normcore. Bushwick XOXO portland 90&#39;s dolor bitters offal. Adipisicing velit cardigan subway tile pok pok tbh. Wayfarers taiyaki et, cornhole echo park snackwave selfies brunch poutine id vegan.<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span># Another very interesting section
+<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>Lorem ipsum dolor amet veniam hot chicken \cite{Mapplethorpe1999} tofu, echo park aliqua freegan photo booth kombucha live-edge schlitz taiyaki adaptogen. Deep v shaman 8-bit aesthetic, lomo ipsum messenger bag. Kombucha lyft viral celiac 8-bit skateboard. Cliche four dollar toast live-edge coloring book. Gluten-free id freegan, est art party cardigan iceland af tacos 8-bit.</code></pre></div>
+
+<p>This file is formatted in Markdown, a simple
+Taking this file as input, we could write a simple script (that we have called <code>md2latex</code> here) that converts this markdown file to a fully formatted PDF in the style of our choice:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ md2latex template.tex mypaperinmarkdown.md </code></pre></div>
+
+<p>Here, <code>template.tex</code> corresponds to a Latex template and <code>mypaper.md</code> to our aforementioned markdown file. In the rest or this post, I&rsquo;m going to walk you through the inner workings of this script.</p>
+
+<p>The first thing we have to do is to ensure that our post is formatted. For this</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[a4paper,man,biblatex,12pt]</span>{apa6}
+
+<span style="color:#66d9ef">\usepackage</span>{longtable} 
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[spanish]</span>{babel}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[utf8]</span>{inputenc}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[style=spanish]</span>{csquotes}
+<span style="color:#66d9ef">\usepackage</span>{times}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[style=apa,sortcites=true,sorting=nyt,backend=biber]</span>{biblatex}
+
+<span style="color:#66d9ef">\DeclareLanguageMapping</span>{spanish}{spanish-apa}
+<span style="color:#66d9ef">\addbibresource</span>{<span style="color:#e6db74">$</span>bibliography<span style="color:#e6db74">$</span>}
+
+<span style="color:#66d9ef">\title</span>{<span style="color:#e6db74">$</span>title<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\shorttitle</span>{<span style="color:#e6db74">$</span>shorttitle<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\author</span>{<span style="color:#e6db74">$</span>name<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\affiliation</span>{}
+
+<span style="color:#66d9ef">\abstract</span>{<span style="color:#e6db74">$</span>abstract<span style="color:#e6db74">$</span>}
+
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\maketitle</span>
+
+<span style="color:#e6db74">$</span>body<span style="color:#e6db74">$</span>
+
+<span style="color:#66d9ef">\printbibliography</span>
+
+<span style="color:#66d9ef">\end</span>{document}</code></pre></div>
+
+<p>This is obviously a lot of boilerplate code for a single article. Even word processors seem like a better alternative than writing all this code. In order to solve this, we are going to replace every instance of content with a pandoc variable enclosed in <strong>$</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>TEMPLATE_FILE<span style="color:#f92672">=</span>$1
+MARKDOWN_FILE<span style="color:#f92672">=</span>$2
+<span style="color:#75715e"># Converts Markdown to Latex using the specified template
+</span><span style="color:#75715e"></span>pandoc --standalone --smart <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--template $TEMPLATE_FILE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--from  markdown+raw_tex $MARKDOWN_FILE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--to latex <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-o output.tex 
+<span style="color:#75715e"># Converts latex to PDF
+</span><span style="color:#75715e"></span>pdflatex output.tex 
+biber output 
+biber output 
+pdflatex output.tex 
+biber output 
+pdflatex <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
+<span style="color:#75715e"># Cleans up auxiliary files
+</span><span style="color:#75715e"></span>rm output*</code></pre></div>
+
+<h2 id="bonus-generating-markdown-from-r-code">Bonus: Generating Markdown from R code</h2>
+
+<p>One of the benefits of using Markdown instead of</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ Rscript -e <span style="color:#e6db74">&#34;require(knitr); require(markdown); knit(&#39;</span>$RMDFILE<span style="color:#e6db74">.Rmd&#39;, &#39;</span>$RMDFILE<span style="color:#e6db74">.md&#39;);&#34;</span></code></pre></div>
+
+    </article>
+    
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "federico_arias" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <div class="footer">
+<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+</p> 
+</div>
+
+
+
+</body>
+</html>
