@@ -9,8 +9,7 @@ article {
     dd,
     table,
     video,
-    canvas,
-    blockquote {
+    canvas {
         @extend %small;
         @extend %content;
     }

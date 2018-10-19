@@ -19,10 +19,18 @@ $susy: (
 }
 
 body {
-   font-size:0.6rem;
+   font-size:0.7rem;
 
     @include respond-to('small') {
+        font-size:0.6rem;
+    }
+
+    @include respond-to('medium') {
         font-size:0.7rem;
+    }
+
+    @include respond-to('large') {
+        font-size:0.64rem;
     }
 
 }
