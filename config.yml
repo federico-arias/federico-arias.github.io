@@ -11,17 +11,17 @@ menu:
   - name: hire me
     post: <span class='alert'>New!</span>
     pre: <i class='fa fa-road'></i>
-    url: /hireme
+    url: hireme
     weight: -100
   - identifier: about
     name: about
     pre: <i class='fa fa-heart'></i>
-    url: /about
+    url: about
     weight: -110
   - name: home
     post: <span class='alert'>New!</span>
     pre: <i class='fa fa-road'></i>
-    url: /
+    url: 
     weight: -200
 contentDir: "content"
 paginate: 6

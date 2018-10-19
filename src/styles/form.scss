@@ -1,11 +1,6 @@
 @import 'breakpoints';
 @import 'palette';
 
-article > form.hireme {
-	max-width: 600px;
-	margin: 0 auto;	
-}
-
 form.hireme input {
 	box-sizing: border-box;
 	display: block;

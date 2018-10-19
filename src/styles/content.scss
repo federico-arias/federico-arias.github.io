@@ -14,6 +14,14 @@ article {
         @extend %content;
     }
 
+	// elements with nested elements
+	// that would break em font-sizing
+	form,
+    blockquote {
+        @extend %content;
+		margin-bottom: 1.5em;
+	}
+
     hgroup,
     h2 {
         @extend %medium;
@@ -32,4 +40,7 @@ article {
     }
 }
 
-
+#disqus_thread {
+	@extend %small;
+	@extend %content;
+}
