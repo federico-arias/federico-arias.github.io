@@ -27,4 +27,4 @@ paginate: 6
 metaDataFormat: "yaml"
 params:
     subtitle: I'm a full-stack web developer with an interest in machine learning and Scala
-#publishDir: "./"
+publishDir: "./"
