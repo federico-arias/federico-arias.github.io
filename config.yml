@@ -1,7 +1,7 @@
 # Site settings
 title: "federico-arias" 
-#baseUrl: "federico-arias.github.io"
-baseUrl: "localhost:1313"
+baseUrl: "federico-arias.github.io"
+#baseUrl: "localhost:1313"
 disqusShortname: federico_arias
 pygmentsCodeFences: true
 sectionPagesMenu:  "main"
