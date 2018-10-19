@@ -1,12 +1,13 @@
 ---
-title: "Writing research papers in Markdown with pandoc and LaTex"
+title: "Writing research papers in Markdown with pandoc and LaTex (Part I)"
 description: "A lightweight alternative to PDF documents with pandoc and a .tex template."
 date: "2018-01-22"
+draft: true
 ---
 
 Traditionally, writing a research paper involves the use of some word-processor software like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
 
-Wouldn't it be nice if you could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to include citations and comply with formatting guidelines using LaTex and Markdown**, without the formatting hassle that comes with word-processors.
+Wouldn't it be nice if you could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to include citations and comply with formatting guidelines using LaTex and Markdown**, without troubling with the hassle that comes with word-processors.
 
 Let's take the following paper as an example.
 
@@ -88,10 +89,13 @@ biber output
 biber output 
 pdflatex output.tex 
 biber output 
-pdflatex ${MARKDOWN_FILE%.*}.pdf
+pdflatex output
+mv output.pdf ${MARKDOWN_FILE%.*}.pdf
 # Cleans up auxiliary files
 rm output*
 {{< / highlight >}}
+
+is simplified (for example, it breaks if your markdown is named `output.md`)
 
 ## Bonus: Generating Markdown from R code				
 
