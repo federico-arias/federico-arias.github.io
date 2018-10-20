@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on federico-arias</title>
-    <link>federico-arias.github.io/tags/</link>
+    <link>http://federico-arias.github.io/tags/</link>
     <description>Recent content in Tags on federico-arias</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="federico-arias.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://federico-arias.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

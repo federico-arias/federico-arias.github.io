@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on federico-arias</title>
-    <link>federico-arias.github.io/posts/</link>
+    <link>http://federico-arias.github.io/posts/</link>
     <description>Recent content in Posts on federico-arias</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 22 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A comparative explanation of recursion in PostgreSQL</title>
-      <link>federico-arias.github.io/posts/postgres/</link>
+      <link>http://federico-arias.github.io/posts/postgres/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>federico-arias.github.io/posts/postgres/</guid>
+      <guid>http://federico-arias.github.io/posts/postgres/</guid>
       <description>One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&amp;rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&amp;rsquo; documentation aknowledges this:
  Strictly speaking, this process is iteration not recursion, but RECURSIVE is the terminology chosen by the SQL standards committee.
  Let&amp;rsquo;s look at an example to see what we are talking about.</description>
