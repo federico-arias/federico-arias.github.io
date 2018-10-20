@@ -13,7 +13,7 @@
 			<ul class="nav-menu">
 				{{ range .Site.Menus.foo }}
 				<li class="{{if or ($currentPage.IsMenuCurrent "foo" .) ($currentPage.HasMenuCurrent "foo" .) }}nav-menu--active{{end}}">
-					<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
+					<a href="{{ printf "%s%s" $.Site.BaseURL .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
 				{{ end }}
 			</ul>
 
