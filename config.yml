@@ -1,7 +1,7 @@
 # Site settings
 title: "federico-arias" 
 baseUrl: "https://federico-arias.github.io"
-disqusShortname: federico_arias
+disqusShortname: federico-arias-disqus
 pygmentsCodeFences: true
 sectionPagesMenu:  "main"
 assetDir: "src"
