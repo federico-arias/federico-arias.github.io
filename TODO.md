@@ -6,7 +6,7 @@
 ~~6. @import Rubik~~
 ~~7. center nav-header vertically~~
 ~~8. add >> to Read more~~
-14. replace archive for 'hireme' (work with me) page
+~~14. replace archive for 'hireme' (work with me) page~~
 10. write article about HTML5 game dev
 11. write article about academic writing
 12. write small tutorial on R and Scala. 
