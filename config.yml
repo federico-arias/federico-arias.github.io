@@ -6,7 +6,6 @@ googleAnalytics: UA-127821516-1
 pygmentsCodeFences: true
 theme: 3acres
 sectionPagesMenu:  "main"
-assetDir: "src"
 menu:
   foo:
   - name: hire me
@@ -24,9 +23,9 @@ menu:
     pre: <i class='fa fa-road'></i>
     url: 
     weight: -200
-contentDir: "content"
 paginate: 6
 metaDataFormat: "yaml"
 publishDir: "./"
 params:
     subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and information visualization.
+    greeting: Hi, there!
