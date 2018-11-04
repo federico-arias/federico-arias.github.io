@@ -113,7 +113,11 @@ rm output*
 To use this script, you'll simply have to provide a template and a markdown file with the contents of your paper.
 
 ```bash
+<<<<<<< Updated upstream
 $ md2latex apa-template.tex mypaperinmarkdown.md 
+=======
+$ md2latex template.tex mypaperinmarkdown.md 
+>>>>>>> Stashed changes
 ```
 
 Here, `template.tex` corresponds to a LaTex template and `mypaper.md` to our aforementioned markdown file. In the rest or this post, I'm going to walk you through the inner workings of this script. 
