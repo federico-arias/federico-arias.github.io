@@ -1,9 +1,9 @@
----
-title: "Writing research papers in Markdown with pandoc and LaTex (Part I)"
-description: "A lightweight alternative to PDF documents with pandoc and a .tex template."
-date: "2018-01-22"
-draft: true
----
++++
+title = "Writing research papers in Markdown with pandoc and LaTex (Part I)"
+description = "A lightweight alternative to PDF documents with pandoc and a .tex template."
+date = "2018-01-22"
+draft = true
++++
 
 Traditionally, writing a research paper involves the use of some word-processor software like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
 
@@ -11,7 +11,7 @@ Wouldn't it be nice if you could forget about formating and just focus on the co
 
 Let's take the following paper as an example.
 
-{{< highlight markdown >}}
+```highlight markdown 
 ---
 author: John Doe
 title: A hipster stravaganza
