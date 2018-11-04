@@ -1,13 +1,13 @@
 +++
-title = "Writing research papers in Markdown with pandoc and LaTex (Part I)"
+title = "Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)"
 description = "A lightweight alternative to PDF documents with pandoc and a .tex template."
-date = "2018-01-22"
-draft = true
+date = "2018-10-24"
+draft = false
 +++
 
-Traditionally, writing a research paper involves the use of some word-processor software like Microsoft Word or LibreOffice to comply with the formatting requirements posed by popular style guides like APA, Chicago or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
+Traditionally, writing a research paper involves the use of a word-processor like Microsoft Word or LibreOffice. We use these software to comply with the formatting requirements posed by style guides like Chicago, APA or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
 
-Wouldn't it be nice if you could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to include citations and comply with formatting guidelines using LaTex and Markdown**, without troubling with the hassle that comes with word-processors.
+Wouldn't it be nice if we could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to comply with formatting guidelines using LaTex and Markdown**, without troubling with the hassle that comes with word-processors.
 
 Let's take the following paper as an example.
 
@@ -15,37 +15,59 @@ Let's take the following paper as an example.
 ---
 author: John Doe
 title: A hipster stravaganza
-shorttitle: In honor of Sokal
+shorttitle: A hipster stravaganza
 abstract: Lorem ipsum dolor sit amet 
+affiliation: APLAPLAC University
 ---
+
+# Introduction 
+
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. 
 
 # A very interesting section
 
-Cold-pressed mumblecore \cite{Warhol199} crucifix kitsch aesthetic normcore. Bushwick XOXO portland 90's dolor bitters offal. Adipisicing velit cardigan subway tile pok pok tbh. Wayfarers taiyaki et, cornhole echo park snackwave selfies brunch poutine id vegan.
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people "to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)".
 
-# Another very interesting section
-
-Lorem ipsum dolor amet veniam hot chicken \cite{Mapplethorpe1999} tofu, echo park aliqua freegan photo booth kombucha live-edge schlitz taiyaki adaptogen. Deep v shaman 8-bit aesthetic, lomo ipsum messenger bag. Kombucha lyft viral celiac 8-bit skateboard. Cliche four dollar toast live-edge coloring book. Gluten-free id freegan, est art party cardigan iceland af tacos 8-bit.
-
-{{< / highlight >}}
+```
 
 This is our expected result:
 
-![research paper in apa][apa]
+{{< figure src="/apa-paper.jpg" >}}
 
-To achieve this in LaTex, we would have to do something like this:
+To produce a properly formatted APA paper using LaTex, we would have to do something like this:
 
-This file is formatted in Markdown. Taking this file as input, we could write a simple script (that we have called `md2latex` here) that converts this markdown file to a fully formatted PDF in the style of our choice:
+```latex
+\documentclass[a4paper,man]{apa6}
 
-{{< highlight bash>}}
-$ md2latex template.tex mypaperinmarkdown.md 
-{{< / highlight >}}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
 
-Here, `template.tex` corresponds to a LaTex template and `mypaper.md` to our aforementioned markdown file. In the rest or this post, I'm going to walk you through the inner workings of this script. 
+\title{A hipster stravaganza}
+\shorttitle{A hipster stravaganza}
+\author{John Doe}
+\affiliation{APLAPLAC University}
 
-The first thing we have to do is to ensure that our post is formatted. For this 
+\abstract{Lorem ipsum dolor sit amet.}
 
-{{< highlight latex >}}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name.[8] Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. 
+
+\section{A very interesting section}
+
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people "to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)".
+
+\end{document}
+
+```
+
+This is obviously a lot of boilerplate code for a single article. Even word processors seem like a better alternative than writing all this code. In order to solve this, we are going to abstract away every piece that does not belongs to the content of the article. 
+
+
+```latex
 
 \documentclass[a4paper,man,biblatex,12pt]{apa6}
 \usepackage{longtable} 
@@ -66,44 +88,39 @@ The first thing we have to do is to ensure that our post is formatted. For this
 $body$
 \printbibliography
 \end{document}
+```
 
-{{< / highlight >}}
+We can create a bash script that performs all of these steps:
 
-This is obviously a lot of boilerplate code for a single article. Even word processors seem like a better alternative than writing all this code. In order to solve this, we are going to abstract away every piece that does not belongs to the content of the article. 
-
-To do this 
-
-{{< highlight bash >}}
+```bash
 #!/bin/bash
 TEMPLATE_FILE=$1
 MARKDOWN_FILE=$2
-# Converts Markdown to Latex using the specified template
+# transforms markdown to LaTex
 pandoc --standalone --smart \
 	--template $TEMPLATE_FILE \
 	--from  markdown+raw_tex $MARKDOWN_FILE \
 	--to latex \
 -o output.tex 
-# Converts latex to PDF
+# converts LaTex to PDF
 pdflatex output.tex 
-biber output 
-biber output 
-pdflatex output.tex 
-biber output 
-pdflatex output
+# renames file
 mv output.pdf ${MARKDOWN_FILE%.*}.pdf
-# Cleans up auxiliary files
-rm output*
-{{< / highlight >}}
+# cleans up auxiliary files
+rm output* 
+```
 
-is simplified (for example, it breaks if your markdown is named `output.md`)
+To use this script, you'll simply have to provide a template and a markdown file with the contents of your paper.
 
-## Bonus: Generating Markdown from R code				
+```bash
+$ md2latex apa-template.tex mypaperinmarkdown.md 
+```
 
-One of the benefits of using Markdown instead of 
+Here, `template.tex` corresponds to a LaTex template and `mypaper.md` to our aforementioned markdown file. In the rest or this post, I'm going to walk you through the inner workings of this script. 
 
-{{< highlight bash >}}
-$ Rscript -e "require(knitr); require(markdown); knit('$RMDFILE.Rmd', '$RMDFILE.md');"
-{{< / highlight >}}
+Next Steps
+----------
 
+In the next part of this article, we are going to review some alternatives to include citations an bibliographies using minimal latex inside our markdown. 
 
-[apa]: /research-paper-in-apa.png "A research paper written following APA guidelines"
+[apa]: /apa-paper.jpg "A research paper written following APA guidelines"
