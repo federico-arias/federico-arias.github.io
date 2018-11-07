@@ -43,7 +43,7 @@ function with(list, accumulator) {
 
 Here, Javascript's `filter()` is akin to SQL's `WHERE` while `concat()` acts as a replacement of `UNION ALL`. The above function performs a recursive call and passes itself the complete 'table' of family relationships as first argument and, as second argument, the rows of the table (or the objects in the array) which meet the condition `row.father == accumulator.name`.
 
-Both pieces of code make use of the same conceptual understanding of recursion, comprised of a data structure like a linked list and an accumulator, which stores the results in the succesive iterations.
+Both pieces of code make use of the same conceptual understanding of recursion, comprised of **(i)** a data structure akin to a linked list and **(ii)** an accumulator, which stores the results in succesive iterations.
 
 [psql-doc]: https://www.postgresql.org/docs/9.1/static/queries-with.html#QUERIES-WITH-SELECT
 [tail-call]: https://en.wikipedia.org/wiki/Tail_call

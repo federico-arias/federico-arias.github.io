@@ -5,11 +5,19 @@ date = "2018-10-24"
 draft = false
 +++
 
-Traditionally, writing a research paper involves the use of a word-processor like Microsoft Word or LibreOffice. We use these software to comply with the formatting requirements posed by style guides like Chicago, APA or Harvard. These style guides have very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
+Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be [APA][wiki-apa], [MLA][wiki-mla], The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.
 
-Wouldn't it be nice if we could forget about formating and just focus on the content? This is precisely the main objective of this post: to **show you how to comply with formatting guidelines using LaTex and Markdown**, without troubling with the hassle that comes with word-processors.
+Wouldn't it be nice if we could forget about formatting and just focus on the content? This is precisely the main objective of this post: to **show you how to comply with formatting guidelines using only Markdown**, without troubling with the hassle that comes with word processors.
 
-Let's take the following paper as an example.
+We are going to accomplish this in two steps: 
+
+1. First, we are going to use [Latex][wiki-latex] to **create a template for one specific style guide** (We'll use APA for the purposes of this example). In this template file we'll abstract all the configuration options so we can focus on the content in a separate Markdown document. 
+
+2. Second, we are going to **take our document in Markdown and transform it** using [pandoc][2]. This document is going to be free from any formatting options. By performing this separation, we can take it and convert it to a document in another style guide, to a blog post, or even to a slideshow presentation. 
+
+This is one of the main advantages of [separating content from formatting][1]: you get the flexibility of applying multiple formats to the same content (this very blog post was written using markdown and then converted to HTML by [Hugo, a static site generator][4]).
+
+Let's get to it then. We'll be using the following paper as an example. 
 
 ```highlight markdown 
 ---
@@ -30,11 +38,11 @@ John Gruber created the Markdown language in 2004 in collaboration with Aaron Sw
 
 ```
 
-This is our expected result:
+If we wanted to style this paper according to APA formatting guidelines, we'll expect to end up with something like this:
 
 {{< figure src="/apa-paper.jpg" >}}
 
-To produce a properly formatted APA paper using LaTex, we would have to do something like this:
+To do this using LaTex, we'll have to write such amount of boilerplate code that it would make word processors look as the user-friendliest of alternatives:
 
 ```latex
 \documentclass[a4paper,man]{apa6}
@@ -61,22 +69,16 @@ Markdown is a lightweight markup language with plain text formatting syntax. It 
 John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people "to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)".
 
 \end{document}
-
 ```
 
-This is obviously a lot of boilerplate code for a single article. Even word processors seem like a better alternative than writing all this code. In order to solve this, we are going to abstract away every piece that does not belongs to the content of the article. 
-
+Instead of writing all this boilerplate code every time for every article, we are going to transform this into a pandoc LaTex template. In this template, we'll replace the contents with pandoc variables enclosed by dollar signs (`$`). 
 
 ```latex
-
 \documentclass[a4paper,man,biblatex,12pt]{apa6}
 \usepackage{longtable} 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage[style=spanish]{csquotes}
-\usepackage{times}
 \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-\DeclareLanguageMapping{spanish}{spanish-apa}
 \addbibresource{$bibliography$}
 \title{$title$}
 \shorttitle{$shorttitle$}
@@ -90,13 +92,31 @@ $body$
 \end{document}
 ```
 
-We can create a bash script that performs all of these steps:
+Once we call pandoc, it'll replace these variables with the ones found in our [YAML][3]‑formatted front matter in our Markdown document. An exception to this is the special variable `$body$`, which is going to be replaced by our whole Markdown document transformed into LaTex. 
+
+To do this, we call pandoc with the following arguments:
+
+```bash
+$ pandoc --standalone --smart \
+	--template apa.tex \
+	--from  markdown+raw_tex myfile.md \
+	--to latex \
+	--output output.tex 
+```
+
+Afterwards, we call `pdflatex` to transform the generated LaTex file into a PDF document.
+
+```bash
+$ pdflatex output.tex
+```
+
+We can transform this into a bash script to abbreviate the process:
 
 ```bash
 #!/bin/bash
 TEMPLATE_FILE=$1
 MARKDOWN_FILE=$2
-# transforms markdown to LaTex
+# converts markdown to LaTex
 pandoc --standalone --smart \
 	--template $TEMPLATE_FILE \
 	--from  markdown+raw_tex $MARKDOWN_FILE \
@@ -110,18 +130,25 @@ mv output.pdf ${MARKDOWN_FILE%.*}.pdf
 rm output* 
 ```
 
-To use this script, you'll simply have to provide a template and a markdown file with the contents of your paper.
+To use this script, we'll simply have to provide a template and a markdown file with the contents of your paper.
 
 ```bash
-$ md2latex apa-template.tex mypaperinmarkdown.md 
+$ ./md2latex apa-template.tex mypaper.md 
 ```
 
-Here, `template.tex` corresponds to a LaTex template and `mypaper.md` to our aforementioned markdown file. In the rest or this post, I'm going to walk you through the inner workings of this script. 
+Here, `apa-template.tex` corresponds to a LaTex template and `mypaper.md` to our markdown file.
 
 Next Steps
 ----------
 
-In the next part of this article, we are going to review some alternatives to include citations an bibliographies using minimal latex inside our markdown. 
+Stay tuned for part two of this post, in which we are going to look at some alternatives to include citations and bibliographies using a minimal amount of LaTex. 
 
+[1]: https://en.wikipedia.org/wiki/Separation_of_content_and_presentation
+[2]: https://en.wikipedia.org/wiki/Pandoc
+[3]: https://en.wikipedia.org/wiki/YAML
+[4]: https://gohugo.io/
 [apa]: /apa-paper.jpg "A research paper written following APA guidelines"
+[wiki-latex]: https://en.wikipedia.org/wiki/LaTeX
+[wiki-apa]: https://en.wikipedia.org/wiki/APA_style
+[wiki-mla]: https://en.wikipedia.org/wiki/MLA_Style_Manual
 
