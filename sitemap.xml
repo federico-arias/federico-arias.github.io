@@ -3,13 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://federico-arias.github.io/posts/pandoc-workflow/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/posts/quick-tip-formatting-ereaders/</loc>
+    <lastmod>2018-10-10T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://federico-arias.github.io/posts/postgres/</loc>
     <lastmod>2018-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://federico-arias.github.io/</loc>
-    <lastmod>2018-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -31,7 +41,7 @@
   
   <url>
     <loc>https://federico-arias.github.io/posts/</loc>
-    <lastmod>2018-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

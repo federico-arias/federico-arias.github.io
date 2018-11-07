@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8" />
+    <title>federico-arias  | Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</title> 
+	
+	<link rel="stylesheet" href="https://federico-arias.github.io/sass/main.min.css"/>
+    
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-127821516-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-header">
+            <div class="nav-header__logo">
+				<a href="https://federico-arias.github.io"><img src="/logo.png" alt="web site logo"/></a>
+            </div>
+            <div class="nav-header__desc">
+                <h1>
+					<a href="https://federico-arias.github.io">federico-arias </a>
+                </h1>
+            </div>
+
+			
+			<ul class="nav-menu">
+				
+				<li class="">
+					<a href="https://federico-arias.github.io" title="home">home</a></li>
+				
+				<li class="">
+					<a href="https://federico-arias.github.io/about" title="about">about</a></li>
+				
+				<li class="">
+					<a href="https://federico-arias.github.io/hireme" title="hire me">hire me</a></li>
+				
+			</ul>
+
+        </div>
+    </header>
+
+
+    <article>
+        <h1>Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</h1>
+		
+            
+
+<p>Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be <a href="https://en.wikipedia.org/wiki/APA_style">APA</a>, <a href="https://en.wikipedia.org/wiki/MLA_Style_Manual">MLA</a>, The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.</p>
+
+<p>Wouldn&rsquo;t it be nice if we could forget about formatting and just focus on the content? This is precisely the main objective of this post: to <strong>show you how to comply with formatting guidelines using only Markdown</strong>, without troubling with the hassle that comes with word processors.</p>
+
+<p>We are going to accomplish this in two steps:</p>
+
+<ol>
+<li><p>First, we are going to use <a href="https://en.wikipedia.org/wiki/LaTeX">Latex</a> to <strong>create a template for one specific style guide</strong> (We&rsquo;ll use APA for the purposes of this example). In this template file we&rsquo;ll abstract all the configuration options so we can focus on the content in a separate Markdown document.</p></li>
+
+<li><p>Second, we are going to <strong>take our document in Markdown and transform it</strong> using <a href="https://en.wikipedia.org/wiki/Pandoc">pandoc</a>. This document is going to be free from any formatting options. By performing this separation, we can take it and convert it to a document in another style guide, to a blog post, or even to a slideshow presentation.</p></li>
+</ol>
+
+<p>This is one of the main advantages of <a href="https://en.wikipedia.org/wiki/Separation_of_content_and_presentation">separating content from formatting</a>: you get the flexibility of applying multiple formats to the same content (this very blog post was written using markdown and then converted to HTML by <a href="https://gohugo.io/">Hugo, a static site generator</a>).</p>
+
+<p>Let&rsquo;s get to it then. We&rsquo;ll be using the following paper as an example.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-highlight markdown" data-lang="highlight markdown">---
+author: John Doe
+title: A hipster stravaganza
+shorttitle: A hipster stravaganza
+abstract: Lorem ipsum dolor sit amet 
+affiliation: APLAPLAC University
+---
+
+# Introduction 
+
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. 
+
+# A very interesting section
+
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &#34;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&#34;.</code></pre></div>
+<p>If we wanted to style this paper according to APA formatting guidelines, we&rsquo;ll expect to end up with something like this:</p>
+
+
+<figure>
+    
+        <img src="/apa-paper.jpg" />
+    
+    
+</figure>
+
+
+<p>To do this using LaTex, we&rsquo;ll have to write such amount of boilerplate code that it would make word processors look as the user-friendliest of alternatives:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[a4paper,man]</span>{apa6}
+
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[english]</span>{babel}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[utf8x]</span>{inputenc}
+
+<span style="color:#66d9ef">\title</span>{A hipster stravaganza}
+<span style="color:#66d9ef">\shorttitle</span>{A hipster stravaganza}
+<span style="color:#66d9ef">\author</span>{John Doe}
+<span style="color:#66d9ef">\affiliation</span>{APLAPLAC University}
+
+<span style="color:#66d9ef">\abstract</span>{Lorem ipsum dolor sit amet.}
+
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\maketitle</span>
+
+<span style="color:#66d9ef">\section</span>{Introduction}
+
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name.[8] Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. 
+
+<span style="color:#66d9ef">\section</span>{A very interesting section}
+
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &#34;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&#34;.
+
+<span style="color:#66d9ef">\end</span>{document}</code></pre></div>
+<p>Instead of writing all this boilerplate code every time for every article, we are going to transform this into a pandoc LaTex template. In this template, we&rsquo;ll replace the contents with pandoc variables enclosed by dollar signs (<code>$</code>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[a4paper,man,biblatex,12pt]</span>{apa6}
+<span style="color:#66d9ef">\usepackage</span>{longtable} 
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[spanish]</span>{babel}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[utf8]</span>{inputenc}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[style=apa,sortcites=true,sorting=nyt,backend=biber]</span>{biblatex}
+<span style="color:#66d9ef">\addbibresource</span>{<span style="color:#e6db74">$</span>bibliography<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\title</span>{<span style="color:#e6db74">$</span>title<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\shorttitle</span>{<span style="color:#e6db74">$</span>shorttitle<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\author</span>{<span style="color:#e6db74">$</span>name<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\affiliation</span>{}
+<span style="color:#66d9ef">\abstract</span>{<span style="color:#e6db74">$</span>abstract<span style="color:#e6db74">$</span>}
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\maketitle</span>
+<span style="color:#e6db74">$</span>body<span style="color:#e6db74">$</span>
+<span style="color:#66d9ef">\printbibliography</span>
+<span style="color:#66d9ef">\end</span>{document}</code></pre></div>
+<p>Once we call pandoc, it&rsquo;ll replace these variables with the ones found in our <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>‑formatted front matter in our Markdown document. An exception to this is the special variable <code>$body$</code>, which is going to be replaced by our whole Markdown document transformed into LaTex.</p>
+
+<p>To do this, we call pandoc with the following arguments:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pandoc --standalone --smart <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--template apa.tex <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--from  markdown+raw_tex myfile.md <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--to latex <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--output output.tex </code></pre></div>
+<p>Afterwards, we call <code>pdflatex</code> to transform the generated LaTex file into a PDF document.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdflatex output.tex</code></pre></div>
+<p>We can transform this into a bash script to abbreviate the process:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>TEMPLATE_FILE<span style="color:#f92672">=</span>$1
+MARKDOWN_FILE<span style="color:#f92672">=</span>$2
+<span style="color:#75715e"># converts markdown to LaTex
+</span><span style="color:#75715e"></span>pandoc --standalone --smart <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--template $TEMPLATE_FILE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--from  markdown+raw_tex $MARKDOWN_FILE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--to latex <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-o output.tex 
+<span style="color:#75715e"># converts LaTex to PDF
+</span><span style="color:#75715e"></span>pdflatex output.tex 
+<span style="color:#75715e"># renames file
+</span><span style="color:#75715e"></span>mv output.pdf <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
+<span style="color:#75715e"># cleans up auxiliary files
+</span><span style="color:#75715e"></span>rm output* </code></pre></div>
+<p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of your paper.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./md2latex apa-template.tex mypaper.md </code></pre></div>
+<p>Here, <code>apa-template.tex</code> corresponds to a LaTex template and <code>mypaper.md</code> to our markdown file.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Stay tuned for part two of this post, in which we are going to look at some alternatives to include citations and bibliographies using a minimal amount of LaTex.</p>
+
+    </article>
+    
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "federico-arias-disqus" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <div class="footer">
+<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+</p> 
+</div>
+
+
+
+</body>
+</html>

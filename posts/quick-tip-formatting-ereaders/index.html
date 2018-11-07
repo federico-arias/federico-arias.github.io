@@ -1,10 +1,9 @@
 <!doctype html>
-<html lang="en">
-
-	<head>
+<html lang="es">
+<head>
     
     <meta charset="UTF-8" />
-    <title>federico-arias </title> 
+    <title>federico-arias  | A quick tip to format PDFs documents for e‑readers</title> 
 	
 	<link rel="stylesheet" href="https://federico-arias.github.io/sass/main.min.css"/>
     
@@ -34,10 +33,9 @@ if (!doNotTrack) {
 
 </head>
 
-
 <body>
-	
-        <header>
+
+    <header>
         <div class="nav-header">
             <div class="nav-header__logo">
 				<a href="https://federico-arias.github.io"><img src="/logo.png" alt="web site logo"/></a>
@@ -66,7 +64,37 @@ if (!doNotTrack) {
     </header>
 
 
+    <article>
+        <h1>A quick tip to format PDFs documents for e‑readers</h1>
+		
+            <p>Most e-book readers fail to display PDF documents in a legible font size, due to their inability to shrunk text to display a changing number of
+The only way of increasing a font for a PDF document is to zoom in and focus on only one portion of the file.
+A simple way to solve this is to</p>
+
+<p>One would be tempted to solve this by cutting the margins with pdfcrop, but this will only result in old e-book readers displaying a pair of black stripes where margins used to be, due to the requirement of</p>
+
+    </article>
     
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "federico-arias-disqus" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
     <div class="footer">
 <p>
@@ -76,6 +104,6 @@ if (!doNotTrack) {
 </div>
 
 
-<script src="assets/main.js"> </script>
+
 </body>
 </html>
