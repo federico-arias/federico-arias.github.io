@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="UTF-8" />
-    <title>federico-arias  | Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</title> 
+    <title>{ federico-arias }  | Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</title> 
 	
 	<link rel="stylesheet" href="https://federico-arias.github.io/sass/main.min.css"/>
     
@@ -42,7 +42,7 @@ if (!doNotTrack) {
             </div>
             <div class="nav-header__desc">
                 <h1>
-					<a href="https://federico-arias.github.io">federico-arias </a>
+					<a href="https://federico-arias.github.io">{ federico-arias } </a>
                 </h1>
             </div>
 
@@ -178,7 +178,7 @@ MARKDOWN_FILE<span style="color:#f92672">=</span>$2
 </span><span style="color:#75715e"></span>mv output.pdf <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
 <span style="color:#75715e"># cleans up auxiliary files
 </span><span style="color:#75715e"></span>rm output* </code></pre></div>
-<p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of your paper.</p>
+<p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of our paper.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./md2latex apa-template.tex mypaper.md </code></pre></div>
 <p>Here, <code>apa-template.tex</code> corresponds to a LaTex template and <code>mypaper.md</code> to our markdown file.</p>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>federico-arias</title>
+    <title>{ federico-arias }</title>
     <link>https://federico-arias.github.io/</link>
-    <description>Recent content on federico-arias</description>
+    <description>Recent content on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
     
@@ -47,7 +47,7 @@ A way to solve this problem would be cutting the margins using pdfcrop. For exam
       
       <guid>https://federico-arias.github.io/about/</guid>
       <description>I am Federico Arias, a freelance full-stack developer based on Latin America. I have experience working with the following tools:
- Front: Javascript (d3.js, React, Node), SCSS Back: Scala, Python, Postgres, SQL Server, Golang, Linux Tools: Git, Docker, Vim, R, Latex, XSLT  This site was built with a custom-made template for Hugo. You can find it here in my GitHub along with other projects.
+ Front: Javascript (d3.js, React, Node), SCSS Back: Scala, Python, Postgres, SQL Server, Golang, Linux Tools: Git, Docker, Vim, R, Latex, XSLT, Bash  This site was built with a custom-made template for Hugo. You can find it here in my GitHub along with other projects.
 Stalking material You can take a peek at my reading list via Twitter, stalk me on Instagram, or take a look at my contributions to StackOverflow.</description>
     </item>
     
