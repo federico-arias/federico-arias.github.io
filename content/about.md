@@ -7,7 +7,7 @@ I am Federico Arias, a freelance **full-stack developer** based on Latin America
 
 * **Front**: Javascript (d3.js, React, Node), SCSS 
 * **Back**: Scala, Python, Postgres, SQL Server, Golang, Linux
-* **Tools**: Git, Docker, Vim, R, Latex, XSLT
+* **Tools**: Git, Docker, Vim, R, Latex, XSLT, Bash
 
 This site was built with a custom-made template for [Hugo][2]. You can find it [here in my GitHub][github] along with other projects.
 
@@ -21,4 +21,4 @@ I also head a small foundation to foster **sustainable building practices** with
 [2]: https://gohugo.io/
 [igram]: https://www.instagram.com/federico.360p/
 [so]: https://stackoverflow.com/users/story/1797161
-[github]: https://github.com/federico-arias/federico-arias.github.io
+[github]: https://github.com/federico-arias/3acres-theme
