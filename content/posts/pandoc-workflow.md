@@ -130,7 +130,7 @@ mv output.pdf ${MARKDOWN_FILE%.*}.pdf
 rm output* 
 ```
 
-To use this script, we'll simply have to provide a template and a markdown file with the contents of your paper.
+To use this script, we'll simply have to provide a template and a markdown file with the contents of our paper.
 
 ```bash
 $ ./md2latex apa-template.tex mypaper.md 
