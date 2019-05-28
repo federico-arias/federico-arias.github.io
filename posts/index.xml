@@ -5,10 +5,20 @@
     <link>https://federico-arias.github.io/posts/</link>
     <description>Recent content in Posts on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing a file upload handler in Golang</title>
+      <link>https://federico-arias.github.io/posts/testing-upload-handler/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/testing-upload-handler/</guid>
+      <description>There are multiple examples around the web about uploading a file in Go. Not so many about testing these type of handlers. Below, you can find an example of a simple way of testing your handler.
+func TestUploadImage(t *testing.T) { //Set up a pipe to avoid buffering 	pr, pw := io.Pipe() //This writers is going to transform 	//what we pass to it to multipart form data 	//and write it to our io.</description>
+    </item>
     
     <item>
       <title>Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</title>

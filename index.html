@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.49.2" />
+	<meta name="generator" content="Hugo 0.56.0-DEV" />
     
     <meta charset="UTF-8" />
     <title>{ federico-arias } </title> 
@@ -77,20 +77,45 @@ if (!doNotTrack) {
     </div>
 
 
+	<div class="skills home-section">
+		<h2>
+			Skills
+		</h2>
+		<img class="skill-logo" src="/python.jpg"></img>
+		<img class="skill-logo" src="/d3.png"></img>
+		<img class="skill-logo" src="/golang.png"></img>
+		<img class="skill-logo" src="/react.png"></img>
+		<img class="skill-logo" src="/postgres.png"></img>
+		<img class="skill-logo" src="/scala.png" style="margin-top:-5px"></img>
+		<img class="skill-logo" src="/redux.png"></img>
+		<img class="skill-logo" src="/sass.png"></img>
+		<img class="skill-logo" src="/git.png"></img>
+		<img class="skill-logo" src="/docker.png"></img>
+		<img class="skill-logo" src="/linux.png"></img>
+		<img class="skill-logo" src="/bash.png"></img>
+	</div>
+	<div class="github-calendar home-section">
+		<h2>
+		   Github contributions 
+		</h2>
+		<div class="calendar">
+			Loading data...
+		</div>
+	</div>
     <div class="about"> 
         <div class="whoami">
             <h2>
-                Skills
+               Licence 
             </h2>
-			<ul>
-<li>Javascript</li>
-<li>Scala</li>
-<li>Python</li>
-</ul>
-
-            <div class="button">
-                <a href="/about">Read more &raquo;</a>
-            </div>
+			<p>
+				This work is licensed under a 
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+					Creative Commons Attribution 4.0 International License
+				</a>.		
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+					<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+			</p>
+			
         </div>
         <div class="latest-articles">
             <h2>
@@ -98,6 +123,13 @@ if (!doNotTrack) {
             </h2>
             <ul>
 				 
+				 <li>
+					 <time datetime="" class="by-line"> 
+						 2019-05-24
+					 </time>:
+					 <a href="https://federico-arias.github.io/posts/testing-upload-handler/">Testing a file upload handler in Golang</a>
+				</li>
+				
 				 <li>
 					 <time datetime="" class="by-line"> 
 						 2018-10-24
@@ -121,16 +153,22 @@ if (!doNotTrack) {
 				
 			</ul>
 		</div>
+		
+
+		
+
+		
 
 		
     </div>
 
 <div class="footer">
 <p>
-	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-		<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
+<hr></hr>
 </p> 
 </div>
+<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+<script>GitHubCalendar(".calendar", "federico-arias", { responsive: true }); </script>
 
 
 </body>
