@@ -82,5 +82,15 @@ If you are in a hurry, you can contact me at this number via WhatsApp: +56 9 462
 .  your e-mail   how can I help you?   </description>
     </item>
     
+    <item>
+      <title>Testing templates in Golang</title>
+      <link>https://federico-arias.github.io/posts/testing-templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/testing-templates/</guid>
+      <description>Templates in Go are a great tool for rendering HTML in our web app. Unfortunately, to test if they are functioning as expected, we often are forced to run our app in a browser and visually inspect their results.
+To avoid running our entire app each time we want to test a template, we can follow the example of Javascript libraries like Enzyme, which test React.js components by traversing the DOM and verifying the presence of certain nodes.</description>
+    </item>
+    
   </channel>
 </rss>
