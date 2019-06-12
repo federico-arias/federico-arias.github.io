@@ -1,0 +1,3 @@
+[submodule "themes/3acres-theme"]
+	path = themes/3acres-theme
+	url = https://github.com/federico-arias/3acres-theme
