@@ -1,6 +1,3 @@
-[submodule "3acres"]
-	path = 3acres
-	url = /home/federico/federico-arias.github.io/themes/3acres
 [submodule "themes/3acres-theme"]
 	path = themes/3acres-theme
 	url = https://github.com/federico-arias/3acres-theme
