@@ -1,6 +1,7 @@
 +++
 title = "About me"
 disqus = false
+layout = "page"
 +++
 
 I am Federico Arias, a freelance **full-stack developer** based on Latin America. I have experience working with the following tools:

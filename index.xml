@@ -5,10 +5,30 @@
     <link>https://federico-arias.github.io/</link>
     <description>Recent content on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://federico-arias.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A simpler approach at testing Redux middlewares</title>
+      <link>https://federico-arias.github.io/posts/goodtests/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/goodtests/</guid>
+      <description>One of the hardest parts of testing Redux components is having to mock the store. It seems that every project has its own idiosincratic way of simulating it, leaving you with the task of understanding how they decided to implement it. Usually, this means navigating through multiple util packages to grok how everything was pierced together.
+Maybe that&amp;rsquo;s why this talk made so much sense to me. It basically claims that you should be able to understand tests without having to read more code than what it is strictly necesary, even if this means duplicating your code.</description>
+    </item>
+    
+    <item>
+      <title>Testing templates in Golang</title>
+      <link>https://federico-arias.github.io/posts/testing-templates/</link>
+      <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/testing-templates/</guid>
+      <description>Templates in Go are a great tool for rendering HTML in our web app. Unfortunately, to test if they are functioning as expected, we often are forced to run our app in a browser and visually inspect their results.
+To avoid running our entire app each time we want to test a template, we can follow the example of Javascript libraries like Enzyme, which test React.js components by traversing the DOM and verifying the presence of certain nodes.</description>
+    </item>
     
     <item>
       <title>Testing a file upload handler in Golang</title>
@@ -79,17 +99,7 @@ For the last 2 years, I have been working with companies specialized in the fiel
       <guid>https://federico-arias.github.io/hireme/</guid>
       <description> I&#39;m open to relocation, remote or freelance work. Describe the main tasks involved in the box below and I&#39;ll get in touch with you as soon as possible.
 If you are in a hurry, you can contact me at this number via WhatsApp: +56 9 4625 9752
-.  your e-mail   how can I help you?   </description>
-    </item>
-    
-    <item>
-      <title>Testing templates in Golang</title>
-      <link>https://federico-arias.github.io/posts/testing-templates/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://federico-arias.github.io/posts/testing-templates/</guid>
-      <description>Templates in Go are a great tool for rendering HTML in our web app. Unfortunately, to test if they are functioning as expected, we often are forced to run our app in a browser and visually inspect their results.
-To avoid running our entire app each time we want to test a template, we can follow the example of Javascript libraries like Enzyme, which test React.js components by traversing the DOM and verifying the presence of certain nodes.</description>
+ your e-mail   how can I help you?   </description>
     </item>
     
   </channel>
