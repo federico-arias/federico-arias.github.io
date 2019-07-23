@@ -4,7 +4,7 @@ baseUrl: "https://federico-arias.github.io"
 disqusShortname: federico-arias-disqus
 googleAnalytics: UA-127821516-1
 pygmentsCodeFences: true
-theme: huguito
+theme: huguito1
 sectionPagesMenu:  "main"
 menu:
   foo:
