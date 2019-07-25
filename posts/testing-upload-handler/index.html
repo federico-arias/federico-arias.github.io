@@ -41,13 +41,21 @@
 				Testing a file upload handler in Golang
 			</h1>
 			<div class="meta">
-				<div class="meta__date">
-				</div>
 				<div class="meta__author">
 					<img src="/logo.jpeg"/>
 				</div>
-				<div class="meta__tags">
+				<div class="col-2">
+					<div class="meta__author-name">
+						by 
+							<a href="/about/">
+								Federico Arias
+							</a>
+					</div>
+					<div class="meta__date">
+						May 24, 2019
+					</div>
 				</div>
+				
 			</div>
 			<p>There are <a href="https://undebugable.wordpress.com/2017/04/15/golang-simple-file-upload-using-go-languange/">multiple</a> <a href="https://zupzup.org/go-http-file-upload-download/">examples</a> around the web about uploading a file in Go. Not so many about testing these type of handlers. Below, you can find an example of a simple way of testing your handler.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestUploadImage</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
