@@ -16,11 +16,12 @@ util packages to grok how everything was pierced together.
 Maybe that's why [this talk][bad test] made so much sense
 to me. It basically claims that you should be able to understand
 tests without having to read more code than what it is 
-strictly necesary, even if this means duplicating your code.
+within the confines of one function,
+even if this means duplicating your code.
 That is, favor readability in spite of DRY-ness. 
 
 In the spirit of this idea, I tried to simplify the way
-I test middlewares and came up with this: 
+I test Redux middlewares and came up with this: 
 
 ```javascript
 import api from '../middlewares/api';

@@ -1,17 +1,21 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<meta charset="utf-8">
+		<meta name="viewport" 
+		content="width=device-width, user-scalable=no">
 		
 		<link rel="stylesheet" href="https://federico-arias.github.io/sass/main.min.css"/>
-<style>
-
-</style>
+		<title>
+			
+				{ federico-arias } 
+				 
+					| Blog Archive
+				
+			
+		</title> 
 	</head>
 	<body>
-
-
 		<nav>
 			<div class="logo">
 				<h1>
@@ -36,58 +40,46 @@
 			</div>
 		</nav>
 
-		<div class="container single-post">
-			<h1>
-				Blog Archive
-			</h1>
-			<div class="meta">
-				<div class="meta__author">
-					<img src="/logo.jpeg"/>
-				</div>
-				<div class="col-2">
-					<div class="meta__author-name">
-						by 
-							<a href="/about/">
-								Federico Arias
-							</a>
-					</div>
-					<div class="meta__date">
-						January 1, 0001
-					</div>
-				</div>
-				
-			</div>
-			<!--<p> Sort <a href="#" class="active">by date</a> or  <a href="#">by category</a></p>-->
-    <ul id="posts">
-        {% for post in site.posts %}
 
-          <li class="post">
-            <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date: "%B %Y" }}</time>:
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </li>
 
-        {% endfor %}
-    </ul>
+<div class="container archive">
+	
+	  <li class="post">
+		  <time datetime="22000-22-07" class="by-line">22000-22-07</time>:
+		<a href="https://federico-arias.github.io/posts/goodtests/">A simpler approach at testing Redux middlewares</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="22000-22-07" class="by-line">22000-22-07</time>:
+		<a href="https://federico-arias.github.io/posts/">Posts</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="12000-12-06" class="by-line">12000-12-06</time>:
+		<a href="https://federico-arias.github.io/posts/testing-templates/">Testing templates in Golang</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="24000-24-05" class="by-line">24000-24-05</time>:
+		<a href="https://federico-arias.github.io/posts/testing-upload-handler/">Testing a file upload handler in Golang</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="24000-24-10" class="by-line">24000-24-10</time>:
+		<a href="https://federico-arias.github.io/posts/pandoc-workflow/">Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="10000-10-10" class="by-line">10000-10-10</time>:
+		<a href="https://federico-arias.github.io/posts/quick-tip-formatting-ereaders/">A quick tip to format PDFs documents for e‑readers using the Linux command line</a>
+	  </li>
+	
+	  <li class="post">
+		  <time datetime="22000-22-09" class="by-line">22000-22-09</time>:
+		<a href="https://federico-arias.github.io/posts/postgres/">A comparative explanation of recursion in PostgreSQL</a>
+	  </li>
+	
+</div>
 
-		</div>
-		<div class="container footer">
-			<ul class="footer-nav">
-				<li>
-					<a href="/about/">
-						About me</a>
-				</li>
-				<li>
-					&centerdot;
-					<a href="/hireme/">
-						Hire me!</a>
-				</li>
-			</ul>
-			<span class="footer-attribution"> -
-				powered by 
-				<a href="https://gohugo.io/">
-					Hugo
-				</a>
-			</span>
-		</div>
 	</body>
 </html>

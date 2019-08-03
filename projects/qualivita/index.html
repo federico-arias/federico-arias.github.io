@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" 
+		content="width=device-width, user-scalable=no">
+		
+		<link rel="stylesheet" href="https://federico-arias.github.io/sass/main.min.css"/>
+		<title>
+			
+				{ federico-arias } 
+				 
+					| A dashboard to assess occupational safety and health
+				
+			
+		</title> 
+	</head>
+	<body>
+		<nav>
+			<div class="logo">
+				<h1>
+					<a href="/">
+						{ federico-arias } 
+					</a>
+				</h1>
+			</div>
+			<div class="menu">
+				<ul>
+					<li>
+						<a href="/about/">
+							About me
+						</a>
+					</li>
+					<li>
+						<a href="/hireme/">
+							Hire me!
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+
+		<div class="container-fluid project__container">
+			<div class="project__section">
+				<div class="project__column p1">
+					<div class="project__breadcrumbs">
+						<a href="/">Home</a> /
+						<a href="/#work">Projects</a> /
+						Qualivita
+					</div>
+					<div class="project__description">
+						<h2>
+							A dashboard to assess occupational safety and health
+						</h2>
+						<p>
+							The client needed a platform to create, manage and apply questionnaires to assess occupational safety. 
+						</p>
+					</div>
+				</div>
+				<div class="project__column project__jumbotron"
+		 			style="background-image:url(/qualivita-jumbotron.png);">
+				</div>
+			</div>
+			<div class="project__key-features">
+					
+			</div>
+		</div>
+		<div class="container single-post">
+			
+
+<p>The solution proposed was a single-page application
+that allowed you to create questionnaires that
+generated instant visualizations and dashboards.</p>
+
+<h2 id="frontend">FrontEnd</h2>
+
+<p>The React, Redux, Typescript combo was used to take
+advantage of composability and to get rid of the
+problems that were caused by a lack of type-safety
+in previous projects.</p>
+
+<p>I opted for Semantic-UI instead of Bootstrap to
+get a more polished look.</p>
+
+<!--![A screenshot of the project][screenshot 1]-->
+
+<p>I also continued to work with <a href="https://www.youtube.com/watch?v=JUuic7mEs-s">Nir Kaufman&rsquo;s design patterns
+</a>, ditching <code>react-thunk</code> in favor of middlewares.</p>
+
+<h2 id="backend">Backend</h2>
+
+<p>I am growing more and more fond of Go and decided to use it
+for this project. I didn&rsquo;t use any framework, only the
+following packages:</p>
+
+<ul>
+<li>Migrate to manage migrations.</li>
+<li>Go-Mock to mock interfaces.</li>
+<li>Gorilla router.</li>
+</ul>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>I used a Docker image deployed to ElasticBeanstalk in conjunction
+with a Postgres database in RDS. Configuring everything to work
+together proved to be quite a hassle, but fortunately you can script
+almost anything so next time I start a project of similar
+characteristics, I&rsquo;ll only have to call my current setup script.</p>
+
+<p>This is a small example to show you how all of this works:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws iam create-user --user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> --profile iam
+
+aws iam attach-user-policy <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--profile iam
+
+aws iam create-access-key --user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> --profile iam
+
+read AWS_ID
+read AWS_SECRET
+
+aws configure set region us-east-2 --profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span>
+aws configure set aws_access_key_id <span style="color:#e6db74">${</span>AWS_ID<span style="color:#e6db74">}</span> --profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> 
+aws configure set aws_secret_access_key <span style="color:#e6db74">${</span>AWS_SECRET<span style="color:#e6db74">}</span> --profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> 
+
+aws rds create-db-instance <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--allocated-storage <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--db-instance-class db.t2.micro <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--db-instance-identifier <span style="color:#e6db74">${</span>DB_NAME<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--engine postgres <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--master-username <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--port <span style="color:#e6db74">${</span>DB_CONTAINER_PORT<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--enable-iam-database-authentication <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--master-user-password <span style="color:#e6db74">${</span>DB_PASSWORD<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--db-security-groups 
+--profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span></code></pre></div>
+<p>Here, I am creating an IAM user to access the
+database.</p>
+
+<p>I used the following AWS services:</p>
+
+<ul>
+<li>RDS</li>
+<li>IAM</li>
+<li>VPC</li>
+<li>ECR</li>
+<li>ElasticBeanstalk</li>
+<li>S3</li>
+<li>SQS</li>
+<li>Web Gateway</li>
+</ul>
+
+<p>I used SQS to process some costly work
+in the background (I also tought about using RabbitMQ, but since SQS
+was already in AWS&rsquo; ecosystem&hellip;). This mainly had
+to do with PDF processing. I could have triggered a
+goroutine but, preferred to use a separate worker.</p>
+
+		</div>
+	</body>
+</html>

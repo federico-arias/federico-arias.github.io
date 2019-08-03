@@ -57,6 +57,14 @@
   </url>
   
   <url>
+    <loc>https://federico-arias.github.io/projects/qualivita/</loc>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/projects/social-network-for-neighbourhoods/</loc>
+  </url>
+  
+  <url>
     <loc>https://federico-arias.github.io/about/</loc>
   </url>
   
@@ -71,6 +79,36 @@
   
   <url>
     <loc>https://federico-arias.github.io/hireme/</loc>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/projects/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/aws/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/go/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/postgres/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/react/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/redux/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

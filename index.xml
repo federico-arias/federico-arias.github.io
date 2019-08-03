@@ -71,6 +71,31 @@ A way to solve this problem would be cutting the margins using pdfcrop. For exam
     </item>
     
     <item>
+      <title>A dashboard to assess occupational safety and health</title>
+      <link>https://federico-arias.github.io/projects/qualivita/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/projects/qualivita/</guid>
+      <description>The solution proposed was a single-page application that allowed you to create questionnaires that generated instant visualizations and dashboards.
+FrontEnd The React, Redux, Typescript combo was used to take advantage of composability and to get rid of the problems that were caused by a lack of type-safety in previous projects.
+I opted for Semantic-UI instead of Bootstrap to get a more polished look.
+I also continued to work with Nir Kaufman&amp;rsquo;s design patterns , ditching react-thunk in favor of middlewares.</description>
+    </item>
+    
+    <item>
+      <title>A social network for neighbourhoods</title>
+      <link>https://federico-arias.github.io/projects/social-network-for-neighbourhoods/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/projects/social-network-for-neighbourhoods/</guid>
+      <description>A single page application that uses.
+FrontEnd The React, Redux, Typescript combo was used to take advantage of composability and to get rid of the problems that were caused by a lack of type-safety in previous projects.
+I opted for Semantic-UI instead of Bootstrap to get a more polished look.
+I also continued to work with [Nir Kaufman&amp;rsquo;s design patterns ][nir], ditching react-thunk in favor of middlewares.
+Backend I am growing more and more fond of Go and decided to use it for this project.</description>
+    </item>
+    
+    <item>
       <title>About me</title>
       <link>https://federico-arias.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -87,8 +112,8 @@ For the last 2 years, I have been working with companies specialized in the fiel
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://federico-arias.github.io/archive/</guid>
-      <description> Sort by date or by category
--- {% for post in site.posts %} {{ post.date | date: &#34;%B %Y&#34; }}: {{ post.title }}  {% endfor %}  </description>
+      <description>Hi  Sort by date or by category
+--</description>
     </item>
     
     <item>

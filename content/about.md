@@ -26,4 +26,4 @@ I also head a small foundation to foster **sustainable building practices** with
 [2]: https://gohugo.io/
 [igram]: https://www.instagram.com/federico.360p/
 [so]: https://stackoverflow.com/users/story/1797161
-[github]: https://github.com/federico-arias/3acres-theme
+[github]: https://github.com/federico-arias/hugo-them
