@@ -1,6 +1,6 @@
 +++
 title = "A social network for neighbourhoods"
-description = "Used React, Redux, Go and Postgres in Heroku to build"
+description = "A social network that allowed buildings residents to communicate with each other and form communities."
 type = "project"
 tags = ["react", "redux", "go", "aws", "postgres"]
 shorttitle = "Vecinbarrio"
@@ -8,34 +8,60 @@ mainimg = "vecinbarrio-jumbotron.png"
 img = "vecinbarrio-bw.jpg"
 +++
 
-A single page application that uses. 
+The solution proposed was a single-page 
+application that relied on a Postgres
+database for persistence. 
 
 ## FrontEnd 
 
-The React, Redux, Typescript combo was used to take
-advantage of composability and to get rid of the 
-problems that were caused by a lack of type-safety
-in previous projects. 
+One of the challenges of the project was
+coordinating the work between two front-end
+developers while I developed the backend and
+part of the front-end. To this purpose, we 
+used [Apiary][apiary] to simulate a REST API
+interaction. Then, we just swapped Apiary's
+URI with our backend.
 
-I opted for Semantic-UI instead of Bootstrap to
-get a more polished look.
+I discovered [Nir Kaufman's design patterns][nir],
+and decided to try them out,
+ditching `redux-thunk` in favor of middlewares.
+Centralizing all of our API calls in one
+middleware proved to be a good decision. 
+The only thing I changed was that in Nir's examples,
+the actions triggered by an API call are 
+constructed from a constant that holds 
+the name of the action instead of building it from
+an action creator function. 
 
-<!--![A screenshot of the project][screenshot 1]-->
+To be able to parameterize the responses
+generated from our API calls, I
+modified his middleware design to accept 
+action creators. In the process, I decided
+to add yet another layer of abstraction to
+some action creators and ended up with 
+something you might call an action creator
+creator in React parlance:
 
-I also continued to work with [Nir Kaufman's design patterns
-][nir], ditching `react-thunk` in favor of middlewares.
+```javascript
+export const fetchPublicationsSuccess = filter => data => ({
+	type: FETCH_PUBLICATIONS_SUCCESS,
+	filter,
+	payload: normalize(data, publicationsSchema)
+});
+```
 
-## Backend 
-
-I am growing more and more fond of Go and decided to use it
-for this project. I didn't use any framework, only the
-following packages:
-
-* Migrate to manage migrations.
-* Go-Mock to mock interfaces.
-* Gorilla router.
+In this way, middlewares were able to 
+parameterize the actions triggered by
+API responses. 
 
 ## Deployment
 
 Local development was done via `docker-compose`
-while, deployment was handled by Heroku. 
+while, deployment was handled by Heroku. I 
+followed the [12 Factor app][12factor]
+recomendations and had two similar environments
+in a Heroku Pipeline.
+
+[apiary]: https://www.apiary.io/
+[nir]: https://www.youtube.com/watch?v=JUuic7mEs-s
+[12factor]: https://12factor.net/

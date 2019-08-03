@@ -42,6 +42,9 @@
 
 
 		<div class="container-fluid project__container">
+			<div class="mobile-only project__cover"
+				style="background-image:url(/qualivita-jumbotron.png);">
+			</div>
 			<div class="project__section">
 				<div class="project__column p1">
 					<div class="project__breadcrumbs">
@@ -58,7 +61,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="project__column project__jumbotron"
+				<div class="project__column project__jumbotron desktop-only"
 		 			style="background-image:url(/qualivita-jumbotron.png);">
 				</div>
 			</div>
@@ -70,7 +73,7 @@
 			
 
 <p>The solution proposed was a single-page application
-that allowed you to create questionnaires that
+that allowed the user to create questionnaires that
 generated instant visualizations and dashboards.</p>
 
 <h2 id="frontend">FrontEnd</h2>
@@ -80,13 +83,11 @@ advantage of composability and to get rid of the
 problems that were caused by a lack of type-safety
 in previous projects.</p>
 
-<p>I opted for Semantic-UI instead of Bootstrap to
-get a more polished look.</p>
-
 <!--![A screenshot of the project][screenshot 1]-->
 
 <p>I also continued to work with <a href="https://www.youtube.com/watch?v=JUuic7mEs-s">Nir Kaufman&rsquo;s design patterns
-</a>, ditching <code>react-thunk</code> in favor of middlewares.</p>
+</a> to organize asynchronous code as message passing,
+ditching <code>react-thunk</code> in favor of middlewares.</p>
 
 <h2 id="backend">Backend</h2>
 
@@ -95,10 +96,16 @@ for this project. I didn&rsquo;t use any framework, only the
 following packages:</p>
 
 <ul>
-<li>Migrate to manage migrations.</li>
-<li>Go-Mock to mock interfaces.</li>
-<li>Gorilla router.</li>
+<li><a href="https://github.com/golang-migrate/migrate/">Migrate</a> to manage migrations.</li>
+<li><a href="https://github.com/golang/mock">GoMock</a> to mock structs directly from interfaces.</li>
+<li><a href="https://github.com/gorilla/mux">Gorilla mux</a> as an HTTP router.
+<br /></li>
 </ul>
+
+<p>The use of migrate was great when deploying,
+but writing test data was a bit complicated.
+I should probably try <a href="https://github.com/go-testfixtures/testfixtures">Go Test Fixtures</a>
+next time.</p>
 
 <h2 id="deployment">Deployment</h2>
 
@@ -108,8 +115,14 @@ together proved to be quite a hassle, but fortunately you can script
 almost anything so next time I start a project of similar
 characteristics, I&rsquo;ll only have to call my current setup script.</p>
 
-<p>This is a small example to show you how all of this works:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws iam create-user --user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> --profile iam
+<p>This is a small example to show you how you can achieve almost
+anything using the command line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># creates a new user to</span> 
+<span style="color:#75715e"># perform all the database-related</span>
+<span style="color:#75715e"># operations.</span>
+aws iam create-user <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--profile iam
 
 aws iam attach-user-policy <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess <span style="color:#ae81ff">\
@@ -138,13 +151,11 @@ aws rds create-db-instance <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--master-user-password <span style="color:#e6db74">${</span>DB_PASSWORD<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--db-security-groups 
 --profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span></code></pre></div>
-<p>Here, I am creating an IAM user to access the
-database.</p>
-
-<p>I used the following AWS services:</p>
+<p>This portion of code assings AWS policies
+to a user to create a new RDS instance.
+Along with RDS, I used the following AWS services:</p>
 
 <ul>
-<li>RDS</li>
 <li>IAM</li>
 <li>VPC</li>
 <li>ECR</li>
@@ -158,7 +169,7 @@ database.</p>
 in the background (I also tought about using RabbitMQ, but since SQS
 was already in AWS&rsquo; ecosystem&hellip;). This mainly had
 to do with PDF processing. I could have triggered a
-goroutine but, preferred to use a separate worker.</p>
+goroutine but I preferred to use a separate worker.</p>
 
 		</div>
 	</body>

@@ -17,7 +17,7 @@
       
       <guid>https://federico-arias.github.io/posts/goodtests/</guid>
       <description>One of the hardest parts of testing Redux components is having to mock the store. It seems that every project has its own idiosincratic way of simulating it, leaving you with the task of understanding how they decided to implement it. Usually, this means navigating through multiple util packages to grok how everything was pierced together.
-Maybe that&amp;rsquo;s why this talk made so much sense to me. It basically claims that you should be able to understand tests without having to read more code than what it is strictly necesary, even if this means duplicating your code.</description>
+Maybe that&amp;rsquo;s why this talk made so much sense to me. It basically claims that you should be able to understand tests without having to read more code than what it is within the confines of one function, even if this means duplicating your code.</description>
     </item>
     
     <item>

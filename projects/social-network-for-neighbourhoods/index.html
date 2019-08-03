@@ -42,6 +42,9 @@
 
 
 		<div class="container-fluid project__container">
+			<div class="mobile-only project__cover"
+				style="background-image:url(/vecinbarrio-jumbotron.png);">
+			</div>
 			<div class="project__section">
 				<div class="project__column p1">
 					<div class="project__breadcrumbs">
@@ -54,11 +57,11 @@
 							A social network for neighbourhoods
 						</h2>
 						<p>
-							Used React, Redux, Go and Postgres in Heroku to build
+							A social network that allowed buildings residents to communicate with each other and form communities.
 						</p>
 					</div>
 				</div>
-				<div class="project__column project__jumbotron"
+				<div class="project__column project__jumbotron desktop-only"
 		 			style="background-image:url(/vecinbarrio-jumbotron.png);">
 				</div>
 			</div>
@@ -69,39 +72,56 @@
 		<div class="container single-post">
 			
 
-<p>A single page application that uses.</p>
+<p>The solution proposed was a single-page
+application that relied on a Postgres
+database for persistence.</p>
 
 <h2 id="frontend">FrontEnd</h2>
 
-<p>The React, Redux, Typescript combo was used to take
-advantage of composability and to get rid of the
-problems that were caused by a lack of type-safety
-in previous projects.</p>
+<p>One of the challenges of the project was
+coordinating the work between two front-end
+developers while I developed the backend and
+part of the front-end. To this purpose, we
+used <a href="https://www.apiary.io/">Apiary</a> to simulate a REST API
+interaction. Then, we just swapped Apiary&rsquo;s
+URI with our backend.</p>
 
-<p>I opted for Semantic-UI instead of Bootstrap to
-get a more polished look.</p>
+<p>I discovered <a href="https://www.youtube.com/watch?v=JUuic7mEs-s">Nir Kaufman&rsquo;s design patterns</a>,
+and decided to try them out,
+ditching <code>redux-thunk</code> in favor of middlewares.
+Centralizing all of our API calls in one
+middleware proved to be a good decision.
+The only thing I changed was that in Nir&rsquo;s examples,
+the actions triggered by an API call are
+constructed from a constant that holds
+the name of the action instead of building it from
+an action creator function.</p>
 
-<!--![A screenshot of the project][screenshot 1]-->
-
-<p>I also continued to work with [Nir Kaufman&rsquo;s design patterns
-][nir], ditching <code>react-thunk</code> in favor of middlewares.</p>
-
-<h2 id="backend">Backend</h2>
-
-<p>I am growing more and more fond of Go and decided to use it
-for this project. I didn&rsquo;t use any framework, only the
-following packages:</p>
-
-<ul>
-<li>Migrate to manage migrations.</li>
-<li>Go-Mock to mock interfaces.</li>
-<li>Gorilla router.</li>
-</ul>
+<p>To be able to parameterize the responses
+generated from our API calls, I
+modified his middleware design to accept
+action creators. In the process, I decided
+to add yet another layer of abstraction to
+some action creators and ended up with
+something you might call an action creator
+creator in React parlance:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchPublicationsSuccess</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">filter</span> =&gt; <span style="color:#a6e22e">data</span> =&gt; ({
+	<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PUBLICATIONS_SUCCESS</span>,
+	<span style="color:#a6e22e">filter</span>,
+	<span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">normalize</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">publicationsSchema</span>)
+});
+</code></pre></div>
+<p>In this way, middlewares were able to
+parameterize the actions triggered by
+API responses.</p>
 
 <h2 id="deployment">Deployment</h2>
 
 <p>Local development was done via <code>docker-compose</code>
-while, deployment was handled by Heroku.</p>
+while, deployment was handled by Heroku. I
+followed the <a href="https://12factor.net/">12 Factor app</a>
+recomendations and had two similar environments
+in a Heroku Pipeline.</p>
 
 		</div>
 	</body>

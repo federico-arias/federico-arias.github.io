@@ -36,7 +36,10 @@ following packages:
 * [GoMock][gomock] to mock structs directly from interfaces.
 * [Gorilla mux][gomux] as an HTTP router.
 	
-The use of migrate was great, but writing tests
+The use of migrate was great when deploying,
+but writing test data was a bit complicated. 
+I should probably try [Go Test Fixtures][gofixtures] 
+next time.
 
 ## Deployment
 
@@ -109,3 +112,4 @@ goroutine but I preferred to use a separate worker.
 [screenshot 1]: /qualivita-screenshot-1.jpg
 [nir]: https://www.youtube.com/watch?v=JUuic7mEs-s
 [gomux]: https://github.com/gorilla/mux
+[gofixtures]: https://github.com/go-testfixtures/testfixtures
