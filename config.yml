@@ -27,5 +27,5 @@ paginate: 6
 metaDataFormat: "yaml"
 publishDir: "./"
 params:
-    subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and information visualization.
+    subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and IoT.
     greeting: Hi, there!

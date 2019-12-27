@@ -63,10 +63,11 @@ You can find it [here in my GitHub][github] along with other projects.
 
 ## Social media
 
-If I stumble upon any interesting article, it'll probably end up on my [Twitter feed][1].  
-Some of my knowledge of the above [StackOverflow][so].
+If I stumble upon any interesting article, it'll probably 
+end up on my [Twitter feed][1].  My learning path of all of the 
+above is somehow documented in [StackOverflow][so].
 
-I also head a small foundation to foster **sustainable building practices** 
+I head a small foundation to foster **sustainable building practices** 
 with the aim of strengthening community development, so you might find posts 
 about both of these topics intertwined in my social media.
 
