@@ -99,8 +99,7 @@ I discovered Nir Kaufman&amp;rsquo;s design patterns, and decided to try them ou
       
       <guid>https://federico-arias.github.io/about/</guid>
       <description>I am Federico Arias, a freelance full-stack developer based on Latin America. I have experience working with the following tools:
- Front: Javascript (d3.js, React, Node), SCSS. Back: Scala, Python, Postgres, SQL Server, Golang, Linux. Tools: Git, Docker, Vim, R, Latex, XSLT.  I am also an experienced Technical Writer with a demonstrated history of working in the e-learning industry.
-For the last 2 years, I have been working with companies specialized in the fields of Business Intelligence and Big Data Analytics, helping them gather, systematize and transfer knowledge through a wide variety of delivery mediums including video and online manuals.</description>
+ Front: Javascript (d3.js, React, Jest, Node), SCSS. Back: Golang, Scala, Python, Postgres, SQL Server, Linux, Redis. Tools: Git, Docker, Vim, R, Latex, XSLT, CircleCI.  Current Stack I have experimented with a lot of tools, frameworks and programming paradigms, from PHP to Scala, from MySQL to Neo4j. This is my preferred stack after all that experimentation:</description>
     </item>
     
     <item>
