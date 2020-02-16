@@ -66,11 +66,13 @@
 Unfortunately, to test if they are functioning as expected, we
 often are forced to run our app in a browser and visually inspect
 their results.</p>
+
 <p>To avoid running our entire app each time we want to test a template,
 we can follow the example of Javascript libraries like <a href="https://airbnb.io/enzyme/">Enzyme</a>,
 which test React.js components by traversing the DOM and verifying
 the presence of certain nodes. We can mimic this behavior usign
 Go&rsquo;s <a href="https://godoc.org/golang.org/x/net/html">html package</a>.</p>
+
 <p>A simple <code>Find()</code> function like the one below (based in Douglas
 Crockford <a href="https://www.javascriptcookbook.com/article/traversing-dom-subtrees-with-a-recursive-walk-the-dom-function/">function to traverse the dom</a>) could provide
 a way to find the elements we expect in our templates based in the
@@ -78,7 +80,7 @@ data we have passed to them.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">filter</span> <span style="color:#66d9ef">func</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">Node</span>) <span style="color:#66d9ef">bool</span>
 
 <span style="color:#75715e">//returns a node based on criteria set by 
-</span><span style="color:#75715e"></span><span style="color:#75715e">//the filter function
+</span><span style="color:#75715e">//the filter function
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Find</span>(<span style="color:#a6e22e">node</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">Node</span>, <span style="color:#a6e22e">fn</span> <span style="color:#a6e22e">filter</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">Node</span>, <span style="color:#66d9ef">bool</span>) {
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Type</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">ElementNode</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">node</span>) {
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>, <span style="color:#66d9ef">true</span>
@@ -89,8 +91,8 @@ data we have passed to them.</p>
 		}
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>, <span style="color:#66d9ef">false</span>
-}
-</code></pre></div><p>The following is an example of a filter function that retrieves
+}</code></pre></div>
+<p>The following is an example of a filter function that retrieves
 DOM elements based on the name and value of a node attribute.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ByAttr</span>(<span style="color:#a6e22e">attrName</span>, <span style="color:#a6e22e">attrValue</span> <span style="color:#66d9ef">string</span>) <span style="color:#a6e22e">filter</span> {
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">node</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">Node</span>) <span style="color:#66d9ef">bool</span> {
@@ -101,8 +103,8 @@ DOM elements based on the name and value of a node attribute.</p>
 		}
 		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 	}
-}
-</code></pre></div><p>Then, in our unit tests, we could simply parse the response and
+}</code></pre></div>
+<p>Then, in our unit tests, we could simply parse the response and
 look for the relevant nodes.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">	<span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">root</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Body</span>)
@@ -114,12 +116,11 @@ look for the relevant nodes.</p>
 		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
 		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Logf</span>(<span style="color:#e6db74">&#34;The element found is &lt;%s&gt;, expected &lt;input&gt;&#34;</span>, <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Data</span>)
 	}
-	<span style="color:#75715e">//...
-</span></code></pre></div>
+	<span style="color:#f92672">//...</span></code></pre></div>
 		</div>
 		<div class="container disqus">
 			<div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

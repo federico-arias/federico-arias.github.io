@@ -67,9 +67,11 @@ my head around was the use of <code>WITH RECURSION</code>, particularly due
 to the fact that this type of recursion doesn&rsquo;t resemble any of
 the examples of this concept that I had previously encountered.
 Even <a href="https://www.postgresql.org/docs/9.1/static/queries-with.html#QUERIES-WITH-SELECT">Postgres&rsquo; documentation</a> aknowledges this:</p>
+
 <blockquote>
 <p>Strictly speaking, this process is iteration not recursion, but RECURSIVE is the terminology chosen by the SQL standards committee.</p>
 </blockquote>
+
 <p>Let&rsquo;s look at an example to see what we are talking about.
 The following code takes the table <code>people</code> and lists all the
 descendants of &lsquo;Frank Sinatra&rsquo; using the <code>father</code> field.
@@ -79,15 +81,16 @@ where there are no more results.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">RECURSIVE</span> descendants_of(name, father) <span style="color:#66d9ef">AS</span> (
 		<span style="color:#66d9ef">SELECT</span> name, father
 		<span style="color:#66d9ef">FROM</span> people
-		<span style="color:#66d9ef">WHERE</span> father <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Frank Sinatra</span><span style="color:#e6db74">&#39;</span>
+		<span style="color:#66d9ef">WHERE</span> father <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Frank Sinatra&#39;</span>
 	<span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">ALL</span>
 		<span style="color:#66d9ef">SELECT</span> list.name, list.father
 		<span style="color:#66d9ef">FROM</span> descendants_of <span style="color:#66d9ef">AS</span> working_table,
 			people <span style="color:#66d9ef">AS</span> list
 		<span style="color:#66d9ef">WHERE</span> list.father <span style="color:#f92672">=</span> working_table.name
 	)
-	<span style="color:#66d9ef">SELECT</span> name, father <span style="color:#66d9ef">FROM</span> descendants_of;
-</code></pre></div><p>PostgreSQL does this by creating a temporary working table (<code>descendants_of</code>), populating it with the results of the first select and then using it to filter the results against the <code>people</code> table.</p>
+	<span style="color:#66d9ef">SELECT</span> name, father <span style="color:#66d9ef">FROM</span> descendants_of;</code></pre></div>
+<p>PostgreSQL does this by creating a temporary working table (<code>descendants_of</code>), populating it with the results of the first select and then using it to filter the results against the <code>people</code> table.</p>
+
 <p>This might not seem like the traditional recursive function that we all know, but in a closer look, we can find some parallels with a recursive <a href="https://en.wikipedia.org/wiki/Tail_call">tail call</a>. Let&rsquo;s transform this code to Javascript to examine some similarities:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// SELECT name, father FROM people WHERE father = &#39;Frank Sinatra&#39;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">with</span>(
@@ -104,25 +107,30 @@ where there are no more results.</p>
 	<span style="color:#75715e">// recursive call to traverse the list
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">with</span>(<span style="color:#a6e22e">list</span>, <span style="color:#a6e22e">accumulator</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">children</span>), <span style="color:#a6e22e">children</span>);
 }
-</code></pre></div><p>Here, Javascript&rsquo;s <code>filter()</code> is akin to SQL&rsquo;s <code>WHERE</code>
+</code></pre></div>
+<p>Here, Javascript&rsquo;s <code>filter()</code> is akin to SQL&rsquo;s <code>WHERE</code>
 while <code>concat()</code> acts as a replacement of <code>UNION ALL</code>.
 The above function performs a recursive call and passes
 itself the complete &lsquo;table&rsquo; of family relationships as
 first argument and, as second argument, the rows of the
 table (or the objects in the array) which meet the
 condition <code>row.father == workingTable.name</code>.</p>
+
 <p>Both pieces of code make use of the same conceptual
 understanding of recursion, comprised of <strong>(i)</strong> a data
 structure akin to a linked list and <strong>(ii)</strong> an accumulator,
 which stores the results in succesive iterations.</p>
+
 <p>If we look at the manual, we read that this expression uses two
 tables:</p>
+
 <blockquote>
 <p>For UNION (but not UNION ALL), discard duplicate rows and
 rows that duplicate any previous result row. Include all
 remaining rows in the result of the recursive query, and also place
 them in a temporary intermediate table.</p>
 </blockquote>
+
 <p>In the above code, the <code>children</code> variable acts as an intermediate
 table in which the result of the query over the working table
 is stored. In the next iteration, the intermediate table, as its
@@ -131,7 +139,7 @@ names indicates, becomes the working table.</p>
 		</div>
 		<div class="container disqus">
 			<div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

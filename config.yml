@@ -1,5 +1,5 @@
 # Site settings
-title: "{ federico-arias }" 
+title: "{ federico-arias }"
 baseUrl: "https://federico-arias.github.io"
 disqusShortname: federico-arias-disqus
 googleAnalytics: UA-127821516-1
@@ -21,7 +21,7 @@ menu:
   - name: home
     post: <span class='alert'>New!</span>
     pre: <i class='fa fa-road'></i>
-    url: 
+    url:
     weight: -200
 paginate: 6
 metaDataFormat: "yaml"
@@ -29,3 +29,6 @@ publishDir: "./"
 params:
     subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and IoT.
     greeting: Hi, there!
+disableKinds:
+    - taxonomy
+    - taxonomyTerm

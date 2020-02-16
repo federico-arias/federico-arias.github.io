@@ -66,7 +66,7 @@
 without knowing the postgres password.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>db_name<span style="color:#f92672">=</span>$1
-db_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>db_name<span style="color:#e6db74">}</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#34;</span>
+db_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>db_name<span style="color:#e6db74">}</span><span style="color:#e6db74">user&#34;</span>
 
 cat <span style="color:#e6db74">&lt;&lt; EOF &gt; /tmp/createdb
 </span><span style="color:#e6db74">create database ${db_name};
@@ -76,14 +76,14 @@ cat <span style="color:#e6db74">&lt;&lt; EOF &gt; /tmp/createdb
 </span><span style="color:#e6db74">show hba_file;
 </span><span style="color:#e6db74">EOF</span>
 
-sudo -u postgres psql postgres -f /tmp/createdb
-</code></pre></div><p>I usually use a Docker image for this, but on some occasions
+sudo -u postgres psql postgres -f /tmp/createdb</code></pre></div>
+<p>I usually use a Docker image for this, but on some occasions
 this might come in handy.</p>
 
 		</div>
 		<div class="container disqus">
 			<div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

@@ -70,10 +70,14 @@
 			</div>
 		</div>
 		<div class="container single-post">
-			<p>The solution proposed was a single-page
+			
+
+<p>The solution proposed was a single-page
 application that relied on a Postgres
 database for persistence.</p>
+
 <h2 id="frontend">FrontEnd</h2>
+
 <p>One of the challenges of the project was
 coordinating the work between two front-end
 developers while I developed the backend and
@@ -81,6 +85,7 @@ part of the front-end. To this purpose, we
 used <a href="https://www.apiary.io/">Apiary</a> to simulate a REST API
 interaction. Then, we just swapped Apiary&rsquo;s
 URI with our backend.</p>
+
 <p>I discovered <a href="https://www.youtube.com/watch?v=JUuic7mEs-s">Nir Kaufman&rsquo;s design patterns</a>,
 and decided to try them out,
 ditching <code>redux-thunk</code> in favor of middlewares.
@@ -91,6 +96,7 @@ the actions triggered by an API call are
 constructed from a constant that holds
 the name of the action instead of building it from
 an action creator function.</p>
+
 <p>To be able to parameterize the responses
 generated from our API calls, I
 modified his middleware design to accept
@@ -104,10 +110,13 @@ creator in React parlance:</p>
 	<span style="color:#a6e22e">filter</span>,
 	<span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">normalize</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">publicationsSchema</span>)
 });
-</code></pre></div><p>In this way, middlewares were able to
+</code></pre></div>
+<p>In this way, middlewares were able to
 parameterize the actions triggered by
 API responses.</p>
+
 <h2 id="deployment">Deployment</h2>
+
 <p>Local development was done via <code>docker-compose</code>
 while, deployment was handled by Heroku. I
 followed the <a href="https://12factor.net/">12 Factor app</a>
