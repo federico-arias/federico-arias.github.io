@@ -62,24 +62,20 @@
 				</div>
 				
 			</div>
-			
-
-<p>Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be <a href="https://en.wikipedia.org/wiki/APA_style">APA</a>, <a href="https://en.wikipedia.org/wiki/MLA_Style_Manual">MLA</a>, The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.</p>
-
+			<p>Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be <a href="https://en.wikipedia.org/wiki/APA_style">APA</a>, <a href="https://en.wikipedia.org/wiki/MLA_Style_Manual">MLA</a>, The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.</p>
 <p>Wouldn&rsquo;t it be nice if we could forget about formatting and just focus on the content? This is precisely the main objective of this post: to <strong>show you how to comply with formatting guidelines using only Markdown</strong>, without troubling with the hassle that comes with word processors.</p>
-
 <p>We are going to accomplish this in two steps:</p>
-
 <ol>
-<li><p>First, we are going to use <a href="https://en.wikipedia.org/wiki/LaTeX">Latex</a> to <strong>create a template for one specific style guide</strong> (We&rsquo;ll use APA for the purposes of this example). In this template file we&rsquo;ll abstract all the configuration options so we can focus on the content in a separate Markdown document.</p></li>
-
-<li><p>Second, we are going to <strong>take our document in Markdown and transform it</strong> using <a href="https://en.wikipedia.org/wiki/Pandoc">pandoc</a>. This document is going to be free from any formatting options. By performing this separation, we can take it and convert it to a document in another style guide, to a blog post, or even to a slideshow presentation.</p></li>
+<li>
+<p>First, we are going to use <a href="https://en.wikipedia.org/wiki/LaTeX">Latex</a> to <strong>create a template for one specific style guide</strong> (We&rsquo;ll use APA for the purposes of this example). In this template file we&rsquo;ll abstract all the configuration options so we can focus on the content in a separate Markdown document.</p>
+</li>
+<li>
+<p>Second, we are going to <strong>take our document in Markdown and transform it</strong> using <a href="https://en.wikipedia.org/wiki/Pandoc">pandoc</a>. This document is going to be free from any formatting options. By performing this separation, we can take it and convert it to a document in another style guide, to a blog post, or even to a slideshow presentation.</p>
+</li>
 </ol>
-
 <p>This is one of the main advantages of <a href="https://en.wikipedia.org/wiki/Separation_of_content_and_presentation">separating content from formatting</a>: you get the flexibility of applying multiple formats to the same content (this very blog post was written using markdown and then converted to HTML by <a href="https://gohugo.io/">Hugo, a static site generator</a>).</p>
-
 <p>Let&rsquo;s get to it then. We&rsquo;ll be using the following paper as an example.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-highlight markdown" data-lang="highlight markdown">---
+<pre><code class="language-highlight" data-lang="highlight">---
 author: John Doe
 title: A hipster stravaganza
 shorttitle: A hipster stravaganza
@@ -96,13 +92,12 @@ in online discussion forums, and to create rich text using a plain text editor.
 
 # A very interesting section
 
-John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &#34;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&#34;.</code></pre></div>
-<p>If we wanted to style this paper according to APA formatting guidelines, we&rsquo;ll expect to end up with something like this:</p>
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &quot;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&quot;.
 
+</code></pre><p>If we wanted to style this paper according to APA formatting guidelines, we&rsquo;ll expect to end up with something like this:</p>
 <figure>
     <img src="/apa-paper.jpg"/> 
 </figure>
-
 
 <p>To do this using LaTex, we&rsquo;ll have to write such amount of boilerplate code that it would make word processors look as the user-friendliest of alternatives:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[a4paper,man]</span>{apa6}
@@ -128,8 +123,8 @@ Markdown is a lightweight markup language with plain text formatting syntax. It 
 
 John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &#34;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&#34;.
 
-<span style="color:#66d9ef">\end</span>{document}</code></pre></div>
-<p>Instead of writing all this boilerplate code every time for every article, we are going to transform this into a pandoc LaTex template. In this template, we&rsquo;ll replace the contents with pandoc variables enclosed by dollar signs (<code>$</code>).</p>
+<span style="color:#66d9ef">\end</span>{document}
+</code></pre></div><p>Instead of writing all this boilerplate code every time for every article, we are going to transform this into a pandoc LaTex template. In this template, we&rsquo;ll replace the contents with pandoc variables enclosed by dollar signs (<code>$</code>).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[a4paper,man,biblatex,12pt]</span>{apa6}
 <span style="color:#66d9ef">\usepackage</span>{longtable} 
 <span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[spanish]</span>{babel}
@@ -145,18 +140,17 @@ John Gruber created the Markdown language in 2004 in collaboration with Aaron Sw
 <span style="color:#66d9ef">\maketitle</span>
 <span style="color:#e6db74">$</span>body<span style="color:#e6db74">$</span>
 <span style="color:#66d9ef">\printbibliography</span>
-<span style="color:#66d9ef">\end</span>{document}</code></pre></div>
-<p>Once we call pandoc, it&rsquo;ll replace these variables with the ones found in our <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>‑formatted front matter in our Markdown document. An exception to this is the special variable <code>$body$</code>, which is going to be replaced by our whole Markdown document transformed into LaTex.</p>
-
+<span style="color:#66d9ef">\end</span>{document}
+</code></pre></div><p>Once we call pandoc, it&rsquo;ll replace these variables with the ones found in our <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>‑formatted front matter in our Markdown document. An exception to this is the special variable <code>$body$</code>, which is going to be replaced by our whole Markdown document transformed into LaTex.</p>
 <p>To do this, we call pandoc with the following arguments:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pandoc --standalone --smart <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--template apa.tex <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--from  markdown+raw_tex myfile.md <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--to latex <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--output output.tex </code></pre></div>
-<p>Afterwards, we call <code>pdflatex</code> to transform the generated LaTex file into a PDF document.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdflatex output.tex</code></pre></div>
-<p>We can transform this into a bash script to abbreviate the process:</p>
+</span><span style="color:#ae81ff"></span>	--output output.tex 
+</code></pre></div><p>Afterwards, we call <code>pdflatex</code> to transform the generated LaTex file into a PDF document.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdflatex output.tex
+</code></pre></div><p>We can transform this into a bash script to abbreviate the process:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>TEMPLATE_FILE<span style="color:#f92672">=</span>$1
 MARKDOWN_FILE<span style="color:#f92672">=</span>$2
@@ -171,13 +165,11 @@ pdflatex output.tex
 <span style="color:#75715e"># renames file</span>
 mv output.pdf <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
 <span style="color:#75715e"># cleans up auxiliary files</span>
-rm output* </code></pre></div>
-<p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of our paper.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./md2latex apa-template.tex mypaper.md </code></pre></div>
-<p>Here, <code>apa-template.tex</code> corresponds to a LaTex template and <code>mypaper.md</code> to our markdown file.</p>
-
+rm output* 
+</code></pre></div><p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of our paper.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./md2latex apa-template.tex mypaper.md 
+</code></pre></div><p>Here, <code>apa-template.tex</code> corresponds to a LaTex template and <code>mypaper.md</code> to our markdown file.</p>
 <h2 id="next-steps">Next Steps</h2>
-
 <p>Stay tuned for part two of this post, in which we are going to look at some alternatives to include citations and bibliographies using a minimal amount of LaTex.</p>
 
 		</div>

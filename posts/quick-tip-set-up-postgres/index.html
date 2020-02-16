@@ -10,7 +10,7 @@
 			
 				{ federico-arias } 
 				 
-					| A quick tip to format PDFs documents for e‑readers using the Linux command line
+					| Quick tip: setting up PostgreSQL on Linux
 				
 			
 		</title> 
@@ -43,7 +43,7 @@
 
 		<div class="container single-post">
 			<h1>
-				A quick tip to format PDFs documents for e‑readers using the Linux command line
+				Quick tip: setting up PostgreSQL on Linux
 			</h1>
 			<div class="meta">
 				<div class="meta__author">
@@ -57,20 +57,29 @@
 							</a>
 					</div>
 					<div class="meta__date">
-						October 10, 2018
+						January 14, 2020
 					</div>
 				</div>
 				
 			</div>
-			<p>Most e-book readers fail to display PDF documents in a legible font size, due to their inability to dynamically insert line breaks according to available width. Instead, you are forced to zoom-in and focus on only one portion of the document.</p>
-<p>A way to solve this problem would be cutting the margins using <code>pdfcrop</code>. For example, if we wanted to remove 88 pts from both left and right margins we&rsquo;ll do:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdfcrop --margins <span style="color:#e6db74">&#34;-88 0 -88 0&#34;</span> book.pdf
-</code></pre></div><p>The problem with this approach is that it&rsquo;ll make old e-book readers to display a pair of black stripes where margins used to be. A better approach is using <code>pdfjam</code> to scale your PDF by a fixed factor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdfjam --scale 1.46 book.pdf
-</code></pre></div><p>In this way, you retain the original width of the document and avoid the black stripes.</p>
-<p>To arrive at the amount by which you&rsquo;ll have to scale this document you might have to try a couple of different factors and adjust accordingly. For this, it might be better to work with a single page instead of the whole document. To extract one page, you can use <code>pdftk</code> in the following fashion:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pdftk book.pdf cat <span style="color:#ae81ff">33</span> output page.pdf
-</code></pre></div>
+			<p>Here is a quick bash script to remind me how to set-up a Postgres DB locally
+without knowing the postgres password.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>db_name<span style="color:#f92672">=</span>$1
+db_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>db_name<span style="color:#e6db74">}</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#34;</span>
+
+cat <span style="color:#e6db74">&lt;&lt; EOF &gt; /tmp/createdb
+</span><span style="color:#e6db74">create database ${db_name};
+</span><span style="color:#e6db74">create user ${db_user};
+</span><span style="color:#e6db74">alter user ${db_user} with password &#39;pwd&#39;;
+</span><span style="color:#e6db74">grant all privileges on database ${db_name} to ${db_user};
+</span><span style="color:#e6db74">show hba_file;
+</span><span style="color:#e6db74">EOF</span>
+
+sudo -u postgres psql postgres -f /tmp/createdb
+</code></pre></div><p>I usually use a Docker image for this, but on some occasions
+this might come in handy.</p>
+
 		</div>
 		<div class="container disqus">
 			<div id="disqus_thread"></div>

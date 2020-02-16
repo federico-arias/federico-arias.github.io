@@ -1,11 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://federico-arias.github.io/</loc>
-    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/postgres/</loc>
+    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/posts/</loc>
+    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</loc>
+    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/</loc>
+    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -14,21 +34,8 @@
   </url>
   
   <url>
-    <loc>https://federico-arias.github.io/posts/</loc>
-    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://federico-arias.github.io/tags/</loc>
-    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://federico-arias.github.io/tags/testing/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -69,12 +76,19 @@
   </url>
   
   <url>
+    <loc>https://federico-arias.github.io/tags/aws/</loc>
+  </url>
+  
+  <url>
     <loc>https://federico-arias.github.io/archive/</loc>
   </url>
   
   <url>
     <loc>https://federico-arias.github.io/categories/</loc>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://federico-arias.github.io/tags/go/</loc>
   </url>
   
   <url>
@@ -83,32 +97,14 @@
   
   <url>
     <loc>https://federico-arias.github.io/projects/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://federico-arias.github.io/tags/aws/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://federico-arias.github.io/tags/go/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://federico-arias.github.io/tags/postgres/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://federico-arias.github.io/tags/react/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://federico-arias.github.io/tags/redux/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

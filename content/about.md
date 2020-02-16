@@ -7,9 +7,10 @@ layout = "page"
 I am Federico Arias, a freelance **full-stack developer** based 
 on Latin America. I have experience working with the following tools:
 
-* **Front**: Javascript (d3.js, React, Jest, Node), SCSS. 
+* **Front**: ES6 (D3.js, React, Jest, Node), SCSS. 
 * **Back**: Golang, Scala, Python, Postgres, SQL Server, Linux, Redis.
-* **Tools**: Git, Docker, Vim, R, Latex, XSLT, CircleCI.
+* **DevOps**: Docker, AWS, Google Cloud, CircleCI, Fluentd, Grafana.
+* **Tools**: Git, Vim, R, LaTex, XSLT.
 
 ### Current Stack
 
@@ -19,7 +20,7 @@ all that experimentation:
 
 * **Postgres**: Writing SQL is just fun. I was never convinced by the
 hype of document databases and the fact that the industry is coming
-back to SQL just reinforces my allegiance to the language. 
+back to SQL reinforces my allegiance to the language. 
 * **Redis**: I use it mainly to store transient data (verification tokens, 
 session information, etc.), but I am hoping to use it in the future as a 
 cache for complex Postgres queries.
@@ -34,7 +35,7 @@ a testing framework and Typescript, you can bypass a good part of
 Javascript shortcomings. 
 
 I have adopted a TDD approach after years of avoiding it. Sometimes 
-writing tests might be boring, but it is certainly better than 
+writing tests might be boring, but it's certainly better than 
 having to refresh the browser over and over, or having to wait
 for your whole app to load to test every small detail. This has also
 allowed me to implement a CI/CD pipeline.  Back in the day, 
@@ -42,7 +43,7 @@ you could FTP into an Apache server and upload your LAMP app in a couple of step
 Nowadays, having to coordinate S3, EC2, ECS, ERS, RDS, ElastiCache and a myriad of other
 services make the manual approach seem less feasible. 
 
-I am currently building Docker images for all of my apps and deploying them
+I am building Docker images for all my apps and deploying them
 to Heroku or AWS using an automated CircleCI configuration. I have a bash script
 that sets up an IAM role, creates a VPC, a S3 bucket, an ElasticBeanstalk 
 environment, a RDS database and takes care of a bunch of other tasks, but I am

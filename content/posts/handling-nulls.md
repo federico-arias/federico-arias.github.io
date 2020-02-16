@@ -49,7 +49,7 @@ server, we might find this representation of our Person entity:
 ```
 
 To avoid reading the age field as 0, we have to create a custom
-unmarshaler (an idea I took from [here](http://)).
+unmarshaler (an idea I stole from [here](https://www.calhoun.io/how-to-determine-if-a-json-key-has-been-set-to-null-or-not-provided/)).
 
 ```go
 type NullInt64 struct {
@@ -62,7 +62,7 @@ func (i *NullInt64) UnmarshalJSON(data []byte) error {
 	i.Defined = true
 
 	if string(data) == "null" {
-		// The key was set to null
+		// The JSON key was null
 		i.Valid = false
 		return nil
 	}
@@ -86,13 +86,18 @@ this as `NULL` and store it accordingly.
 
 In the same vein, if we wanted to scan a `NULL` value, we
 can't store it in one of Go's primitive types, we have to
-
+create a new type that implements the `Marshal` interface:
 
 ```go
-func (i *NullInt64) MarshalJSON(data interface{}) (response []byte, err error) {
+func (i NullInt64) MarshalJSON(data interface{}) (response []byte, err error) {
 	if i.Valid == true{
 		return json.Marshal(i.Int64)
 	}
 	return []byte("null"), nil
 }
 ```
+
+Notice that, in this case, **we don't use a pointer method
+receiver**. This is because we do not pass a pointer to
+`json.Marshal`, we pass a value, which must implement the
+`json.Marshaler` interface.
