@@ -98,6 +98,14 @@
 			</h1>
 			<div class="articles">
 				 
+					 <h2><a href="https://federico-arias.github.io/posts/go-middleware/">Yet another take on Go middlewares</a></h2>
+					 <time datetime="" class="by-line"> 
+						 2020-01-22:
+					 </time>
+					 <p> I stole this idea from Mat Ryer. It&rsquo;s an implementation of middlewares that relies on an adapter function. This function decorates a group of middlewares when applied to an http.Handler.
+func Adapt(middlewares ...Middleware) Middleware { return func(h http.HandlerFunc) http.HandlerFunc { for _, m := range middlewares { h = m(h) } return h } } Something I did differently, as you might have noticed above, is to name a Middleware type: </p>
+
+				
 					 <h2><a href="https://federico-arias.github.io/posts/quick-tip-set-up-postgres/">Quick tip: setting up PostgreSQL on Linux</a></h2>
 					 <time datetime="" class="by-line"> 
 						 2020-01-14:

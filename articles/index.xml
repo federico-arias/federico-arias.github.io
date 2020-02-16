@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on { federico-arias }</title>
+    <link>https://federico-arias.github.io/articles/</link>
+    <description>Recent content in Articles on { federico-arias }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://federico-arias.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Utopia and capitalism</title>
+      <link>https://federico-arias.github.io/articles/utopia/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/articles/utopia/</guid>
+      <description>Hi</description>
+    </item>
+    
+  </channel>
+</rss>
