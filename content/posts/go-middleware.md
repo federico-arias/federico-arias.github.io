@@ -2,8 +2,7 @@
 title = "Yet another take on Go middlewares"
 description = "How to code your own Go middlewares"
 date = "2020-01-22"
-draft = true
-tags = ""
+tags = "golang"
 +++
 
 I stole this idea from [Mat Ryer]. It's an implementation
@@ -39,7 +38,7 @@ middleware between some of them? you'll have to change every one
 of them. What happens if you abstract the group of middlewares
 in one curried function?
 
-You have to change it only once (c)
+You have to change it only once &copy;.
 
 Also, this has the advantage of letting you change the middlewares
 at runtime with a couple lines of code. An example of this could
@@ -77,4 +76,4 @@ in the definition and in the implementation.
 ```
 
 
-[Mat Ryer]: http://www.reddit.com
+[Mat Ryer]: https://medium.com/@matryer/writing-middleware-in-golang-and-how-go-makes-it-so-much-fun-4375c1246e81
