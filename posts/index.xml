@@ -5,10 +5,20 @@
     <link>https://federico-arias.github.io/posts/</link>
     <description>Recent content in Posts on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quick tip: setting up PostgreSQL on Linux</title>
+      <link>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</guid>
+      <description>Here is a quick bash script to remind me how to set-up a Postgres DB locally without knowing the postgres password.
+#!/bin/bash db_name=$1 db_user=&amp;#34;${db_name}user&amp;#34; cat &amp;lt;&amp;lt; EOF &amp;gt; /tmp/createdb create database ${db_name}; create user ${db_user}; alter user ${db_user} with password &amp;#39;pwd&amp;#39;; grant all privileges on database ${db_name} to ${db_user}; show hba_file; EOF sudo -u postgres psql postgres -f /tmp/createdb I usually use a Docker image for this, but on some occasions this might come in handy.</description>
+    </item>
     
     <item>
       <title>A simpler approach at testing Redux middlewares</title>

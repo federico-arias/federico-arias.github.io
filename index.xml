@@ -5,10 +5,20 @@
     <link>https://federico-arias.github.io/</link>
     <description>Recent content on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://federico-arias.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quick tip: setting up PostgreSQL on Linux</title>
+      <link>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</guid>
+      <description>Here is a quick bash script to remind me how to set-up a Postgres DB locally without knowing the postgres password.
+#!/bin/bash db_name=$1 db_user=&amp;#34;${db_name}user&amp;#34; cat &amp;lt;&amp;lt; EOF &amp;gt; /tmp/createdb create database ${db_name}; create user ${db_user}; alter user ${db_user} with password &amp;#39;pwd&amp;#39;; grant all privileges on database ${db_name} to ${db_user}; show hba_file; EOF sudo -u postgres psql postgres -f /tmp/createdb I usually use a Docker image for this, but on some occasions this might come in handy.</description>
+    </item>
     
     <item>
       <title>A simpler approach at testing Redux middlewares</title>
@@ -99,7 +109,7 @@ I discovered Nir Kaufman&amp;rsquo;s design patterns, and decided to try them ou
       
       <guid>https://federico-arias.github.io/about/</guid>
       <description>I am Federico Arias, a freelance full-stack developer based on Latin America. I have experience working with the following tools:
- Front: Javascript (d3.js, React, Jest, Node), SCSS. Back: Golang, Scala, Python, Postgres, SQL Server, Linux, Redis. Tools: Git, Docker, Vim, R, Latex, XSLT, CircleCI.  Current Stack I have experimented with a lot of tools, frameworks and programming paradigms, from PHP to Scala, from MySQL to Neo4j. This is my preferred stack after all that experimentation:</description>
+ Front: ES6 (D3.js, React, Jest, Node), SCSS. Back: Golang, Scala, Python, Postgres, SQL Server, Linux, Redis. DevOps: Docker, AWS, Google Cloud, CircleCI, Fluentd, Grafana. Tools: Git, Vim, R, LaTex, XSLT.  Current Stack I have experimented with a lot of tools, frameworks and programming paradigms, from PHP to Scala, from MySQL to Neo4j.</description>
     </item>
     
     <item>

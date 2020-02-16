@@ -99,8 +99,12 @@ in online discussion forums, and to create rich text using a plain text editor.
 John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax, with the goal of enabling people &#34;to write using an easy-to-read and easy-to-write plain text format, optionally convert it to structurally valid XHTML (or HTML)&#34;.</code></pre></div>
 <p>If we wanted to style this paper according to APA formatting guidelines, we&rsquo;ll expect to end up with something like this:</p>
 
+
 <figure>
-    <img src="/apa-paper.jpg"/> 
+    
+        <img src="/apa-paper.jpg" />
+    
+    
 </figure>
 
 
@@ -160,18 +164,18 @@ John Gruber created the Markdown language in 2004 in collaboration with Aaron Sw
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>TEMPLATE_FILE<span style="color:#f92672">=</span>$1
 MARKDOWN_FILE<span style="color:#f92672">=</span>$2
-<span style="color:#75715e"># converts markdown to LaTex</span>
-pandoc --standalone --smart <span style="color:#ae81ff">\
+<span style="color:#75715e"># converts markdown to LaTex
+</span><span style="color:#75715e"></span>pandoc --standalone --smart <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--template $TEMPLATE_FILE <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--from  markdown+raw_tex $MARKDOWN_FILE <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--to latex <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>-o output.tex 
-<span style="color:#75715e"># converts LaTex to PDF</span>
-pdflatex output.tex 
-<span style="color:#75715e"># renames file</span>
-mv output.pdf <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
-<span style="color:#75715e"># cleans up auxiliary files</span>
-rm output* </code></pre></div>
+<span style="color:#75715e"># converts LaTex to PDF
+</span><span style="color:#75715e"></span>pdflatex output.tex 
+<span style="color:#75715e"># renames file
+</span><span style="color:#75715e"></span>mv output.pdf <span style="color:#e6db74">${</span>MARKDOWN_FILE%.*<span style="color:#e6db74">}</span>.pdf
+<span style="color:#75715e"># cleans up auxiliary files
+</span><span style="color:#75715e"></span>rm output* </code></pre></div>
 <p>To use this script, we&rsquo;ll simply have to provide a template and a markdown file with the contents of our paper.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./md2latex apa-template.tex mypaper.md </code></pre></div>
 <p>Here, <code>apa-template.tex</code> corresponds to a LaTex template and <code>mypaper.md</code> to our markdown file.</p>
@@ -183,7 +187,7 @@ rm output* </code></pre></div>
 		</div>
 		<div class="container disqus">
 			<div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     

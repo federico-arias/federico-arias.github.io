@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.56.0-DEV" />
+	<meta name="generator" content="Hugo 0.45.1" />
 		<meta charset="utf-8">
 		<meta name="viewport" 
 		content="width=device-width, user-scalable=no">
@@ -98,6 +98,14 @@
 			</h1>
 			<div class="articles">
 				 
+					 <h2><a href="https://federico-arias.github.io/posts/quick-tip-set-up-postgres/">Quick tip: setting up PostgreSQL on Linux</a></h2>
+					 <time datetime="" class="by-line"> 
+						 2020-01-14:
+					 </time>
+					 <p> Here is a quick bash script to remind me how to set-up a Postgres DB locally without knowing the postgres password.
+#!/bin/bash db_name=$1 db_user=&#34;${db_name}user&#34; cat &lt;&lt; EOF &gt; /tmp/createdb create database ${db_name}; create user ${db_user}; alter user ${db_user} with password &#39;pwd&#39;; grant all privileges on database ${db_name} to ${db_user}; show hba_file; EOF sudo -u postgres psql postgres -f /tmp/createdb I usually use a Docker image for this, but on some occasions this might come in handy. </p>
+
+				
 					 <h2><a href="https://federico-arias.github.io/posts/goodtests/">A simpler approach at testing Redux middlewares</a></h2>
 					 <time datetime="" class="by-line"> 
 						 2019-07-22:
