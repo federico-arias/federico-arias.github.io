@@ -1,3 +1,0 @@
-* Javascript
-* Scala
-* Python
