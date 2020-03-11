@@ -2,7 +2,7 @@
 title = "Handling nulls and undefined in Go"
 description = ""
 date = "2020-01-22"
-draft = true
+draft = false
 tags = ""
 +++
 

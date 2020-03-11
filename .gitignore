@@ -15,3 +15,5 @@ _drafts/
 src/styles/.sass-cache/
 dist/
 .sass-cache/
+resources
+resources/
