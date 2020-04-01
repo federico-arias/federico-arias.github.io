@@ -3,7 +3,6 @@ title = "Integrating single page applications (SPA) with Golang"
 description = ""
 date = "2019-12-29"
 draft = true
-tags = "testing"
 +++
 
 It's generally considered a best practice to separate your

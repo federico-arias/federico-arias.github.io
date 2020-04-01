@@ -1,9 +1,9 @@
 +++
-title = "The wizard pattern in React"
+title = "React patterns: multistep wizard with own state"
 description = ""
 date = "2020-01-22"
 draft = true
-tags = ""
+tags = "react"
 +++
 
 One of the most common scenarios when developing with React is
