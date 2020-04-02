@@ -21,7 +21,7 @@ Then, you map these values to the fields in a JSON object (or some
 other data format). One of the shortcomings of this approach is that
 primitive data types are not always the best containers for your data.
 What happens if someone declares his/her age to be 1000 years? How do
-you encapsulate that validation? Another big issue is that, in go, its
+you encapsulate that validation? Another big issue is that, in Go, its
 primitive types are never null or undefined: they are zero-valued at
 the moment of variable declaration. For example:
 
@@ -95,12 +95,14 @@ func (i *NullInt64) UnmarshalJSON(data []byte) error {
 ```
 
 Notice that the NullInt64 struct inherits the properties of
-`sql.NullInt64`, a struct that gives us a `Valid` field with
-which we can represent if the field is null or not. If we
-store this value in a database, the driver is going to interpret
-this as `NULL` and store it accordingly.
+`sql.NullInt64`, a struct that gives us a `Valid` field with which we
+can represent if the field is null or not in a SQL database.  If we
+store this value in Postgres, for example, the driver is going to
+interpret this as `NULL` and store it accordingly. Here, we are using a
+common vocabulary to translate between different serialization formats
+and programming languages.
 
-In the same vein, if we wanted to scan a `NULL` value, we
+In the same vein, if we wanted to scan a `null` value, we
 can't store it in one of Go's primitive types, we have to
 create a new type that implements the `Marshal` interface:
 

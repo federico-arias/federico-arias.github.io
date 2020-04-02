@@ -3,7 +3,7 @@ title = "Asynchronous patterns in Go"
 description = ""
 date = "2020-01-22"
 tags = "golang"
-draf = true
+draft = true
 +++
 
 * Cancellation
@@ -12,3 +12,4 @@ draf = true
 * Loading indicators
 * Error handling
 * Back-pressure
+* Timeouts
