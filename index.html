@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.45.1" />
+	<meta name="generator" content="Hugo 0.67.0" />
 		<meta charset="utf-8">
 		<meta name="viewport" 
 		content="width=device-width, user-scalable=no">
@@ -10,6 +10,8 @@
 		<title>
 			
 				{ federico-arias } 
+				 
+					| Hi, there!
 				
 			
 		</title> 
@@ -43,13 +45,16 @@
 
 		<div class="container">
 			<div class="hero">
-				<h1>Hi there!</h1>
+				
+				<h1>Hi, there!</h1>
 				<p>
-					I'm a full-stack developer. 
-					Here, you can find out about
-					<a href="#work">my work</a>, 
-					read <a href="#blog">the stuff I write</a>, 
-					and <a href="/hireme">hire me</a> :) 
+					
+I'm a full-stack developer.
+Here, you can find out about
+<a href="#work">my work</a>,
+read <a href="#blog">my technical blog</a>,
+and <a href="/hireme">hire me</a> :)
+
 				</p>
 				
 			</div>
@@ -97,9 +102,18 @@
 				blog posts
 			</h1>
 			<div class="articles">
-				 
+				
+					 <h2><a href="https://federico-arias.github.io/posts/better-handlers/">Standardized error handling in Go HTTP handlers using func receivers</a></h2>
+					 <time datetime="" class="by-line">
+						 2020-04-01:
+					 </time>
+					 <p> One of the particularities of Go is that you can create &ldquo;methods&rdquo; using functions as receivers. We&rsquo;ll take advantage of that fact to make the handling of errors in http.Handlers DRYer.
+What I mean by DRYer? Look at this example:
+func myHandler(w http.ResponseWriter, r *http.Request) { err := doSomething() if err != nil { logger.Print(&#34;doSomething() didn&#39;t work :(&#34;) http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError) return } err := doSomethingElse() if err != nil { logger. </p>
+
+				
 					 <h2><a href="https://federico-arias.github.io/posts/go-middleware/">Yet another take on Go middlewares</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2020-01-22:
 					 </time>
 					 <p> I stole this idea from Mat Ryer. It&rsquo;s an implementation of middlewares that relies on an adapter function. This function decorates a group of middlewares when applied to an http.Handler.
@@ -107,7 +121,7 @@ func Adapt(middlewares ...Middleware) Middleware { return func(h http.HandlerFun
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/quick-tip-set-up-postgres/">Quick tip: setting up PostgreSQL on Linux</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2020-01-14:
 					 </time>
 					 <p> Here is a quick bash script to remind me how to set-up a Postgres DB locally without knowing the postgres password.
@@ -115,7 +129,7 @@ func Adapt(middlewares ...Middleware) Middleware { return func(h http.HandlerFun
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/goodtests/">A simpler approach at testing Redux middlewares</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2019-07-22:
 					 </time>
 					 <p> One of the hardest parts of testing Redux components is having to mock the store. It seems that every project has its own idiosincratic way of simulating it, leaving you with the task of understanding how they decided to implement it. Usually, this means navigating through multiple util packages to grok how everything was pierced together.
@@ -123,7 +137,7 @@ Maybe that&rsquo;s why this talk made so much sense to me. It basically claims t
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/testing-templates/">Testing templates in Golang</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2019-06-12:
 					 </time>
 					 <p> Templates in Go are a great tool for rendering HTML in our web app. Unfortunately, to test if they are functioning as expected, we often are forced to run our app in a browser and visually inspect their results.
@@ -131,7 +145,7 @@ To avoid running our entire app each time we want to test a template, we can fol
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/testing-upload-handler/">Testing a file upload handler in Golang</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2019-05-24:
 					 </time>
 					 <p> There are multiple examples around the web about uploading a file in Go. Not so many about testing these type of handlers. Below, you can find an example of a simple way of testing your handler.
@@ -139,14 +153,14 @@ func TestUploadImage(t *testing.T) { //Set up a pipe to avoid buffering 	pr, pw 
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/pandoc-workflow/">Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2018-10-24:
 					 </time>
 					 <p> Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be APA, MLA, The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options. </p>
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/quick-tip-formatting-ereaders/">A quick tip to format PDFs documents for e‑readers using the Linux command line</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2018-10-10:
 					 </time>
 					 <p> Most e-book readers fail to display PDF documents in a legible font size, due to their inability to dynamically insert line breaks according to available width. Instead, you are forced to zoom-in and focus on only one portion of the document.
@@ -154,7 +168,7 @@ A way to solve this problem would be cutting the margins using pdfcrop. For exam
 
 				
 					 <h2><a href="https://federico-arias.github.io/posts/postgres/">A comparative explanation of recursion in PostgreSQL</a></h2>
-					 <time datetime="" class="by-line"> 
+					 <time datetime="" class="by-line">
 						 2018-09-22:
 					 </time>
 					 <p> One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&rsquo; documentation aknowledges this:
@@ -163,7 +177,6 @@ A way to solve this problem would be cutting the margins using pdfcrop. For exam
 
 				
 			</div>
-			
 					<div class="container footer">
 			<ul class="footer-nav">
 				<li>

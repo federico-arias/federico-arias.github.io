@@ -1,14 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on { federico-arias }</title>
     <link>https://federico-arias.github.io/posts/</link>
     <description>Recent content in Posts on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Standardized error handling in Go HTTP handlers using func receivers</title>
+      <link>https://federico-arias.github.io/posts/better-handlers/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/posts/better-handlers/</guid>
+      <description>One of the particularities of Go is that you can create &amp;ldquo;methods&amp;rdquo; using functions as receivers. We&amp;rsquo;ll take advantage of that fact to make the handling of errors in http.Handlers DRYer.
+What I mean by DRYer? Look at this example:
+func myHandler(w http.ResponseWriter, r *http.Request) { err := doSomething() if err != nil { logger.Print(&amp;#34;doSomething() didn&amp;#39;t work :(&amp;#34;) http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError) return } err := doSomethingElse() if err != nil { logger.</description>
+    </item>
     
     <item>
       <title>Yet another take on Go middlewares</title>

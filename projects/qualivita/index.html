@@ -70,57 +70,43 @@
 			</div>
 		</div>
 		<div class="container single-post">
-			
-
-<p>The solution proposed was a single-page application
+			<p>The solution proposed was a single-page application
 that allowed the user to create questionnaires that
 generated instant visualizations and dashboards.</p>
-
 <h2 id="frontend">FrontEnd</h2>
-
 <p>The React, Redux, Typescript combo was used to take
 advantage of composability and to get rid of the
 problems that were caused by a lack of type-safety
 in previous projects.</p>
-
-<!--![A screenshot of the project][screenshot 1]-->
-
+<!-- raw HTML omitted -->
 <p>I also continued to work with <a href="https://www.youtube.com/watch?v=JUuic7mEs-s">Nir Kaufman&rsquo;s design patterns
 </a> to organize asynchronous code as message passing,
 ditching <code>react-thunk</code> in favor of middlewares.</p>
-
 <h2 id="backend">Backend</h2>
-
 <p>I am growing more and more fond of Go and decided to use it
 for this project. I didn&rsquo;t use any framework, only the
 following packages:</p>
-
 <ul>
 <li><a href="https://github.com/golang-migrate/migrate/">Migrate</a> to manage migrations.</li>
 <li><a href="https://github.com/golang/mock">GoMock</a> to mock structs directly from interfaces.</li>
-<li><a href="https://github.com/gorilla/mux">Gorilla mux</a> as an HTTP router.
-<br /></li>
+<li><a href="https://github.com/gorilla/mux">Gorilla mux</a> as an HTTP router.</li>
 </ul>
-
 <p>The use of migrate was great when deploying,
 but writing test data was a bit complicated.
 I should probably try <a href="https://github.com/go-testfixtures/testfixtures">Go Test Fixtures</a>
 next time.</p>
-
 <h2 id="deployment">Deployment</h2>
-
 <p>I used a Docker image deployed to ElasticBeanstalk in conjunction
 with a Postgres database in RDS. Configuring everything to work
 together proved to be quite a hassle, but fortunately you can script
 almost anything so next time I start a project of similar
 characteristics, I&rsquo;ll only have to call my current setup script.</p>
-
 <p>This is a small example to show you how you can achieve almost
 anything using the command line:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># creates a new user to 
-</span><span style="color:#75715e"># perform all the database-related
-</span><span style="color:#75715e"># operations.
-</span><span style="color:#75715e"></span>aws iam create-user <span style="color:#ae81ff">\
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># creates a new user to</span> 
+<span style="color:#75715e"># perform all the database-related</span>
+<span style="color:#75715e"># operations.</span>
+aws iam create-user <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--user-name <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--profile iam
 
@@ -150,11 +136,10 @@ aws rds create-db-instance <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--enable-iam-database-authentication <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--master-user-password <span style="color:#e6db74">${</span>DB_PASSWORD<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>--db-security-groups 
---profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span></code></pre></div>
-<p>This portion of code assings AWS policies
+--profile <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span>
+</code></pre></div><p>This portion of code assings AWS policies
 to a user to create a new RDS instance.
 Along with RDS, I used the following AWS services:</p>
-
 <ul>
 <li>IAM</li>
 <li>VPC</li>
@@ -164,7 +149,6 @@ Along with RDS, I used the following AWS services:</p>
 <li>SQS</li>
 <li>Web Gateway</li>
 </ul>
-
 <p>I used SQS to process some costly work
 in the background (I also tought about using RabbitMQ, but since SQS
 was already in AWS&rsquo; ecosystem&hellip;). This mainly had

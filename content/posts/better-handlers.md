@@ -1,6 +1,5 @@
 +++
-title = "Standardized error handling in Go HTTP handlers using func
-receivers"
+title = "Standardized error handling in Go HTTP handlers using func receivers"
 date = "2020-04-01"
 tags = "golang"
 +++
