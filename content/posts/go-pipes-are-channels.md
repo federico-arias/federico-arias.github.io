@@ -8,11 +8,17 @@ draft = true
   tag = "go"
 +++
 
-What happens when you try to read from an empty channel? It blocks.
-What happens when you try to read from an `io.Pipe()`. I does the
-same thing?
 
-a         | Nil | Closed | Open
----       | --- | ---    | ---
-io.Pipe() | f   | f      | f
-chan      | f   | f      | f
+
+Reads     | Nil    | Closed
+---       | ---    | ---
+io.Pipe() | f      | f
+chan      | blocks | zero value
+
+
+Writes/Sends | Nil    | Closed
+---          | ---    | ---
+io.Pipe()    | f      | `ErrClosedPipe`
+chan         | blocks | `panic`
+
+# Fan-out with channels and Pipes

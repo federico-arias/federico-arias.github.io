@@ -1,14 +1,29 @@
 +++
-title = "Handling nulls and undefined in Go"
+title = "Handling nulls and undefineds with Value Objects in Go"
 description = ""
 date = "2020-01-22"
 draft = false
 tags = ""
 +++
 
-One of the particularities of Go is that its primitive types
-are never null or undefined: they are zero-valued at the moment
-of variable declaration. For example:
+Deserialization is one of the most everyday tasks in every programming
+language. In Go, it looks something like this: you have a data
+structure like the following:
+
+```go
+type Person struct {
+Name string `json:"name"`
+Age int64 `json:"age"`
+}
+```
+
+Then, you map these values to the fields in a JSON object (or some
+other data format). One of the shortcomings of this approach is that
+primitive data types are not always the best containers for your data.
+What happens if someone declares his/her age to be 1000 years? How do
+you encapsulate that validation? Another big issue is that, in go, its
+primitive types are never null or undefined: they are zero-valued at
+the moment of variable declaration. For example:
 
 ```go
 var someInt int
@@ -35,7 +50,7 @@ Let's take this struct:
 ```go
 type Person struct {
 Name string `json:"name"`
-Age int64 `json:"name"`
+Age int64 `json:"age"`
 }
 ```
 
@@ -49,7 +64,8 @@ server, we might find this representation of our Person entity:
 ```
 
 To avoid reading the age field as 0, we have to create a custom
-unmarshaler (an idea I stole from [here](https://www.calhoun.io/how-to-determine-if-a-json-key-has-been-set-to-null-or-not-provided/)).
+unmarshaler (an idea I stole from
+[here](https://www.calhoun.io/how-to-determine-if-a-json-key-has-been-set-to-null-or-not-provided/)).
 
 ```go
 type NullInt64 struct {
@@ -101,3 +117,7 @@ Notice that, in this case, **we don't use a pointer method
 receiver**. This is because we do not pass a pointer to
 `json.Marshal`, we pass a value, which must implement the
 `json.Marshaler` interface.
+
+With this solution we can have a type that we can use to unmarshal
+values from a json payload and also a type that can be used to
+validate input. In DDD parlance, a DTO and a Value Object.
