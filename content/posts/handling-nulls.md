@@ -2,12 +2,14 @@
 title = "Handling nulls and undefineds with Value Objects in Go"
 description = ""
 date = "2020-01-22"
-draft = false
+draft = true
 tags = ""
 +++
 
 Deserialization is one of the most everyday tasks in every programming
-language. In Go, it looks something like this: you have a data
+language.
+
+In Go, it looks something like this: you have a data
 structure like the following:
 
 ```go
@@ -123,3 +125,5 @@ receiver**. This is because we do not pass a pointer to
 With this solution we can have a type that we can use to unmarshal
 values from a json payload and also a type that can be used to
 validate input. In DDD parlance, a DTO and a Value Object.
+
+## Case: parse a null value and store it as null in the DB
