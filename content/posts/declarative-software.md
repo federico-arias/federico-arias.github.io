@@ -19,4 +19,4 @@ A imperative
 
 This is why domain-specific languages are popular in functional
 languages like Scala or Haskel. They understand the expresiveness
-of a syntaxis
+of a syntaxis cattered to the needs of the domain.

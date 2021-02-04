@@ -20,7 +20,9 @@ Age int64 `json:"age"`
 ```
 
 Then, you map these values to the fields in a JSON object (or some
-other data format). One of the shortcomings of this approach is that
+other data format).
+
+One of the shortcomings of this approach is that
 primitive data types are not always the best containers for your data.
 What happens if someone declares his/her age to be 1000 years? How do
 you encapsulate that validation? Another big issue is that, in Go, its
