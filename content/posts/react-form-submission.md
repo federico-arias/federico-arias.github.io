@@ -3,7 +3,7 @@ title = "React patterns: form submission using Hooks"
 description = "AA"
 date = "2020-01-22"
 draft = true
-tags = ""
+tags = "react"
 +++
 
 Flow to submit a form:

@@ -3,7 +3,6 @@ title = "Integrating single page applications (SPA) with Golang"
 description = ""
 date = "2019-12-29"
 draft = true
-tags = "testing"
 +++
 
 It's generally considered a best practice to separate your
@@ -25,18 +24,11 @@ import (
 	"strings"
 )
 
-// Handles calls to SPA.
+// Handles calls to SPA
 func SPA(prefix, spaDir, spaPath string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// strips the prefix from path
-		r2 := new(http.Request)
 		path := strings.TrimPrefix(r.URL.Path, prefix)
-		if len(path) < len(r.URL.Path) {
-			*r2 = *r
-			r2.URL = new(url.URL)
-			*r2.URL = *r.URL
-			r2.URL.Path = path
-		}
 
 		// prepend the path with the path to the static directory
 		path = filepath.Join(spaDir, path)
@@ -45,8 +37,7 @@ func SPA(prefix, spaDir, spaPath string) http.HandlerFunc {
 		path, err := filepath.Abs(path)
 		if err != nil {
 			// if we failed to get the absolute path respond with
-			// a 400 bad request
-			// and stop
+			// a 400 bad request and stop
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
@@ -60,14 +51,33 @@ func SPA(prefix, spaDir, spaPath string) http.HandlerFunc {
 			))
 			return
 		} else if err != nil {
-			// if we got an error (that wasn't that the file doesn't exist) stating the
+			// If we got an error (that wasn't that the file doesn't exist) stating the
 			// file, return a 500 internal server error and stop
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+		/*
+		r2 := new(http.Request)
+		if len(path) < len(r.URL.Path) {
+			*r2 = *r
+			r2.URL = new(url.URL)
+			*r2.URL = *r.URL
+			r2.URL.Path = path
+		}
+		*/
 
 		// otherwise, use http.FileServer to serve the static dir
-		http.FileServer(http.Dir(spaDir)).ServeHTTP(w, r2)
+		http.StripPrefix(http.FileServer(http.Dir(spaDir), prefix)).ServeHTTP(w, r)
 	}
 }
 ```
+
+```conf
+location / {
+	# First attempt to serve request as file, then
+	# as directory, then fall back to redirecting to index.html
+	try_files $uri /index.html;
+}
+```
+
+Another option

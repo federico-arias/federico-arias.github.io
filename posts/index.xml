@@ -5,11 +5,7 @@
     <link>https://federico-arias.github.io/posts/</link>
     <description>Recent content in Posts on { federico-arias }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://federico-arias.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Standardized error handling in Go HTTP handlers using func receivers</title>
       <link>https://federico-arias.github.io/posts/better-handlers/</link>
@@ -96,7 +92,7 @@ A way to solve this problem would be cutting the margins using pdfcrop. For exam
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://federico-arias.github.io/posts/postgres/</guid>
-      <description>One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&amp;rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&amp;rsquo; documentation aknowledges this:
+      <description>One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&amp;rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&#39; documentation aknowledges this:
  Strictly speaking, this process is iteration not recursion, but RECURSIVE is the terminology chosen by the SQL standards committee.
  Let&amp;rsquo;s look at an example to see what we are talking about.</description>
     </item>

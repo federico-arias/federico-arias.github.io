@@ -1,14 +1,33 @@
 +++
-title = "Handling nulls and undefined in Go"
+title = "Handling nulls and undefineds with Value Objects in Go"
 description = ""
 date = "2020-01-22"
 draft = true
 tags = ""
 +++
 
-One of the particularities of Go is that its primitive types
-are never null or undefined: they are zero-valued at the moment
-of variable declaration. For example:
+Deserialization is one of the most everyday tasks in every programming
+language.
+
+In Go, it looks something like this: you have a data
+structure like the following:
+
+```go
+type Person struct {
+Name string `json:"name"`
+Age int64 `json:"age"`
+}
+```
+
+Then, you map these values to the fields in a JSON object (or some
+other data format).
+
+One of the shortcomings of this approach is that
+primitive data types are not always the best containers for your data.
+What happens if someone declares his/her age to be 1000 years? How do
+you encapsulate that validation? Another big issue is that, in Go, its
+primitive types are never null or undefined: they are zero-valued at
+the moment of variable declaration. For example:
 
 ```go
 var someInt int
@@ -35,7 +54,7 @@ Let's take this struct:
 ```go
 type Person struct {
 Name string `json:"name"`
-Age int64 `json:"name"`
+Age int64 `json:"age"`
 }
 ```
 
@@ -49,7 +68,8 @@ server, we might find this representation of our Person entity:
 ```
 
 To avoid reading the age field as 0, we have to create a custom
-unmarshaler (an idea I stole from [here](https://www.calhoun.io/how-to-determine-if-a-json-key-has-been-set-to-null-or-not-provided/)).
+unmarshaler (an idea I stole from
+[here](https://www.calhoun.io/how-to-determine-if-a-json-key-has-been-set-to-null-or-not-provided/)).
 
 ```go
 type NullInt64 struct {
@@ -79,12 +99,14 @@ func (i *NullInt64) UnmarshalJSON(data []byte) error {
 ```
 
 Notice that the NullInt64 struct inherits the properties of
-`sql.NullInt64`, a struct that gives us a `Valid` field with
-which we can represent if the field is null or not. If we
-store this value in a database, the driver is going to interpret
-this as `NULL` and store it accordingly.
+`sql.NullInt64`, a struct that gives us a `Valid` field with which we
+can represent if the field is null or not in a SQL database.  If we
+store this value in Postgres, for example, the driver is going to
+interpret this as `NULL` and store it accordingly. Here, we are using a
+common vocabulary to translate between different serialization formats
+and programming languages.
 
-In the same vein, if we wanted to scan a `NULL` value, we
+In the same vein, if we wanted to scan a `null` value, we
 can't store it in one of Go's primitive types, we have to
 create a new type that implements the `Marshal` interface:
 
@@ -101,3 +123,9 @@ Notice that, in this case, **we don't use a pointer method
 receiver**. This is because we do not pass a pointer to
 `json.Marshal`, we pass a value, which must implement the
 `json.Marshaler` interface.
+
+With this solution we can have a type that we can use to unmarshal
+values from a json payload and also a type that can be used to
+validate input. In DDD parlance, a DTO and a Value Object.
+
+## Case: parse a null value and store it as null in the DB
