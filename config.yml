@@ -9,26 +9,18 @@ sectionPagesMenu:  "main"
 menu:
   foo:
   - name: hire me
-    post: <span class='alert'>New!</span>
-    pre: <i class='fa fa-road'></i>
     url: /hireme
     weight: -100
   - identifier: about
     name: about
-    pre: <i class='fa fa-heart'></i>
     url: /about
     weight: -110
   - name: home
-    post: <span class='alert'>New!</span>
-    pre: <i class='fa fa-road'></i>
     url:
     weight: -200
 paginate: 6
 metaDataFormat: "yaml"
 publishDir: "./"
-params:
-    subtitle: I'm a full-stack web developer with an interest in functional programming, data analysis and IoT.
-    greeting: Hi, there!
 disableKinds:
     - taxonomy
     - taxonomyTerm

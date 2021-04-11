@@ -23,11 +23,13 @@ draft = true
 - hippie communes are most of the time ancillary to the capitalist
 	mode of production and are only part of the entertainment or
 	leisure industries (non autonomous relation to Capital)
+- permaculture
 
 ##
 
 - different form of organizing production: cooperatives
 - non accounted goals to re-organize the mode of production:
-	democratization of decision-making, autonomy
+	democratization of decision-making, autonomy. To what extent these
+	goals are considered in the production of goods?
 - accounted goals modifying the mode of production: cooperatives,
 	sustainability, equal-pay
