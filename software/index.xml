@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Softwares on { federico-arias }</title>
+    <link>https://federico-arias.github.io/software/</link>
+    <description>Recent content in Softwares on { federico-arias }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://federico-arias.github.io/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Standardized error handling in Go HTTP handlers using func receivers</title>
+      <link>https://federico-arias.github.io/software/better-handlers/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/better-handlers/</guid>
+      <description>One of the particularities of Go is that you can create &amp;ldquo;methods&amp;rdquo; using functions as receivers. We&amp;rsquo;ll take advantage of that fact to make the handling of errors in http.Handlers DRYer.
+What I mean by DRYer? Look at this example:
+func myHandler(w http.ResponseWriter, r *http.Request) { err := doSomething() if err != nil { logger.Print(&amp;#34;doSomething() didn&amp;#39;t work :(&amp;#34;) http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError) return } err := doSomethingElse() if err != nil { logger.</description>
+    </item>
+    
+    <item>
+      <title>Yet another take on Go middlewares</title>
+      <link>https://federico-arias.github.io/software/go-middleware/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/go-middleware/</guid>
+      <description>I stole this idea from Mat Ryer. It&amp;rsquo;s an implementation of middlewares that relies on an adapter function. This function decorates a group of middlewares when applied to an http.Handler.
+func Adapt(middlewares ...Middleware) Middleware { return func(h http.HandlerFunc) http.HandlerFunc { for _, m := range middlewares { h = m(h) } return h } } Something I did differently, as you might have noticed above, is to name a Middleware type:</description>
+    </item>
+    
+    <item>
+      <title>Quick tip: setting up PostgreSQL on Linux</title>
+      <link>https://federico-arias.github.io/software/quick-tip-set-up-postgres/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/quick-tip-set-up-postgres/</guid>
+      <description>Here is a quick bash script to remind me how to set-up a Postgres DB locally without knowing the postgres password.
+#!/bin/bash db_name=$1 db_user=&amp;#34;${db_name}user&amp;#34; cat &amp;lt;&amp;lt; EOF &amp;gt; /tmp/createdb create database ${db_name}; create user ${db_user}; alter user ${db_user} with password &amp;#39;pwd&amp;#39;; grant all privileges on database ${db_name} to ${db_user}; show hba_file; EOF sudo -u postgres psql postgres -f /tmp/createdb I usually use a Docker image for this, but on some occasions this might come in handy.</description>
+    </item>
+    
+    <item>
+      <title>A simpler approach at testing Redux middlewares</title>
+      <link>https://federico-arias.github.io/software/goodtests/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/goodtests/</guid>
+      <description>One of the hardest parts of testing Redux components is having to mock the store. It seems that every project has its own idiosincratic way of simulating it, leaving you with the task of understanding how they decided to implement it. Usually, this means navigating through multiple util packages to grok how everything was pierced together.
+Maybe that&amp;rsquo;s why this talk made so much sense to me. It basically claims that you should be able to understand tests without having to read more code than what it is within the confines of one function, even if this means duplicating your code.</description>
+    </item>
+    
+    <item>
+      <title>Testing templates in Golang</title>
+      <link>https://federico-arias.github.io/software/testing-templates/</link>
+      <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/testing-templates/</guid>
+      <description>Templates in Go are a great tool for rendering HTML in our web app. Unfortunately, to test if they are functioning as expected, we often are forced to run our app in a browser and visually inspect their results.
+To avoid running our entire app each time we want to test a template, we can follow the example of Javascript libraries like Enzyme, which test React.js components by traversing the DOM and verifying the presence of certain nodes.</description>
+    </item>
+    
+    <item>
+      <title>Testing a file upload handler in Golang</title>
+      <link>https://federico-arias.github.io/software/testing-upload-handler/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/testing-upload-handler/</guid>
+      <description>There are multiple examples around the web about uploading a file in Go. Not so many about testing these type of handlers. Below, you can find an example of a simple way of testing your handler.
+func TestUploadImage(t *testing.T) { //Set up a pipe to avoid buffering 	pr, pw := io.Pipe() //This writers is going to transform 	//what we pass to it to multipart form data 	//and write it to our io.</description>
+    </item>
+    
+    <item>
+      <title>Writing research papers in Markdown with pandoc and LaTex (Part I: Style guide formatting)</title>
+      <link>https://federico-arias.github.io/software/pandoc-workflow/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/pandoc-workflow/</guid>
+      <description>Those of us that have grown accustomed to the pristine simplicity of writing and coding in environments like Vim, Emacs or even Notepad dread the times when we are forced to use word processors like Microsoft Word, LibreOffice or Pages. This often happens when we need to write a research paper or some document that requires special formatting. Whether it be APA, MLA, The Chicago Manual of Style, or any other style guide, all of them present very specific demands regarding margins, font size, line height, citations and a myriad of other formatting options.</description>
+    </item>
+    
+    <item>
+      <title>A quick tip to format PDFs documents for e‑readers using the Linux command line</title>
+      <link>https://federico-arias.github.io/software/quick-tip-formatting-ereaders/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 -0300</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/quick-tip-formatting-ereaders/</guid>
+      <description>Most e-book readers fail to display PDF documents in a legible font size, due to their inability to dynamically insert line breaks according to available width. Instead, you are forced to zoom-in and focus on only one portion of the document.
+A way to solve this problem would be cutting the margins using pdfcrop. For example, if we wanted to remove 88 pts from both left and right margins we&amp;rsquo;ll do:</description>
+    </item>
+    
+    <item>
+      <title>A comparative explanation of recursion in PostgreSQL</title>
+      <link>https://federico-arias.github.io/software/postgres/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://federico-arias.github.io/software/postgres/</guid>
+      <description>One of PostgreSQL features that I had the most trouble getting my head around was the use of WITH RECURSION, particularly due to the fact that this type of recursion doesn&amp;rsquo;t resemble any of the examples of this concept that I had previously encountered. Even Postgres&#39; documentation aknowledges this:
+ Strictly speaking, this process is iteration not recursion, but RECURSIVE is the terminology chosen by the SQL standards committee.
+ Let&amp;rsquo;s look at an example to see what we are talking about.</description>
+    </item>
+    
+  </channel>
+</rss>
