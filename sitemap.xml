@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://federico-arias.github.io/</loc>
-    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://federico-arias.github.io/posts/</loc>
-    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://federico-arias.github.io/posts/better-handlers/</loc>
-    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://federico-arias.github.io/community/</loc>
-    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://federico-arias.github.io/</loc>
+    <lastmod>2021-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://federico-arias.github.io/community/utopia/</loc>
+    <lastmod>2021-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://federico-arias.github.io/software/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://federico-arias.github.io/software/better-handlers/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://federico-arias.github.io/software/go-middleware/</loc>
     <lastmod>2020-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/go-middleware/</loc>
-    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://federico-arias.github.io/posts/quick-tip-set-up-postgres/</loc>
+    <loc>https://federico-arias.github.io/software/quick-tip-set-up-postgres/</loc>
     <lastmod>2020-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/goodtests/</loc>
+    <loc>https://federico-arias.github.io/software/goodtests/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/testing-templates/</loc>
+    <loc>https://federico-arias.github.io/software/testing-templates/</loc>
     <lastmod>2019-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/testing-upload-handler/</loc>
+    <loc>https://federico-arias.github.io/software/testing-upload-handler/</loc>
     <lastmod>2019-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/pandoc-workflow/</loc>
+    <loc>https://federico-arias.github.io/software/pandoc-workflow/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/quick-tip-formatting-ereaders/</loc>
+    <loc>https://federico-arias.github.io/software/quick-tip-formatting-ereaders/</loc>
     <lastmod>2018-10-10T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://federico-arias.github.io/posts/postgres/</loc>
+    <loc>https://federico-arias.github.io/software/postgres/</loc>
     <lastmod>2018-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://federico-arias.github.io/projects/qualivita/</loc>
