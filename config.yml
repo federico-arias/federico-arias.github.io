@@ -5,7 +5,14 @@ disqusShortname: federico-arias-disqus
 googleAnalytics: UA-127821516-1
 pygmentsCodeFences: true
 theme: huguito1
-sectionPagesMenu:  "main"
+sectionPagesMenu: "main"
+params:
+  AuthorName: Federico Arias
+  Content:
+    - Folder: software
+      Name: "On software"
+    - Folder: community
+      Name: "On things other than software"
 menu:
   foo:
   - name: hire me
