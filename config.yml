@@ -26,8 +26,4 @@ menu:
     url:
     weight: -200
 paginate: 6
-metaDataFormat: "yaml"
 publishDir: "./"
-disableKinds:
-    - taxonomy
-    - taxonomyTerm

@@ -1,6 +1,9 @@
 +++
 title = "A comparative explanation of recursion in PostgreSQL"
 date = "2018-09-22"
+tags = [
+	"postgres",
+	]
 +++
 
 One of PostgreSQL features that I had the most trouble getting
@@ -70,9 +73,9 @@ which stores the results in succesive iterations.
 If we look at the manual, we read that this expression uses two
 tables:
 
-> For UNION (but not UNION ALL), discard duplicate rows and 
-rows that duplicate any previous result row. Include all 
-remaining rows in the result of the recursive query, and also place 
+> For UNION (but not UNION ALL), discard duplicate rows and
+rows that duplicate any previous result row. Include all
+remaining rows in the result of the recursive query, and also place
 them in a temporary intermediate table.
 
 In the above code, the `children` variable acts as an intermediate
