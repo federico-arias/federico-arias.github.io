@@ -1,5 +1,5 @@
 +++
-title = "Understanding conditional types in Typescript"
+title = "Typescript's conditional types: a use case"
 description = ""
 date = "2020-06-15"
 draft = true
@@ -7,17 +7,21 @@ draft = true
   tag = "typescript"
 +++
 
-There is an [excellent article about conditional types in Typescript]
-which I do not expect to repeat or improve. I just want to provide
-another approach by giving an additional example once you have read the
-documentation and the article above.
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ipp
 
-This example just proceduralizes the method for
+I recommend that you
+
+since this example just proceduralizes the method for
 
 
 ```typescript
-class Emitter extends EventEmmiter {
+class Emitter<Events> extends EventEmmiter {
 
+	emit<T>(event: string, payload: T) {
+		super(event, payload)
+	}
+
+	on<T>(
 }
 ```
 
@@ -48,4 +52,4 @@ type PedalPressed = {
 Then, extract the types
 
 
-[excellent article about conditional types in Typescript]:
+[excellent article about conditional types in Typescript]: https://artsy.github.io/blog/2018/11/21/conditional-types-in-typescript/
