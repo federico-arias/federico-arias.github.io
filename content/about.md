@@ -4,10 +4,10 @@ disqus = false
 layout = "page"
 +++
 
-I am Federico Arias, a freelance **full-stack developer** based
-on Latin America.
+I am Federico Arias, a **full-stack developer** based
+on Germany 🇩🇪.
 
-## Work Experience
+## Work Experience (abridged)
 
 ### Senior FullStack Developer, [ZeroQ].
 
