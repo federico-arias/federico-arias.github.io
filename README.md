@@ -3,8 +3,6 @@
 - Why interfaces are your friends (persistence Adapters on socket.io
 	and casbin) example of my rabbit class
 
-
-
 - Inheritance and Annotations to configure a DDD presentation layer
 
 
@@ -24,13 +22,26 @@
     ServeHTTP method (Golang) or an annotation to modify your
     method signature to the expected code (Java).
 
+    Extension of functionality is provided through interface
+    declaration, not through subclassing.
+
+    Decoration/adapters allow implementer class (a db for example) to
+    be used by a service class (e.g. a logging library). Type
+    reconciliation is performed by both "extension methods" in Scala
+    and Kotlin and decorators in other languages.
+
+    If a service class is offering functionality by exposing an
+    interfase to implement, then "extension methods" and decorators
+    perform this type translation to allow it to work with other
+    function signatures.
+
     Decorators are an alternative to subclassing.
 
 
 - DSL and AST for code generation. Simplify complexity by generating
 	code, an intermediate layer, not run-time compilation.
 	Source-to-source compiler, example of transpilers and static site
-    generators
+    generators, example of library to pre-compile animations v/s d3
 
 
 - an interface is a machine that manufactures behavior
@@ -52,7 +63,6 @@ Here, we try to breach that gap.
 
 
 - Example use case of async generators
-- Another take on generics
 - RabbitMQ reconnection logic
 
 # A use case for async generators
@@ -78,10 +88,13 @@ a way to retry failed jobs.
 Aside from the bugs and missing functionality, the project had a
 serious issue with code legibility. Here are some stats:
 
+https://jshint.com/install/
+
 Lines of code
-Average function length
-Average number of parameters
-Cyclomatic complexity
+maxparams - the number of formal parameters allowed
+maxdepth - how deeply nested code blocks should be
+maxstatements - the number of statements allowed per function
+maxcomplexity - the maximum cyclomatic complexity
 
 These isssues were impacting the ability of the team to make
 modifications and fix bugs. Also, there was no way to test the project
